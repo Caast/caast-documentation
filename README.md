@@ -98,18 +98,48 @@ Now you know more about the data, let's have a look to the custom events availab
 
 This function is triggered when all the initial data and informations are available inside the Caast Widget
 
+```javascript
+onLoadComplete: function (data) {
+    console.log("onLoadComplete", data);
+}
+```
+
 #### onLiveSubscription
 
 This function is triggered when a user has subscribed to a live in order to be notified when a live is about to start
+
+```javascript
+onLiveSubscription: function (data) {
+    console.log("onLiveSubscription", data);
+}
+```
 
 #### onModalTrigger
 
 This function is triggered when a user click on the button to open the modal
 
+```javascript
+onModalTrigger: function (data) {
+    console.log("onModalTrigger", data);
+}
+```
+
 #### onModalLoaded
 
 This function is triggered when the live modal is opened
 
+```javascript
+onModalLoaded: function (data) {
+    console.log("onModalLoaded", data);
+}
+```
+
 #### onModalClosed
 
 This function is triggered when the live modal is closed
+
+```javascript
+onModalClosed: function (data) {
+    console.log("onModalClosed", data);
+}
+```

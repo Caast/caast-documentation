@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to Potion Caast documentation, this simple documentation website will help you to install and configure our Caast plugin on your website. if you have any problem, please contact our support via our administration interface on https://dashboard.caast.tv
+Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure our Caast plugin on your website. If you have any problem, please contact our support via our administration interface on https://dashboard.caast.tv
 
 # Getting started
 

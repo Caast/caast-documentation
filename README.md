@@ -17,7 +17,7 @@ To load our widget on your website you just need to add this code at the end of 
     window,
     document,
     "script",
-    "https://cdn.potion.social/latest/library.js",
+    "https://cdn.potion.social/latest/caast.js",
     "Caast"
   );
 

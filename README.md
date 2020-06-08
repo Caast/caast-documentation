@@ -17,15 +17,9 @@ To load our widget on your website you just need to add this code at the end of 
     window,
     document,
     "script",
-    "https://cdn.potion.social/latest/caast.js",
+    "https://cdn.potion.social/latest/caast.js?APP_ID=MY_APP_ID&APP_KEY=MY_APP_KEY",
     "Caast"
   );
-
-  document.onreadystatechange = function () {
-    if (document.readyState == "complete") {
-      Caast.init();
-    }
-  };
 </script>
 ```
 
@@ -33,44 +27,13 @@ With this simple snippet Caast is now running on your website, lets have a look 
 
 ## Advanced configuration
 
-Now that the main library is loaded, you may want to alter some configuration behaviour. Most configuration tweaks take place in your [https://dashboard.caast.tv](dashboard) in the configuration section of your project.
+Now that the main library is loaded, you may want to custom some behaviour or customize your widget a bit. All the configuration tweaks take place in your [https://dashboard.caast.tv](dashboard) in the configuration section of your project.
 
-Nevertheless you can also add some property on the loaded library on your website. Let's have a look to an advanced instanciation but keep in mind that the library must be previously loaded.
+### Events
 
-```javascript
-Caast.init({
-  target: "#potion-caast",
-  events: {
-    onLoadComplete: function (data) {
-      console.log("onLoadComplete", data);
-    },
-    onLiveSubscription: function (data) {
-      console.log("onLiveSubscription", data);
-    },
-    onModalTrigger: function (data) {
-      console.log("onModalTrigger", data);
-    },
-    onModalLoaded: function (data) {
-      console.log("onModalLoaded", data);
-    },
-    onModalClosed: function (data) {
-      console.log("onModalClosed", data);
-    },
-  },
-}).then(function () {
-  console.log("Caast is ready to boot");
-});
-```
+The Caast widget will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data availables in the `detail` key
 
-### target
-
-The target parameter allow you to define in which DOM element the Caast widget will be embedded. You are free to pass an ID or a class in this parameter. Note that this parameter can also be configurated in your [https://dashboard.caast.tv](dashboard).
-
-### events
-
-The events parameter will allow you to trigger custom functions on the life cycle of the widgets, every function receive a Caast object containing several informations regarding the current page you are looking for and more advanced data about the incoming live, if there is one.
-
-The Caast data object is looking like this:
+The Caast data object in events looks like this:
 
 ```javascript
 {
@@ -92,16 +55,16 @@ The Caast data object is looking like this:
 }
 ```
 
-Now you know more about the data, let's have a look to the custom events available in the widget.
+Now you know more about the data, let's have a look on how to implement events listener and retrieve the custom data.
 
 #### onLoadComplete
 
 This function is triggered when all the initial data and informations are available inside the Caast Widget
 
 ```javascript
-onLoadComplete: function (data) {
-    console.log("onLoadComplete", data);
-}
+document.addEventListener("Caast::onLoadComplete", function (e) {
+  console.log("Caast::onLoadComplete", e.detail);
+});
 ```
 
 #### onLiveSubscription
@@ -109,9 +72,9 @@ onLoadComplete: function (data) {
 This function is triggered when a user has subscribed to a live in order to be notified when a live is about to start
 
 ```javascript
-onLiveSubscription: function (data) {
-    console.log("onLiveSubscription", data);
-}
+document.addEventListener("Caast::onLiveSubscription", function (e) {
+  console.log("Caast::onLiveSubscription", e.detail);
+});
 ```
 
 #### onModalTrigger
@@ -119,9 +82,9 @@ onLiveSubscription: function (data) {
 This function is triggered when a user click on the button to open the modal
 
 ```javascript
-onModalTrigger: function (data) {
-    console.log("onModalTrigger", data);
-}
+document.addEventListener("Caast::onModalTrigger", function (e) {
+  console.log("Caast::onModalTrigger", e.detail);
+});
 ```
 
 #### onModalLoaded
@@ -129,9 +92,9 @@ onModalTrigger: function (data) {
 This function is triggered when the live modal is opened
 
 ```javascript
-onModalLoaded: function (data) {
-    console.log("onModalLoaded", data);
-}
+document.addEventListener("Caast::onModalLoaded", function (e) {
+  console.log("Caast::onModalLoaded", e.detail);
+});
 ```
 
 #### onModalClosed
@@ -139,7 +102,7 @@ onModalLoaded: function (data) {
 This function is triggered when the live modal is closed
 
 ```javascript
-onModalClosed: function (data) {
-    console.log("onModalClosed", data);
-}
+document.addEventListener("Caast::onModalClosed", function (e) {
+  console.log("Caast::onModalClosed", e.detail);
+});
 ```

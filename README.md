@@ -59,7 +59,7 @@ Now you know more about the data, let's have a look on how to implement events l
 
 #### onLoadComplete
 
-This function is triggered when all the initial data and informations are available inside the Caast Widget
+This event is emitted when all the initial data and informations are available inside the Caast Widget
 
 ```javascript
 document.addEventListener("Caast::onLoadComplete", function (e) {
@@ -69,7 +69,7 @@ document.addEventListener("Caast::onLoadComplete", function (e) {
 
 #### onLiveSubscription
 
-This function is triggered when a user has subscribed to a live in order to be notified when a live is about to start
+This event is emitted when a user has subscribed to a live in order to be notified when a live is about to start
 
 ```javascript
 document.addEventListener("Caast::onLiveSubscription", function (e) {
@@ -79,7 +79,7 @@ document.addEventListener("Caast::onLiveSubscription", function (e) {
 
 #### onModalTrigger
 
-This function is triggered when a user click on the button to open the modal
+This event is emitted when a user click on the button to open the modal
 
 ```javascript
 document.addEventListener("Caast::onModalTrigger", function (e) {
@@ -89,7 +89,7 @@ document.addEventListener("Caast::onModalTrigger", function (e) {
 
 #### onModalLoaded
 
-This function is triggered when the live modal is opened
+This event is emitted when the live modal is opened
 
 ```javascript
 document.addEventListener("Caast::onModalLoaded", function (e) {
@@ -99,7 +99,7 @@ document.addEventListener("Caast::onModalLoaded", function (e) {
 
 #### onModalClosed
 
-This function is triggered when the live modal is closed
+This event is emitted when the live modal is closed
 
 ```javascript
 document.addEventListener("Caast::onModalClosed", function (e) {

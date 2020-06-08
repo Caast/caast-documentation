@@ -45,9 +45,9 @@ document.addEventListener("Caast::onLoadComplete", function (e) {
 
 The function is expecting an object and you can add as much as informations you want.
 
-### Events
+### Emitted events
 
-The Caast widget will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data availables in the `detail` key
+The Caast widget will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data available in the `detail` key
 
 The Caast data object in events looks like this:
 

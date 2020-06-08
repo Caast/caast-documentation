@@ -29,6 +29,22 @@ With this simple snippet Caast is now running on your website, lets have a look 
 
 Now that the main library is loaded, you may want to custom some behaviour or customize your widget a bit. All the configuration tweaks take place in your [https://dashboard.caast.tv](dashboard) in the configuration section of your project.
 
+### Set custom user informations
+
+You may want to add additionnal informations to your user object, it can be useful when interacting with Caast statistics to identify your own user database. To implement custom data the `setUser` function is available on the Caast instance. To implement it simply call the function when Caast is loaded.
+
+```javascript
+document.addEventListener("Caast::onLoadComplete", function (e) {
+  Caast.setUser({
+    email: "johndoe@mail.com",
+    first_name: "John",
+    last_name: "Doe",
+  });
+});
+```
+
+The function is expecting an object and you can add as much as informations you want.
+
 ### Events
 
 The Caast widget will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data availables in the `detail` key
@@ -50,10 +66,13 @@ The Caast data object in events looks like this:
         "is_live": true
     },
     "user": {
-        "uuid": "sfjh87687yhiushf9769KJDQ"
+        "uuid": "sfjh87687yhiushf9769KJDQ",
+        "custom_fields": {...}
     }
 }
 ```
+
+_Note that the `custom_fields` key inside user informations will only be there if you used the `setUser` function._
 
 Now you know more about the data, let's have a look on how to implement events listener and retrieve the custom data.
 

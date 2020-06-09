@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure our Caast plugin on your website. If you have any problem, please contact our support via our administration interface on https://dashboard.caast.tv
+Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure our Caast plugin on your website. If you have any problem, please contact our support via our administration interface on [https://dashboard.caast.tv](https://dashboard.caast.tv)
 
 # Getting started
 
@@ -27,7 +27,7 @@ With this simple snippet Caast is now running on your website, lets have a look 
 
 ## Advanced configuration
 
-Now that the main library is loaded, you may want to custom some behaviour or customize your widget a bit. All the configuration tweaks take place in your [https://dashboard.caast.tv](dashboard) in the configuration section of your project.
+Now that the main library is loaded, you may want to custom some behaviour or customize your widget a bit. All the configuration tweaks take place in your [dashboard](https://dashboard.caast.tv) in the configuration section of your project.
 
 ### Set custom user informations
 
@@ -101,7 +101,7 @@ document.addEventListener("Caast::onModalClosed", function (e) {
 
 ## Caast data
 
-In every emmited events the following data is made available for you to interact with your environment. Exposed data is about the current live informations, your platform configuration and the current user informations. All the configuration data is customizable in your [https://dashboard.caast.tv](dashboard) in the configuration section of your project.
+In every emmited events the following data is made available for you to interact with your environment. Exposed data is about the current live informations, your platform configuration and the current user informations. All the configuration data is customizable in your [dashboard](https://dashboard.caast.tv) in the configuration section of your project.
 
 ```javascript
 {
@@ -299,9 +299,9 @@ The available classes and their usage are described here:
 
 ## Customize HTML
 
-Caast allow a total control over what is printed on the client side. To create your own templates for your Caast widget plugin, simply login into your [https://dashboard.caast.tv](dashboard) and go to the app configuration in the template section.
+Caast allow a total control over what is printed on the client side. To create your own templates for your Caast widget plugin, simply login into your [dashboard](https://dashboard.caast.tv) and go to the app configuration in the template section.
 
-Templates are dynamic and to allow you to display conditional templates. We use [https://github.com/blueimp/JavaScript-Templates](blueimp/Javascript-Templates) to allow you to easily create template, this library is very light and you can manipulate all the variables, implement conditions and iterations.
+Templates are dynamic and to allow you to display conditional templates. We use [blueimp/Javascript-Templates](https://github.com/blueimp/JavaScript-Templates) to allow you to easily create template, this library is very light and you can manipulate all the variables, implement conditions and iterations.
 
 With custome templating, you can easily extend your in place design system and relying on your available css to customize our widget.
 
@@ -325,7 +325,7 @@ When you create a custom template you must add some `id` on particular elements.
 
 ### Template example
 
-Lets say you want to create a really simple but ugly launcher with a title and a big button triggering the Caast modal:
+Lets say you want to create a really simple but ugly launcher with a title and a big button triggering the Caast modal only if a live is on:
 
 ```html
 <style>
@@ -346,11 +346,14 @@ Lets say you want to create a really simple but ugly launcher with a title and a
 <div class="my-custom--class">
   <h1 class="my-custom--title">
     {% if (o.has_live && o.is_live) { %}
-    {%=o.configuration.i18n.product.title.is_live%} {% } else { %}
-    {%=o.configuration.i18n.product.title.no_live%} {% } %}
+    {%=o.configuration.i18n.product.title.is_live%} {% } else if (o.has_live &&
+    !o.is_live) { %} {%=o.configuration.i18n.product.title.has_live%} {% } else
+    { %} {%=o.configuration.i18n.product.title.no_live%} {% } %}
   </h1>
+  {% if (o.has_live && o.is_live) { %}
   <button id="caast-toggler-modal-trigger" class="my-custom--button">
     {%=o.configuration.i18n.button.launch%}
   </button>
+  {% } %}
 </div>
 ```

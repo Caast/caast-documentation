@@ -80,6 +80,8 @@ document.addEventListener("Caast::onLoadComplete", function (e) {
 
 The function is expecting an object and you can add as much as informations you want.
 
+!> If you are planning to provide an email information, it will automatically pre-fill forms inside the widget, we support `email`, `e_mail` and `mail` as key naming.
+
 ### Emitted events
 
 The Caast widget will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data available in the `detail` key. Please refer to the [data section](#caast-data) if you want details about what information is available.
@@ -91,6 +93,16 @@ This event is emitted when all the initial data and informations are available i
 ```javascript
 document.addEventListener("Caast::onLoadComplete", function (e) {
   console.log("Caast::onLoadComplete", e.detail);
+});
+```
+
+#### onSetUser
+
+This event is emitted when the [`setUser`](#set-custom-user-informations) function is triggered.
+
+```javascript
+document.addEventListener("Caast::onSetUser", function (e) {
+  console.log("Caast::onSetUser", e.detail);
 });
 ```
 
@@ -294,20 +306,72 @@ The available classes and their usage are described here:
 .caast-subscription--submit {
 }
 /* 
+* Loading state when submitting form added to .caast-subscription--submit
+*/
+.caast-subscription--submit-is-loading
+/* 
 * Subscription response wrapper
 */
 .caast-subscription--response {
 }
 /* 
-* Subscription response success variant
+* Subscription response success variant added to .caast-subscription--response
 */
 .caast-subscription--response-success {
 }
 /* 
-* Subscription response error variant
+* Subscription response error variant added to .caast-subscription--response
 */
 .caast-subscription--response-error {
 }
+
+/*
+* -----------------------------------
+* Style for Caast modal
+* -----------------------------------
+*/
+
+/* 
+* Modal background overlay
+*/
+.caast-modal--overlay {
+}
+/* 
+* Wrapper for modal
+*/
+.caast-modal--wrapper {
+}
+/* 
+* Class added to .caast-modal--wrapper when modal is open
+*/
+.caast-modal--wrapper-is-open {
+}
+/* 
+* Wrapper for modal container
+*/
+.caast-modal--container {
+}
+/* 
+* Class on modal close button
+*/
+.caast-modal--close {
+}
+/* 
+* Wrapper for modal content
+*/
+.caast-modal--content {
+}
+/* 
+* Wrapper for modal live section
+*/
+.caast-modal--live-container {
+}
+/* 
+* Wrapper for modal chat section
+*/
+.caast-modal--chat-container {
+}
+
 /*
 * -----------------------------------
 * Style for Caast mini widget
@@ -407,23 +471,21 @@ Lets say you want to create a really simple and not so pretty launcher with a ti
     font-size: 20px;
   }
   .my-custom--button {
-    background: {%=o.configuration.button.background%};
-    color: {%=o.configuration.button.color%};
+    background: {%=o.config.attributes.configuration.button.background%};
+    color: {%=o.config.attributes.configuration.button.color%};
   }
 </style>
 <div class="my-custom--class">
   <h1 class="my-custom--title">
-    {% if (o.has_live && o.is_live) { %}
-      {%=o.configuration.i18n.product.title.is_live%} 
-    {% } else if (o.has_live && !o.is_live) { %} 
-      {%=o.configuration.i18n.product.title.has_live%} 
+    {% if (o.lives && o.lives.length > 0) { %}
+      {%=o.config.attributes.configuration.i18n.product.title.is_live%} 
     {% } else { %} 
-      {%=o.configuration.i18n.product.title.no_live%} 
+      {%=o.config.attributes.configuration.i18n.product.title.no_live%} 
     {% } %}
   </h1>
-  {% if (o.has_live && o.is_live) { %}
+  {% if (o.lives && o.lives.length > 0) { %}
   <button id="caast-toggler-modal--trigger" class="my-custom--button">
-    {%=o.configuration.i18n.button.launch%}
+    {%=o.config.attributes.configuration.i18n.button.launch%}
   </button>
   {% } %}
 </div>

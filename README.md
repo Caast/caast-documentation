@@ -4,7 +4,7 @@ Welcome to Potion Caast Widget documentation, this simple documentation website 
 
 # Getting started
 
-To load our widget on your website you just need to add this code at the end of your `body` tag element. This is a really basic implementation, you will find down the page some more advanced configuration.
+To load the Caast library on your website you just need to add this code at the end of your `body` tag element. This is a really basic implementation, you will find down the page some more advanced configuration.
 
 ```html
 <script type="text/javascript">
@@ -27,7 +27,42 @@ With this simple snippet Caast is now running on your website, lets have a look 
 
 ## Advanced configuration
 
-Now that the main library is loaded, you may want to custom some behaviour or customize your widget a bit. All the configuration tweaks take place in your [dashboard](https://dashboard.caast.tv) in the configuration section of your project.
+Now that the main library is loaded, you may want to custom some behaviour or customize your the Caast library a bit. All the configuration tweaks takes place in your [dashboard](https://dashboard.caast.tv) in the configuration section of your project.
+
+### Define where the widget must be loaded
+
+By default Caast widget will lok on your HTML for a dome node with the id `potion-caast`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast widget can be loaded into any DOM element on your page. To change the default behaviour simply go to your [dashboard](https://dashboard.caast.tv) and go into the configuration section of your project.
+
+On the configuration object, you will notice this particular section:
+
+```json
+"target": {
+  "element": "#potion-caast",
+  "position": "beforeend"
+}
+```
+
+- The `element` section is the DOM node where you want the widget to be loaded, it can be a class name or and id but also a really specific selector like `#product-tab li:nth-child(3)`, be sure to try specific selector on your javascript console before using them on production.
+- The `position` section is to specify where you want to insert the Caast widget around your `element`. Those values can be :
+
+| Value           | Description                                      |
+| --------------- | ------------------------------------------------ |
+| **beforebegin** | Before the element itself                        |
+| **afterbegin**  | Just inside the element, before its first child. |
+| **beforeend**   | Just inside the element, after its last child.   |
+| **afterend**    | After the element itself.                        |
+
+This code can help you to better understand this behaviour
+
+```html
+<!-- beforebegin -->
+<p id="potion-caast">
+  <!-- afterbegin -->
+  foo
+  <!-- beforeend -->
+</p>
+<!-- afterend -->
+```
 
 ### Set custom user informations
 
@@ -105,18 +140,28 @@ In every emmited events the following data is made available for you to interact
 
 ```javascript
 {
-    "data": {
+  "credentials": {
+    "APP_ID": "7uVKGurbj0c2ca9Qp3MAUQdag7iLWWwTXc3f-KWrWSQ",
+    "APP_KEY": "SP_S6EByQ50YFiSpmZS0fho8_Hg-7HsOagOmhDyxAwg"
+  },
+  "config": {
+    "id": "7uVKGurbj0c2ca9Qp3MAUQdag7iLWWwTXc3f-KWrWSQ",
+    "type": "app",
+    "attributes": {
+      "name": "Caast Test Application",
+      "uid": "7uVKGurbj0c2ca9Qp3MAUQdag7iLWWwTXc3f-KWrWSQ",
+      "secret": "SP_S6EByQ50YFiSpmZS0fho8_Hg-7HsOagOmhDyxAwg",
+      "redirectUri": "https://caast.tv",
       "configuration": {
         "button": {
-            "background": "#52FFCE",
-            "color": "#333"
+          "background": "#52FFCE",
+          "color": "#333"
         },
         "target": {
-            "element": ".product-stock",
-            "position": "afterend"
+          "element": "#potion-caast",
+          "position": "beforeend"
         },
         "mode": "mini",
-        "template": ...,
         "i18n": {
           "button": {
             "launch": "Lancer le live",
@@ -125,12 +170,12 @@ In every emmited events the following data is made available for you to interact
           },
           "product": {
             "title": {
-                "has_live": "Un live est programmé pour ce produit",
-                "is_live": "Un live est en cours",
-                "no_live": "Ce produit n'a pas encore de présentation live"
+              "has_live": "Un live est programmé pour ce produit",
+              "is_live": "Un live est en cours",
+              "no_live": "Ce produit n'a pas encore de présentation live"
             },
             "thumbnail": {
-                "is_live": "En direct"
+              "is_live": "En direct"
             }
           },
           "subscribe": {
@@ -140,14 +185,34 @@ In every emmited events the following data is made available for you to interact
             "error": "Une erreur est survenue"
           }
         }
-      },
-      "has_live": true,
-      "is_live": true
-    },
-    "user": {
-        "uuid": "sfjh87687yhiushf9769KJDQ",
-        "custom_fields": {...}
+      }
     }
+  },
+  "lives": [
+    {
+      "id": "f20aa128931a449b9478f5fb69e07c3b",
+      "type": "live",
+      "attributes": {
+        "name": "Caast live event",
+        "description": "A live event for christmas",
+        "videoId": "a6b7e85c6433c00a4f1df62a1f7ec948",
+        "chatId": "078a8000a55bc862c6bcf0a9cc72d9ec",
+        "started?": false,
+        "startDate": "2020-12-25T20:00:00.000Z",
+        "urls": [
+          "https://caast.tv",
+        ]
+      }
+    }
+  ],
+  "user": {
+    "uuid": "1d5f65e4d53b20fcb223a7dc0aec3ea0",
+    "custom_fields": {
+      "email": "johndoe@gmail.com",
+      "first_name": "John",
+      "last_name": "Doe"
+    }
+  }
 }
 ```
 
@@ -303,7 +368,7 @@ Caast allow a total control over what is printed on the client side. To create y
 
 Templates are dynamic and to allow you to display conditional templates. We use [blueimp/Javascript-Templates](https://github.com/blueimp/JavaScript-Templates) to allow you to easily create template, this library is very light and you can manipulate all the variables, implement conditions and iterations.
 
-With custome templating, you can easily extend your in place design system and relying on your available css to customize our widget.
+With custom templating, you can easily extend your in place design system and relying on your available css to customize the Caast library to fit exactly on your website.
 
 ### Template data
 
@@ -313,20 +378,23 @@ All the data available in the templating system is detailed in the [data section
 
 When you create a custom template you must add some `id` on particular elements. This is a required step in order to allow Caast widget listeners to perform all the required actions like subscribe, launch the live modal etc..
 
-- `#caast-modal--trigger` Must be placed on the DOM element triggering the modal, must be a `<button>` or a `<a>` tag in order to respect a11y.
-- `#caast-live--subscribe` Must be placed on the DOM element triggering the subscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.
-- `#caast-live--unsubscribe` Must be placed on the DOM element triggering the unsubscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.
-- `#caast-subscription--wrapper` Must be placed on the DOM element wrapping your subscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--has-form` class when the subscribe button is clicked.
-- `#caast-subscription--input` Must be placed on the DOM element triggering the subscribe action, must be an `<input>` tag.
-- `#caast-subscription--submit` Must be placed on the DOM element triggering the subscribe action, must be an `<button>` tag with `type=submit`
-- `#caast-subscription--response` Must be placed on the DOM element where you want the success/fail response, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--response-error` or `caast-subscription--response-success` class according to the action response.
+| ID                                | Description                                                                                                                                                                                                                                                                       |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **#caast-modal--trigger**         | Must be placed on the DOM element triggering the modal, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                             |
+| **#caast-live--subscribe**        | Must be placed on the DOM element triggering the subscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                  |
+| **#caast-live--unsubscribe**      | Must be placed on the DOM element triggering the unsubscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                |
+| **#caast-subscription--wrapper**  | Must be placed on the DOM element wrapping your subscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--has-form` class when the subscribe button is clicked.                                                  |
+| **#caast-subscription--input**    | Must be placed on the DOM element triggering the subscribe action, must be an `<input>` tag.                                                                                                                                                                                      |
+| **#caast-subscription--submit**   | Must be placed on the DOM element triggering the subscribe action, must be an `<button>` tag with `type=submit`                                                                                                                                                                   |
+| **#caast-subscription--response** | Must be placed on the DOM element where you want the success/fail response, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--response-error` or `caast-subscription--response-success` class according to the action response. |
 
 !> Omitting those attributes will lead to a non-working widget, do not hesitate to contact your support via your [https://dashboard.caast.tv](dashboard) if you have any doubt.
 
 ### Template example
 
-Lets say you want to create a really simple but ugly launcher with a title and a big button triggering the Caast modal only if a live is on:
+Lets say you want to create a really simple and not so pretty launcher with a title and a big button triggering the Caast modal **only vsible** if a live is on:
 
+<!-- prettier-ignore -->
 ```html
 <style>
   .my-custom--class {
@@ -346,12 +414,15 @@ Lets say you want to create a really simple but ugly launcher with a title and a
 <div class="my-custom--class">
   <h1 class="my-custom--title">
     {% if (o.has_live && o.is_live) { %}
-    {%=o.configuration.i18n.product.title.is_live%} {% } else if (o.has_live &&
-    !o.is_live) { %} {%=o.configuration.i18n.product.title.has_live%} {% } else
-    { %} {%=o.configuration.i18n.product.title.no_live%} {% } %}
+      {%=o.configuration.i18n.product.title.is_live%} 
+    {% } else if (o.has_live && !o.is_live) { %} 
+      {%=o.configuration.i18n.product.title.has_live%} 
+    {% } else { %} 
+      {%=o.configuration.i18n.product.title.no_live%} 
+    {% } %}
   </h1>
   {% if (o.has_live && o.is_live) { %}
-  <button id="caast-toggler-modal-trigger" class="my-custom--button">
+  <button id="caast-toggler-modal--trigger" class="my-custom--button">
     {%=o.configuration.i18n.button.launch%}
   </button>
   {% } %}

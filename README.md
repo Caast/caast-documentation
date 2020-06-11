@@ -308,7 +308,8 @@ The available classes and their usage are described here:
 /* 
 * Loading state when submitting form added to .caast-subscription--submit
 */
-.caast-subscription--submit-is-loading
+.caast-subscription--submit-is-loading {
+}
 /* 
 * Subscription response wrapper
 */

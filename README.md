@@ -236,6 +236,8 @@ Caast is totally customizable, we provide two types of widget style but you can 
 
 The available classes and their usage are described here:
 
+### Global style
+
 ```css
 /*
 * -----------------------------------
@@ -273,7 +275,11 @@ The available classes and their usage are described here:
 */
 .caast-toggler--content {
 }
+```
 
+### Subcribe form style
+
+```css
 /*
 * -----------------------------------
 * Style for Caast subscribe form
@@ -325,7 +331,11 @@ The available classes and their usage are described here:
 */
 .caast-subscription--response-error {
 }
+```
 
+### Modal style
+
+```css
 /*
 * -----------------------------------
 * Style for Caast modal
@@ -372,7 +382,11 @@ The available classes and their usage are described here:
 */
 .caast-modal--chat-container {
 }
+```
 
+### Mini widget variant
+
+```css
 /*
 * -----------------------------------
 * Style for Caast mini widget
@@ -389,12 +403,11 @@ The available classes and their usage are described here:
 */
 .caast-toggler-mini--wrapper {
 }
-/* 
-* Wrapper for the mini widget content
-*/
-.caast-toggler-mini--wrapper {
-}
+```
 
+### Thumbnail widget variant
+
+```css
 /*
 * -----------------------------------
 * Style for Caast mini widget
@@ -425,7 +438,7 @@ The available classes and their usage are described here:
 
 !> _Note that Caast will only load needed css classes depending on widget display mode and if a subscription on a live is available._
 
-!> _Css will be totally ignored if you are using the custom template system_
+!> _Css wont be injected if you are using the custom template system except for the modal style definition_
 
 ## Customize HTML
 

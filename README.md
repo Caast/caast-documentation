@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure our Caast plugin on your website. If you have any problem, please contact our support via our administration interface on [https://dashboard.caast.tv](https://dashboard.caast.tv)
+Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure the Caast library on your website. If you have any problem, please contact our support via our administration interface on [https://dashboard.caast.tv](https://dashboard.caast.tv)
 
 # Getting started
 
@@ -31,7 +31,7 @@ Now that the main library is loaded, you may want to custom some behaviour or cu
 
 ### Define where the widget must be loaded
 
-By default Caast widget will lok on your HTML for a dome node with the id `potion-caast`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast widget can be loaded into any DOM element on your page. To change the default behaviour simply go to your [dashboard](https://dashboard.caast.tv) and go into the configuration section of your project.
+By default Caast widget will look on your HTML for a DOM node with the id `potion-caast`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast widget can be loaded into any DOM element on your page. To change the default behaviour simply go to your [dashboard](https://dashboard.caast.tv) and go into the configuration section of your project.
 
 On the configuration object, you will notice this particular section:
 

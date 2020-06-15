@@ -106,6 +106,16 @@ document.addEventListener("Caast::onSetUser", function (e) {
 });
 ```
 
+#### onRouteChange
+
+This event is emitted when a Single Page App change current url.
+
+```javascript
+document.addEventListener("Caast::onRouteChange", function (e) {
+  console.log("Caast::onRouteChange", e.detail);
+});
+```
+
 #### onLiveSubscription
 
 This event is emitted when a user has subscribed to a live in order to be notified when a live is about to start
@@ -113,6 +123,16 @@ This event is emitted when a user has subscribed to a live in order to be notifi
 ```javascript
 document.addEventListener("Caast::onLiveSubscription", function (e) {
   console.log("Caast::onLiveSubscription", e.detail);
+});
+```
+
+#### onLiveUnsubscription
+
+This event is emitted when a user has unsubscribed to a live in order to not be notified anymore for incoming lives
+
+```javascript
+document.addEventListener("Caast::onLiveUnsubscription", function (e) {
+  console.log("Caast::onLiveUnsubscription", e.detail);
 });
 ```
 
@@ -297,9 +317,19 @@ The available classes and their usage are described here:
 .caast-subscription--wrapper {
 }
 /* 
+* Wrapper for unsubscription content
+*/
+.caast-unsubscription--wrapper {
+}
+/* 
 * Form style for subscription
 */
 .caast-subscription--form {
+}
+/* 
+* Form style for unsubscription
+*/
+.caast-unsubscription--form {
 }
 /* 
 * Button variant in subsription form, this class extends .caast-toggler--button
@@ -312,9 +342,19 @@ The available classes and their usage are described here:
 .caast-subscription--submit {
 }
 /* 
+* Submit button style for unsubscription
+*/
+.caast-unsubscription--submit {
+}
+/* 
 * Loading state when submitting form added to .caast-subscription--submit
 */
 .caast-subscription--submit-is-loading {
+}
+/* 
+* Loading state when submitting form added to .caast-unsubscription--submit
+*/
+.caast-unsubscription--submit-is-loading {
 }
 /* 
 * Subscription response wrapper
@@ -456,15 +496,18 @@ All the data available in the templating system is detailed in the [data section
 
 When you create a custom template you must add some `id` on particular elements. This is a required step in order to allow Caast widget listeners to perform all the required actions like subscribe, launch the live modal etc..
 
-| ID                                | Description                                                                                                                                                                                                                                                                       |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **#caast-modal--trigger**         | Must be placed on the DOM element triggering the modal, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                             |
-| **#caast-live--subscribe**        | Must be placed on the DOM element triggering the subscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                  |
-| **#caast-live--unsubscribe**      | Must be placed on the DOM element triggering the unsubscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                |
-| **#caast-subscription--wrapper**  | Must be placed on the DOM element wrapping your subscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--has-form` class when the subscribe button is clicked.                                                  |
-| **#caast-subscription--input**    | Must be placed on the DOM element triggering the subscribe action, must be an `<input>` tag.                                                                                                                                                                                      |
-| **#caast-subscription--submit**   | Must be placed on the DOM element triggering the subscribe action, must be an `<button>` tag with `type=submit`                                                                                                                                                                   |
-| **#caast-subscription--response** | Must be placed on the DOM element where you want the success/fail response, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--response-error` or `caast-subscription--response-success` class according to the action response. |
+| ID                                 | Description                                                                                                                                                                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **#caast-modal--trigger**          | Must be placed on the DOM element triggering the modal, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                             |
+| **#caast-live--subscribe**         | Must be placed on the DOM element triggering the subscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                  |
+| **#caast-live--unsubscribe**       | Must be placed on the DOM element triggering the unsubscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                |
+| **#caast-subscription--wrapper**   | Must be placed on the DOM element wrapping your subscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--has-form` class when the subscribe button is clicked.                                                  |
+| **#caast-unsubscription--wrapper** | Must be placed on the DOM element wrapping your unsubscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-unsubscription--has-form` class when the subscribe button is clicked.                                              |
+| **#caast-subscription--input**     | Must be placed on the input element needed to fill an email for subscribe action, must be an `<input>` tag.                                                                                                                                                                       |
+| **#caast-unsubscription--input**   | Must be placed on the input element needed to fill an email for unsubscribe action, must be an `<input>` tag.                                                                                                                                                                     |
+| **#caast-subscription--submit**    | Must be placed on the DOM element triggering submitting the subscribe form, must be an `<button>` tag with `type=submit`                                                                                                                                                          |
+| **#caast-unsubscription--submit**  | Must be placed on the DOM element triggering submitting the unsubscribe form, must be an `<button>` tag with `type=submit`                                                                                                                                                        |
+| **#caast-subscription--response**  | Must be placed on the DOM element where you want the success/fail response, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--response-error` or `caast-subscription--response-success` class according to the action response. |
 
 !> Omitting those attributes will lead to a non-working widget, do not hesitate to contact your support via your [https://dashboard.caast.tv](dashboard) if you have any doubt.
 

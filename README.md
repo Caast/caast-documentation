@@ -69,7 +69,7 @@ This code can help you to better understand this behaviour
 You may want to add additionnal informations to your user object, it can be useful when interacting with Caast statistics to identify your own user database. To implement custom data the `setUser` function is available on the Caast instance. To implement it simply call the function when Caast is loaded.
 
 ```javascript
-document.addEventListener("Caast::onLoadComplete", function (e) {
+document.addEventListener("caast.onLoadComplete", function (e) {
   Caast.setUser({
     email: "johndoe@mail.com",
     first_name: "John",
@@ -91,8 +91,8 @@ The Caast widget will also emit some custom events in order to implement some co
 This event is emitted when all the initial data and informations are available inside the Caast Widget
 
 ```javascript
-document.addEventListener("Caast::onLoadComplete", function (e) {
-  console.log("Caast::onLoadComplete", e.detail);
+document.addEventListener("caast.onLoadComplete", function (e) {
+  console.log("caast.onLoadComplete", e.detail);
 });
 ```
 
@@ -101,8 +101,8 @@ document.addEventListener("Caast::onLoadComplete", function (e) {
 This event is emitted when the [`setUser`](#set-custom-user-informations) function is triggered.
 
 ```javascript
-document.addEventListener("Caast::onSetUser", function (e) {
-  console.log("Caast::onSetUser", e.detail);
+document.addEventListener("caast.onSetUser", function (e) {
+  console.log("caast.onSetUser", e.detail);
 });
 ```
 
@@ -111,8 +111,8 @@ document.addEventListener("Caast::onSetUser", function (e) {
 This event is emitted when a Single Page App change current url.
 
 ```javascript
-document.addEventListener("Caast::onRouteChange", function (e) {
-  console.log("Caast::onRouteChange", e.detail);
+document.addEventListener("caast.onRouteChange", function (e) {
+  console.log("caast.onRouteChange", e.detail);
 });
 ```
 
@@ -121,8 +121,8 @@ document.addEventListener("Caast::onRouteChange", function (e) {
 This event is emitted when a user has subscribed to a live in order to be notified when a live is about to start
 
 ```javascript
-document.addEventListener("Caast::onLiveSubscription", function (e) {
-  console.log("Caast::onLiveSubscription", e.detail);
+document.addEventListener("caast.onLiveSubscription", function (e) {
+  console.log("caast.onLiveSubscription", e.detail);
 });
 ```
 
@@ -131,8 +131,49 @@ document.addEventListener("Caast::onLiveSubscription", function (e) {
 This event is emitted when a user has unsubscribed to a live in order to not be notified anymore for incoming lives
 
 ```javascript
-document.addEventListener("Caast::onLiveUnsubscription", function (e) {
-  console.log("Caast::onLiveUnsubscription", e.detail);
+document.addEventListener("caast.onLiveUnsubscription", function (e) {
+  console.log("caast.onLiveUnsubscription", e.detail);
+});
+```
+
+#### onLivePlay
+
+This event is emitted when a user press play on the live player, also return informations about current player time position
+
+```javascript
+document.addEventListener("caast.onLivePlay", function (e) {
+  console.log("caast.onLivePlay", e.detail);
+});
+```
+
+#### onLivePause
+
+This event is emitted when a user press pause on the live player, also return informations about current player time position.
+This event is also emitted when the modal is closed.
+
+```javascript
+document.addEventListener("caast.onLivePause", function (e) {
+  console.log("caast.onLivePause", e.detail);
+});
+```
+
+#### onVoteForLive
+
+This event is emitted when a user has request a live on a product
+
+```javascript
+document.addEventListener("caast.onVoteForLive", function (e) {
+  console.log("caast.onVoteForLive", e.detail);
+});
+```
+
+#### onUnvoteForLive
+
+This event is emitted when a user remove his request for a live on a product
+
+```javascript
+document.addEventListener("caast.onUnvoteForLive", function (e) {
+  console.log("caast.onUnvoteForLive", e.detail);
 });
 ```
 
@@ -141,8 +182,8 @@ document.addEventListener("Caast::onLiveUnsubscription", function (e) {
 This event is emitted when a user click on the button to open the modal
 
 ```javascript
-document.addEventListener("Caast::onModalTrigger", function (e) {
-  console.log("Caast::onModalTrigger", e.detail);
+document.addEventListener("caast.onModalTrigger", function (e) {
+  console.log("caast.onModalTrigger", e.detail);
 });
 ```
 
@@ -151,8 +192,8 @@ document.addEventListener("Caast::onModalTrigger", function (e) {
 This event is emitted when the live modal is opened
 
 ```javascript
-document.addEventListener("Caast::onModalLoaded", function (e) {
-  console.log("Caast::onModalLoaded", e.detail);
+document.addEventListener("caast.onModalLoaded", function (e) {
+  console.log("caast.onModalLoaded", e.detail);
 });
 ```
 
@@ -161,8 +202,8 @@ document.addEventListener("Caast::onModalLoaded", function (e) {
 This event is emitted when the live modal is closed
 
 ```javascript
-document.addEventListener("Caast::onModalClosed", function (e) {
-  console.log("Caast::onModalClosed", e.detail);
+document.addEventListener("caast.onModalClosed", function (e) {
+  console.log("caast.onModalClosed", e.detail);
 });
 ```
 
@@ -230,6 +271,7 @@ In every emmited events the following data is made available for you to interact
         "videoId": "a6b7e85c6433c00a4f1df62a1f7ec948",
         "chatId": "078a8000a55bc862c6bcf0a9cc72d9ec",
         "started?": false,
+        "finished?": false,
         "startDate": "2020-12-25T20:00:00.000Z",
         "urls": [
           "https://caast.tv",
@@ -244,11 +286,18 @@ In every emmited events the following data is made available for you to interact
       "first_name": "John",
       "last_name": "Doe"
     }
+  },
+  "player": {
+    "seconds": 36.8
   }
 }
 ```
 
 !> _Note that the `custom_fields` key inside user informations will only be there if you used the `setUser` function._
+
+!> _Note that the `lives` key can be empty if no lives are planned on the current page._
+
+!> _Note that the `player` key will be missing if the emitted event is not `onLivePlay` or `onLivePause`._
 
 ## Customize style
 

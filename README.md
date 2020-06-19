@@ -58,11 +58,11 @@ This code can help you to better understand this behaviour
 
 ```html
 <!-- beforebegin -->
-<p id="caast__wrapper">
+<div id="caast__wrapper">
   <!-- afterbegin -->
   foo
   <!-- beforeend -->
-</p>
+</div>
 <!-- afterend -->
 ```
 
@@ -438,7 +438,7 @@ The available classes and their usage are described here:
 .caast-modal__wrapper {
 }
 /* 
-* Class added to .caast-modal--wrapper when modal is open
+* Class added to .caast-modal__wrapper when modal is open
 */
 .caast-modal__wrapper--open {
 }

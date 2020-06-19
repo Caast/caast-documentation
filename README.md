@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure the Caast library on your website. If you have any problem, please contact our support via our administration interface.
+Welcome to Caast Widget documentation, this simple documentation website will help you to install and configure the Caast library on your website. If you have any problem, please contact our support via our administration interface.
 
 ?> Caast library is still under development, documentation will be updated on a regular basis.
 
@@ -33,13 +33,13 @@ Now that the main library is loaded, you may want to custom some behaviour or cu
 
 ### Define where the widget must be loaded
 
-By default Caast widget will look on your HTML for a DOM node with the id `potion-caast`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast widget can be loaded into any DOM element on your page. To change the default behaviour simply go to your dashboard and go into the configuration section of your project.
+By default Caast widget will look on your HTML for a DOM node with the id `caast__wrapper`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast widget can be loaded into any DOM element on your page. To change the default behaviour simply go to your dashboard and go into the configuration section of your project.
 
 On the configuration object, you will notice this particular section:
 
 ```json
 "target": {
-  "element": "#potion-caast",
+  "element": "#caast__wrapper",
   "position": "beforeend"
 }
 ```
@@ -58,7 +58,7 @@ This code can help you to better understand this behaviour
 
 ```html
 <!-- beforebegin -->
-<p id="potion-caast">
+<p id="caast__wrapper">
   <!-- afterbegin -->
   foo
   <!-- beforeend -->
@@ -73,9 +73,9 @@ You may want to add additionnal informations to your user object, it can be usef
 ```javascript
 document.addEventListener("caast.onLoadComplete", function (e) {
   Caast.setUser({
-    email: "johndoe@mail.com",
-    first_name: "John",
-    last_name: "Doe",
+    email: "d.copperfield@abracadabra.io",
+    first_name: "David",
+    last_name: "Copperfield",
   });
 });
 ```
@@ -203,7 +203,7 @@ In every emmited events the following data is made available for you to interact
     "id": "7uVKGurbj0c2ca9Qp3MAUQdag7iLWWwTXc3f-KWrWSQ",
     "type": "app",
     "attributes": {
-      "name": "Caast Test Application",
+      "name": "Caast Live for Christmas",
       "uid": "7uVKGurbj0c2ca9Qp3MAUQdag7iLWWwTXc3f-KWrWSQ",
       "secret": "SP_S6EByQ50YFiSpmZS0fho8_Hg-7HsOagOmhDyxAwg",
       "redirectUri": "https://caast.tv",
@@ -219,29 +219,29 @@ In every emmited events the following data is made available for you to interact
         "mode": "mini",
         "i18n": {
           "button": {
-            "open": "Entrer dans le salon",
-            "send": "Envoyer"
+            "open": "Enter live room",
+            "send": "Send"
           },
           "product": {
             "title": {
-              "is_live": "Un live est en cours",
-              "countdown": "Présentation live dans",
-              "today": "Un live est programmé aujourd'hui à",
-              "tomorrow": "Un live est prévu demain à",
-              "date": "Un live est programmé le",
-              "no_live": "Ce produit n'a pas encore de présentation live"
+              "is_live": "A live is in progress",
+              "countdown": "Live presentation in",
+              "today": "A live is scheduled today at",
+              "tomorrow": "A live is scheduled tomorrow at",
+              "date": "A live is scheduled on",
+              "no_live": "This product does not have a live presentation yet"
             },
-            "description": "Posez vos questions dès maintenant",
+            "description": "Ask your questions now",
             "thumbnail": {
-              "is_live": "En direct"
+              "is_live": "Live"
             }
           },
           "subscribe": {
-            "description": "Souhaitez-vous être notifié avant que le live ne débute ?",
-            "input_placeholder": "Saisissez votre email",
-            "success": "Inscription réussie ! Vous serez notifié par mail des prochains live",
-            "error": "Une erreur est survenue",
-            "error_already_mail": "Vous êtes déjà inscrit sur la liste des notifications"
+            "description": "Would you like to be notified before the live starts ?",
+            "input_placeholder": "Enter your email",
+            "success": "Registration successful! You will be notified by email of the next lives",
+            "error": "An error has occurred",
+            "error_already_mail": "You are already on the notification list"
           }
         }
       }
@@ -268,9 +268,9 @@ In every emmited events the following data is made available for you to interact
   "user": {
     "uuid": "1d5f65e4d53b20fcb223a7dc0aec3ea0",
     "custom_fields": {
-      "email": "johndoe@gmail.com",
-      "first_name": "John",
-      "last_name": "Doe"
+      "email": "d.copperfield@abracadabra.io",
+      "first_name": "David",
+      "last_name": "Copperfield"
     }
   },
   "player": {

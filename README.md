@@ -2,6 +2,8 @@
 
 Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure the Caast library on your website. If you have any problem, please contact our support via our administration interface.
 
+?> Caast library is still under development, documentation will be updated on a regular basis.
+
 # Getting started
 
 To load the Caast library on your website you just need to add this code at the end of your `body` tag element. This is a really basic implementation, you will find down the page some more advanced configuration.

@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure the Caast library on your website. If you have any problem, please contact our support via our administration interface on [https://dashboard.caast.tv](https://dashboard.caast.tv)
+Welcome to Potion Caast Widget documentation, this simple documentation website will help you to install and configure the Caast library on your website. If you have any problem, please contact our support via our administration interface.
 
 # Getting started
 
@@ -27,11 +27,11 @@ With this simple snippet Caast is now running on your website, lets have a look 
 
 ## Advanced configuration
 
-Now that the main library is loaded, you may want to custom some behaviour or customize your the Caast library a bit. All the configuration tweaks takes place in your [dashboard](https://dashboard.caast.tv) in the configuration section of your project.
+Now that the main library is loaded, you may want to custom some behaviour or customize the Caast library a bit. All the configuration tweaks takes place in your dashboard in the configuration section of your project.
 
 ### Define where the widget must be loaded
 
-By default Caast widget will look on your HTML for a DOM node with the id `potion-caast`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast widget can be loaded into any DOM element on your page. To change the default behaviour simply go to your [dashboard](https://dashboard.caast.tv) and go into the configuration section of your project.
+By default Caast widget will look on your HTML for a DOM node with the id `potion-caast`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast widget can be loaded into any DOM element on your page. To change the default behaviour simply go to your dashboard and go into the configuration section of your project.
 
 On the configuration object, you will notice this particular section:
 
@@ -126,16 +126,6 @@ document.addEventListener("caast.onLiveSubscription", function (e) {
 });
 ```
 
-#### onLiveUnsubscription
-
-This event is emitted when a user has unsubscribed to a live in order to not be notified anymore for incoming lives
-
-```javascript
-document.addEventListener("caast.onLiveUnsubscription", function (e) {
-  console.log("caast.onLiveUnsubscription", e.detail);
-});
-```
-
 #### onLivePlay
 
 This event is emitted when a user press play on the live player, also return informations about current player time position
@@ -164,16 +154,6 @@ This event is emitted when a user has request a live on a product
 ```javascript
 document.addEventListener("caast.onVoteForLive", function (e) {
   console.log("caast.onVoteForLive", e.detail);
-});
-```
-
-#### onUnvoteForLive
-
-This event is emitted when a user remove his request for a live on a product
-
-```javascript
-document.addEventListener("caast.onUnvoteForLive", function (e) {
-  console.log("caast.onUnvoteForLive", e.detail);
 });
 ```
 
@@ -209,7 +189,7 @@ document.addEventListener("caast.onModalClosed", function (e) {
 
 ## Caast data
 
-In every emmited events the following data is made available for you to interact with your environment. Exposed data is about the current live informations, your platform configuration and the current user informations. All the configuration data is customizable in your [dashboard](https://dashboard.caast.tv) in the configuration section of your project.
+In every emmited events the following data is made available for you to interact with your environment. Exposed data is about the current live informations, your platform configuration and the current user informations. All the configuration data is customizable in your dashboard in the configuration section of your project.
 
 ```javascript
 {
@@ -231,31 +211,35 @@ In every emmited events the following data is made available for you to interact
           "color": "#333"
         },
         "target": {
-          "element": "#potion-caast",
+          "element": "#service-one li:nth-child(4)",
           "position": "beforeend"
         },
         "mode": "mini",
         "i18n": {
           "button": {
-            "launch": "Lancer le live",
-            "yes": "Oui",
-            "no": "Non"
+            "open": "Entrer dans le salon",
+            "send": "Envoyer"
           },
           "product": {
             "title": {
-              "has_live": "Un live est programmé pour ce produit",
               "is_live": "Un live est en cours",
+              "countdown": "Présentation live dans",
+              "today": "Un live est programmé aujourd'hui à",
+              "tomorrow": "Un live est prévu demain à",
+              "date": "Un live est programmé le",
               "no_live": "Ce produit n'a pas encore de présentation live"
             },
+            "description": "Posez vos questions dès maintenant",
             "thumbnail": {
               "is_live": "En direct"
             }
           },
           "subscribe": {
-            "description": "Souhaitez-vous être notifié des prochains live ?",
+            "description": "Souhaitez-vous être notifié avant que le live ne débute ?",
             "input_placeholder": "Saisissez votre email",
             "success": "Inscription réussie ! Vous serez notifié par mail des prochains live",
-            "error": "Une erreur est survenue"
+            "error": "Une erreur est survenue",
+            "error_already_mail": "Vous êtes déjà inscrit sur la liste des notifications"
           }
         }
       }
@@ -315,34 +299,59 @@ The available classes and their usage are described here:
 */
 
 /* 
-* Caast button to open modal
+* Wrapper for widget
 */
-.caast-toggler--button {
+.caast-toggler {
 }
 /* 
-* Caast launcher title
+* Wrapper for widget content
 */
-.caast-toggler--title {
+.caast-toggler__content {
 }
 /* 
-* Caast button to open modal
+* Widget title
 */
-.caast-toggler--description {
+.caast-toggler__title {
 }
 /* 
-* Caast led
+* Class added to .caast-toggler__title when a live is on
 */
-.caast-toggler--led {
+.caast-toggler__title--animated {
 }
 /* 
-* Caast animation for led when a live in on
+* Widget description
 */
-.caast-toggler--led-animated {
+.caast-toggler__description {
 }
-/*
-* Caast content wrapper
+/* 
+* Wrapper for widgets actions like subscribe and launch live
 */
-.caast-toggler--content {
+.caast-toggler__actions {
+}
+/* 
+* Wrapper for countdown when a llive is about to start
+*/
+.caast-countdown {
+}
+/* 
+* Wrapper for countdown minutes
+*/
+.caast-countdown__minutes {
+}
+/* 
+* Wrapper for countdown seconds
+*/
+.caast-countdown__seconds {
+}
+/* 
+* Widget button
+*/
+.caast-button {
+}
+/* 
+* Class added to .caast-button when loading
+*/
+.caast-button--loading {
 }
 ```
 
@@ -356,69 +365,54 @@ The available classes and their usage are described here:
 */
 
 /* 
-* Wrapper for subscription implementation
+* Wrapper for subscription popover
 */
-.caast-toggler--subscription {
+.caast-popover {
 }
 /* 
-* Wrapper for subscription content
+* Class added to .caast-popover when open
 */
-.caast-subscription--wrapper {
+.caast-popover--open {
 }
 /* 
-* Wrapper for unsubscription content
+* Class added to .caast-popover when open
 */
-.caast-unsubscription--wrapper {
+.caast-popover--animating {
 }
 /* 
-* Form style for subscription
+* Class extending .caast-button
 */
-.caast-subscription--form {
+.caast-button--circle {
+}
+/*
+* Wrapper for input grouped with button
+*/
+.caast-input-group {
+}
+/*
+* Wrapper inside .caast-input-group to properly wrap the submit button
+*/
+.caast-input-group-append {
+}
+/*
+* Widget input
+*/
+.caast-input {
+}
+/*
+* Wrapper for form response
+*/
+.caast-response {
 }
 /* 
-* Form style for unsubscription
+* Class added to .caast-response when success
 */
-.caast-unsubscription--form {
+.caast-response--success {
 }
 /* 
-* Button variant in subsription form, this class extends .caast-toggler--button
+* Class added to .caast-response when error
 */
-.caast-toggler--button-sm {
-}
-/* 
-* Submit button style for subscription
-*/
-.caast-subscription--submit {
-}
-/* 
-* Submit button style for unsubscription
-*/
-.caast-unsubscription--submit {
-}
-/* 
-* Loading state when submitting form added to .caast-subscription--submit
-*/
-.caast-subscription--submit-is-loading {
-}
-/* 
-* Loading state when submitting form added to .caast-unsubscription--submit
-*/
-.caast-unsubscription--submit-is-loading {
-}
-/* 
-* Subscription response wrapper
-*/
-.caast-subscription--response {
-}
-/* 
-* Subscription response success variant added to .caast-subscription--response
-*/
-.caast-subscription--response-success {
-}
-/* 
-* Subscription response error variant added to .caast-subscription--response
-*/
-.caast-subscription--response-error {
+.caast-response--error {
 }
 ```
 
@@ -434,63 +428,42 @@ The available classes and their usage are described here:
 /* 
 * Modal background overlay
 */
-.caast-modal--overlay {
+.caast-modal__overlay {
 }
 /* 
 * Wrapper for modal
 */
-.caast-modal--wrapper {
+.caast-modal__wrapper {
 }
 /* 
 * Class added to .caast-modal--wrapper when modal is open
 */
-.caast-modal--wrapper-is-open {
+.caast-modal__wrapper--open {
 }
 /* 
 * Wrapper for modal container
 */
-.caast-modal--container {
+.caast-modal__container {
 }
 /* 
 * Class on modal close button
 */
-.caast-modal--close {
+.caast-modal__close {
 }
 /* 
 * Wrapper for modal content
 */
-.caast-modal--content {
+.caast-modal__content {
 }
 /* 
 * Wrapper for modal live section
 */
-.caast-modal--live-container {
+.caast-modal__live-container {
 }
 /* 
 * Wrapper for modal chat section
 */
-.caast-modal--chat-container {
-}
-```
-
-### Mini widget variant
-
-```css
-/*
-* -----------------------------------
-* Style for Caast mini widget
-* -----------------------------------
-*/
-
-/* 
-* Wrapper for the mini widget implementation
-*/
-.caast-toggler-wrapper--mini {
-}
-/* 
-* Wrapper for the mini widget content
-*/
-.caast-toggler-mini--wrapper {
+.caast-modal__chat-container {
 }
 ```
 
@@ -499,29 +472,14 @@ The available classes and their usage are described here:
 ```css
 /*
 * -----------------------------------
-* Style for Caast mini widget
+* Style for Caast thumbnail widget
 * -----------------------------------
 */
 
 /* 
-* Wrapper for the thumbnail widget implementation
+* Wrapper for the thumbnail content
 */
-.caast-toggler-wrapper--thumbnail {
-}
-/* 
-* Wrapper for the thumbnail widget content
-*/
-.caast-toggler-thumbnail--wrapper {
-}
-/* 
-* Wrapper for positioning content over the thumbnail
-*/
-.caast-toggler-thumbnail--overlay {
-}
-/* 
-* Text style inside .caast-toggler-thumbnail--overlay
-*/
-.caast-toggler-thumbnail--title {
+.caast-toggler__thumbnail {
 }
 ```
 
@@ -531,7 +489,7 @@ The available classes and their usage are described here:
 
 ## Customize HTML
 
-Caast allow a total control over what is printed on the client side. To create your own templates for your Caast widget plugin, simply login into your [dashboard](https://dashboard.caast.tv) and go to the app configuration in the template section.
+Caast allow a total control over what is printed on the client side. To create your own templates for your Caast widget plugin, simply login into your dashboard and go to the app configuration in the template section.
 
 Templates are dynamic and to allow you to display conditional templates. We use [blueimp/Javascript-Templates](https://github.com/blueimp/JavaScript-Templates) to allow you to easily create template, this library is very light and you can manipulate all the variables, implement conditions and iterations.
 
@@ -545,24 +503,20 @@ All the data available in the templating system is detailed in the [data section
 
 When you create a custom template you must add some `id` on particular elements. This is a required step in order to allow Caast widget listeners to perform all the required actions like subscribe, launch the live modal etc..
 
-| ID                                 | Description                                                                                                                                                                                                                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **#caast-modal--trigger**          | Must be placed on the DOM element triggering the modal, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                             |
-| **#caast-live--subscribe**         | Must be placed on the DOM element triggering the subscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                  |
-| **#caast-live--unsubscribe**       | Must be placed on the DOM element triggering the unsubscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                                |
-| **#caast-subscription--wrapper**   | Must be placed on the DOM element wrapping your subscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--has-form` class when the subscribe button is clicked.                                                  |
-| **#caast-unsubscription--wrapper** | Must be placed on the DOM element wrapping your unsubscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-unsubscription--has-form` class when the subscribe button is clicked.                                              |
-| **#caast-subscription--input**     | Must be placed on the input element needed to fill an email for subscribe action, must be an `<input>` tag.                                                                                                                                                                       |
-| **#caast-unsubscription--input**   | Must be placed on the input element needed to fill an email for unsubscribe action, must be an `<input>` tag.                                                                                                                                                                     |
-| **#caast-subscription--submit**    | Must be placed on the DOM element triggering submitting the subscribe form, must be an `<button>` tag with `type=submit`                                                                                                                                                          |
-| **#caast-unsubscription--submit**  | Must be placed on the DOM element triggering submitting the unsubscribe form, must be an `<button>` tag with `type=submit`                                                                                                                                                        |
-| **#caast-subscription--response**  | Must be placed on the DOM element where you want the success/fail response, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-subscription--response-error` or `caast-subscription--response-success` class according to the action response. |
+| ID                         | Description                                                                                                                                                                                                                                              |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **#caast-modal--trigger**  | Must be placed on the DOM element triggering the modal, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                    |
+| **#caast-popover--toggle** | Must be placed on the DOM element triggering the subscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                         |
+| **#caast-popover**         | Must be placed on the DOM element wrapping your subscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-popover--open` and `caast-popover--animating` classes when the subscribe button is clicked. |
+| **#caast-input**           | Must be placed on the input element needed to fill an email for subscribe action, must be an `<input>` tag.                                                                                                                                              |
+| **#caast-button--submit**  | Must be placed on the DOM element triggering submitting the subscribe form, must be an `<button>` tag with `type=submit`                                                                                                                                 |
+| **#caast-response**        | Must be placed on the DOM element where you want the success/fail response, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-response--error` or `caast-response--success` class according to the action response.  |
 
-!> Omitting those attributes will lead to a non-working widget, do not hesitate to contact your support via your [https://dashboard.caast.tv](dashboard) if you have any doubt.
+!> Omitting those attributes will lead to a non-working widget, do not hesitate to contact your support via your dashboard if you have any doubt.
 
 ### Template example
 
-Lets say you want to create a really simple and not so pretty launcher with a title and a big button triggering the Caast modal **only vsible** if a live is on:
+Lets say you want to create a really simple and not so pretty launcher with a title and a big button triggering the Caast modal **only vsible** if a live is on. No subscription form, just a pure launcher.
 
 <!-- prettier-ignore -->
 ```html
@@ -590,8 +544,8 @@ Lets say you want to create a really simple and not so pretty launcher with a ti
     {% } %}
   </h1>
   {% if (o.lives && o.lives.length > 0) { %}
-  <button id="caast-toggler-modal--trigger" class="my-custom--button">
-    {%=o.config.attributes.configuration.i18n.button.launch%}
+  <button id="caast-modal--trigger" class="my-custom--button">
+    {%=o.config.attributes.configuration.i18n.button.open%}
   </button>
   {% } %}
 </div>

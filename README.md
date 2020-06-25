@@ -159,6 +159,16 @@ document.addEventListener("caast.onVoteForLive", function (e) {
 });
 ```
 
+#### onQuestionClick
+
+This event is emitted when a user click on a question, also return the question id
+
+```javascript
+document.addEventListener("caast.onQuestionClick", function (e) {
+  console.log("caast.onQuestionClick", e.detail);
+});
+```
+
 #### onModalTrigger
 
 This event is emitted when a user click on the button to open the modal
@@ -208,9 +218,10 @@ In every emmited events the following data is made available for you to interact
       "secret": "SP_S6EByQ50YFiSpmZS0fho8_Hg-7HsOagOmhDyxAwg",
       "redirectUri": "https://caast.tv",
       "configuration": {
-        "button": {
-          "background": "#52FFCE",
-          "color": "#333"
+        "color": {
+          "button_background": "#52FFCE",
+          "button_color": "#333",
+          "live": "#FF015C"
         },
         "target": {
           "element": "#service-one li:nth-child(4)",
@@ -220,6 +231,7 @@ In every emmited events the following data is made available for you to interact
         "i18n": {
           "button": {
             "open": "Enter live room",
+            "replay": "See replay",
             "send": "Send"
           },
           "product": {
@@ -229,9 +241,13 @@ In every emmited events the following data is made available for you to interact
               "today": "A live is scheduled today at",
               "tomorrow": "A live is scheduled tomorrow at",
               "date": "A live is scheduled on",
-              "no_live": "This product does not have a live presentation yet"
+              "no_live": "This product does not have a live presentation yet",
+              "replay": "Several lives are available for this product"
             },
-            "description": "Ask your questions now",
+            "description": {
+              "default": "Ask your questions now",
+              "replay": "Watch them while waiting for a new live !"
+            },
             "thumbnail": {
               "is_live": "Live"
             }
@@ -256,9 +272,10 @@ In every emmited events the following data is made available for you to interact
         "description": "A live event for christmas",
         "videoId": "a6b7e85c6433c00a4f1df62a1f7ec948",
         "chatId": "078a8000a55bc862c6bcf0a9cc72d9ec",
-        "started?": false,
-        "finished?": false,
+        "isStarted": false,
+        "isFinished": false,
         "startDate": "2020-12-25T20:00:00.000Z",
+        "thumbnailUrl": null,
         "urls": [
           "https://caast.tv",
         ]
@@ -275,15 +292,46 @@ In every emmited events the following data is made available for you to interact
   },
   "player": {
     "seconds": 36.8
-  }
+  },
+  "question": "452159334435456999954edb1a04d779",
+  "questions": [
+    {
+      "id":"452159334435456999954edb1a04d779",
+      "type":"question",
+      "attributes": {
+        "questionerName":"David Copperfield",
+        "question":"What is the product price ?",
+        "sentAt":"2020-12-25T21:07:57.000Z",
+        "answered":true,
+        "moderated":false,
+        "answerTimestamp":44
+      }
+    },
+    {
+      "id":"27bb4a0bbda54303a5a02005b19924f5",
+      "type":"question",
+      "attributes":{
+        "questionerName":"AlonzoBistro",
+        "question":"Is it available in other colors ?",
+        "sentAt":"2020-12-25T21:12:34.000Z",
+        "answered":true,
+        "moderated":false,
+        "answerTimestamp":96
+      }
+    }
+  ]
 }
 ```
 
-!> _Note that the `custom_fields` key inside user informations will only be there if you used the `setUser` function._
+?> _Note that the `custom_fields` key inside user informations will only be there if you used the `setUser` function._
 
-!> _Note that the `lives` key can be empty if no lives are planned on the current page._
+?> _Note that the `lives` key can be empty if no lives are planned on the current page._
 
-!> _Note that the `player` key will be missing if the emitted event is not `onLivePlay` or `onLivePause`._
+?> _Note that the `player` key will be missing if the emitted event is not `onLivePlay` or `onLivePause`._
+
+?> _Note that the `question` key will be missing if the emitted event is not `onQuestionClick`._
+
+?> _Note that the `questions` key will be missing if the modal is not yet opened._
 
 ## Customize style
 
@@ -467,6 +515,36 @@ The available classes and their usage are described here:
 */
 .caast-modal__chat-container {
 }
+/* 
+* Wrapper for modal questions section
+*/
+.caast-modal__questions-container {
+}
+/* 
+* Class for modal questions ul
+*/
+.caast-modal__questions-list {
+}
+/* 
+* Class for modal questions li
+*/
+.caast-modal__questions-item {
+}
+/* 
+* Class added to .caast-modal__questions-item when a response is being responded
+*/
+.caast-modal__questions-item--active {
+}
+/* 
+* Class for modal questions link
+*/
+.caast-modal__questions-link {
+}
+/* 
+* Class for modal questions author
+*/
+.caast-modal__questions-author {
+}
 ```
 
 ### Thumbnail widget variant
@@ -533,8 +611,8 @@ Lets say you want to create a really simple and not so pretty launcher with a ti
     font-size: 20px;
   }
   .my-custom--button {
-    background: {%=o.config.attributes.configuration.button.background%};
-    color: {%=o.config.attributes.configuration.button.color%};
+    background: {%=o.config.attributes.configuration.color.button_background%};
+    color: {%=o.config.attributes.configuration.color.button_color%};
   }
 </style>
 <div class="my-custom--class">
@@ -552,3 +630,5 @@ Lets say you want to create a really simple and not so pretty launcher with a ti
   {% } %}
 </div>
 ```
+
+!> _Currently you can only customize the Caast launcher but you will soon be able to customize anything inside the modal. You can always override styles with css if needed_

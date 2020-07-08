@@ -14,6 +14,7 @@ To load the Caast library on your website you just need to add this code at the 
     (i[r] = i[r]), (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
     a.async = 1;
     a.src = g;
+    a.id = "caast_library";
     m.parentNode.insertBefore(a, m);
   })(
     window,
@@ -179,25 +180,37 @@ document.addEventListener("caast.onModalTrigger", function (e) {
 });
 ```
 
-#### onModalLoaded
+#### onModalShow
 
 This event is emitted when the live modal is opened
 
 ```javascript
-document.addEventListener("caast.onModalLoaded", function (e) {
-  console.log("caast.onModalLoaded", e.detail);
+document.addEventListener("caast.onModalShow", function (e) {
+  console.log("caast.onModalShow", e.detail);
 });
 ```
 
-#### onModalClosed
+#### onModalClose
 
 This event is emitted when the live modal is closed
 
 ```javascript
-document.addEventListener("caast.onModalClosed", function (e) {
-  console.log("caast.onModalClosed", e.detail);
+document.addEventListener("caast.onModalClose", function (e) {
+  console.log("caast.onModalClose", e.detail);
 });
 ```
+
+### URL parameters
+
+In order to trigger some specific actions on the Caast widget, you can also add hash parameters to your urls in order to programmatically execute some of the widget functionalities. There is a default configuration for each of those hash naming but **you can also customize each naming via our administration interface**.
+
+| Default parameter name         | Action                                                                                                                 |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| caast-open                     | Open Caast widget modal if available on page                                                                           |
+| caast-question\_**questionID** | Open Caast widget modal and click on specific **questionID**, resulting in video to jump to specific question's answer |
+| caast-jump\_**timestamp**      | Open Caast widget modal and jump to specified **timestamp**. Timestamp is expressed in seconds.                        |
+
+So let's say you add `#caast-jump_90` to your URL, resulting with an URL like this one `https://mywebsite.com/product/my-product#caast-jump_90`, and the Caast widget will magically open and play the video starting at 90 seconds
 
 ## Caast data
 
@@ -226,6 +239,11 @@ In every emmited events the following data is made available for you to interact
         "target": {
           "element": "#service-one li:nth-child(4)",
           "position": "beforeend"
+        },
+        "hash": {
+          "question": "caast-question_",
+          "jump": "caast-jump_",
+          "open": "caast-open",
         },
         "mode": "mini",
         "i18n": {
@@ -583,14 +601,14 @@ All the data available in the templating system is detailed in the [data section
 
 When you create a custom template you must add some `id` on particular elements. This is a required step in order to allow Caast widget listeners to perform all the required actions like subscribe, launch the live modal etc..
 
-| ID                         | Description                                                                                                                                                                                                                                              |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **#caast-modal--trigger**  | Must be placed on the DOM element triggering the modal, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                    |
-| **#caast-popover--toggle** | Must be placed on the DOM element triggering the subscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                         |
-| **#caast-popover**         | Must be placed on the DOM element wrapping your subscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-popover--open` and `caast-popover--animating` classes when the subscribe button is clicked. |
-| **#caast-input**           | Must be placed on the input element needed to fill an email for subscribe action, must be an `<input>` tag.                                                                                                                                              |
-| **#caast-button--submit**  | Must be placed on the DOM element triggering submitting the subscribe form, must be an `<button>` tag with `type=submit`                                                                                                                                 |
-| **#caast-response**        | Must be placed on the DOM element where you want the success/fail response, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-response--error` or `caast-response--success` class according to the action response.  |
+| Attribute                      | Description                                                                                                                                                                                                                                              |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DATA-ATTR: **data-caast-open** | Must be placed on the DOM element triggering the modal, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                                    |
+| ID: **caast-popover--toggle**  | Must be placed on the DOM element triggering the subscribe action, must be a `<button>` or a `<a>` tag in order to respect a11y.                                                                                                                         |
+| ID: **caast-popover**          | Must be placed on the DOM element wrapping your subscription template, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-popover--open` and `caast-popover--animating` classes when the subscribe button is clicked. |
+| ID: **caast-input**            | Must be placed on the input element needed to fill an email for subscribe action, must be an `<input>` tag.                                                                                                                                              |
+| ID: **caast-button--submit**   | Must be placed on the DOM element triggering submitting the subscribe form, must be an `<button>` tag with `type=submit`                                                                                                                                 |
+| ID: **caast-response**         | Must be placed on the DOM element where you want the success/fail response, a `<div>` tag is advised. Note that this DOM will programmatically receive the `caast-response--error` or `caast-response--success` class according to the action response.  |
 
 !> Omitting those attributes will lead to a non-working widget, do not hesitate to contact your support via your dashboard if you have any doubt.
 

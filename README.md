@@ -20,8 +20,8 @@ To load the Caast library on your website you just need to add this code at the 
     window,
     document,
     "script",
-    "https://cdn.potion.social/caast-latest/caast.js?APP_ID=MY_APP_ID&APP_KEY=MY_APP_KEY",
-    "Caast"
+    "https://cdn.caast.tv/caast-latest/caast.js?APP_ID=MY_APP_ID&APP_KEY=MY_APP_KEY",
+    "caast"
   );
 </script>
 ```
@@ -69,11 +69,11 @@ This code can help you to better understand this behaviour
 
 ### Set custom user informations
 
-You may want to add additionnal informations to your user object, it can be useful when interacting with Caast statistics to identify your own user database. To implement custom data the `setUser` function is available on the Caast instance. To implement it simply call the function when Caast is loaded.
+You may want to add additionnal informations to your user object, it can be useful when interacting with Caast statistics to identify your own user database. To implement custom data the `setUser` function is available on the Caast instance. To implement it simply call the function when Caast is ready.
 
 ```javascript
-document.addEventListener("caast.onLoadComplete", function (e) {
-  Caast.setUser({
+document.addEventListener("caast.onReady", function (e) {
+  caast.setUser({
     email: "d.copperfield@abracadabra.io",
     first_name: "David",
     last_name: "Copperfield",
@@ -81,21 +81,18 @@ document.addEventListener("caast.onLoadComplete", function (e) {
 });
 ```
 
-The function is expecting an object and you can add as much as informations you want.
-
-!> If you are planning to provide an email information, it will automatically pre-fill forms inside the widget, we support `email`, `e_mail` and `mail` as key naming.
+The function is expecting an object and you can add as much informations as you want.
 
 ### Emitted events
 
-The Caast widget will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data available in the `detail` key. Please refer to the [data section](#caast-data) if you want details about what information is available.
+The Caast widget will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data. Please refer to the [data section](#caast-data) if you want details about what information is available. You can listen for events in the widget by attaching a callback using .on().
 
-#### onLoadComplete
-
-This event is emitted when all the initial data and informations are available inside the Caast Widget
+Before listening to any event, please make sure the Caast widget is ready using this snippet. `e.detail` contain information regarding the current available configuration on your widget instance.
 
 ```javascript
-document.addEventListener("caast.onLoadComplete", function (e) {
+document.addEventListener("caast.onReady", function (e) {
   console.log("caast.onLoadComplete", e.detail);
+  // here start subscribe to any events
 });
 ```
 
@@ -104,9 +101,16 @@ document.addEventListener("caast.onLoadComplete", function (e) {
 This event is emitted when the [`setUser`](#set-custom-user-informations) function is triggered.
 
 ```javascript
-document.addEventListener("caast.onSetUser", function (e) {
-  console.log("caast.onSetUser", e.detail);
-});
+caast
+  .on("onSetUser", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onSetUser::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onSetUser::error", error);
+  });
 ```
 
 #### onRouteChange
@@ -114,9 +118,16 @@ document.addEventListener("caast.onSetUser", function (e) {
 This event is emitted when a Single Page App change current url.
 
 ```javascript
-document.addEventListener("caast.onRouteChange", function (e) {
-  console.log("caast.onRouteChange", e.detail);
-});
+caast
+  .on("onRouteChange", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onRouteChange::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onRouteChange::error", error);
+  });
 ```
 
 #### onLiveSubscription
@@ -124,9 +135,16 @@ document.addEventListener("caast.onRouteChange", function (e) {
 This event is emitted when a user has subscribed to a live in order to be notified when a live is about to start
 
 ```javascript
-document.addEventListener("caast.onLiveSubscription", function (e) {
-  console.log("caast.onLiveSubscription", e.detail);
-});
+caast
+  .on("onLiveSubscription", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onLiveSubscription::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onLiveSubscription::error", error);
+  });
 ```
 
 #### onLivePlay
@@ -134,9 +152,16 @@ document.addEventListener("caast.onLiveSubscription", function (e) {
 This event is emitted when a user press play on the live player, also return informations about current player time position
 
 ```javascript
-document.addEventListener("caast.onLivePlay", function (e) {
-  console.log("caast.onLivePlay", e.detail);
-});
+caast
+  .on("onLivePlay", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onLivePlay::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onLivePlay::error", error);
+  });
 ```
 
 #### onLivePause
@@ -145,9 +170,16 @@ This event is emitted when a user press pause on the live player, also return in
 This event is also emitted when the modal is closed.
 
 ```javascript
-document.addEventListener("caast.onLivePause", function (e) {
-  console.log("caast.onLivePause", e.detail);
-});
+caast
+  .on("onLivePause", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onLivePause::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onLivePause::error", error);
+  });
 ```
 
 #### onVoteForLive
@@ -155,9 +187,16 @@ document.addEventListener("caast.onLivePause", function (e) {
 This event is emitted when a user has request a live on a product
 
 ```javascript
-document.addEventListener("caast.onVoteForLive", function (e) {
-  console.log("caast.onVoteForLive", e.detail);
-});
+caast
+  .on("onVoteForLive", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onVoteForLive::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onVoteForLive::error", error);
+  });
 ```
 
 #### onQuestionClick
@@ -165,9 +204,67 @@ document.addEventListener("caast.onVoteForLive", function (e) {
 This event is emitted when a user click on a question, also return the question id
 
 ```javascript
-document.addEventListener("caast.onQuestionClick", function (e) {
-  console.log("caast.onQuestionClick", e.detail);
-});
+caast
+  .on("onQuestionClick", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onQuestionClick::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onQuestionClick::error", error);
+  });
+```
+
+#### onRelatedClick
+
+This event is emitted when a user click on a related replay video, also return the target new live id
+
+```javascript
+caast
+  .on("onRelatedClick", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onRelatedClick::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onRelatedClick::error", error);
+  });
+```
+
+#### onMessageSubmit
+
+This event is emitted when a user submit a message in chat, return all the data related to the new message
+
+```javascript
+caast
+  .on("onMessageSubmit", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onMessageSubmit::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onMessageSubmit::error", error);
+  });
+```
+
+#### onBasketAdd
+
+This event is emitted when a user add an item to his basket, this event won't emit if the target DOM element is not set in the app configuration. Also return live id
+
+```javascript
+caast
+  .on("onBasketAdd", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onBasketAdd::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onBasketAdd::error", error);
+  });
 ```
 
 #### onModalTrigger
@@ -175,9 +272,16 @@ document.addEventListener("caast.onQuestionClick", function (e) {
 This event is emitted when a user click on the button to open the modal
 
 ```javascript
-document.addEventListener("caast.onModalTrigger", function (e) {
-  console.log("caast.onModalTrigger", e.detail);
-});
+caast
+  .on("onModalTrigger", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onModalTrigger::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onModalTrigger::error", error);
+  });
 ```
 
 #### onModalShow
@@ -185,9 +289,16 @@ document.addEventListener("caast.onModalTrigger", function (e) {
 This event is emitted when the live modal is opened
 
 ```javascript
-document.addEventListener("caast.onModalShow", function (e) {
-  console.log("caast.onModalShow", e.detail);
-});
+caast
+  .on("onModalShow", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onModalShow::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onModalShow::error", error);
+  });
 ```
 
 #### onModalClose
@@ -195,9 +306,16 @@ document.addEventListener("caast.onModalShow", function (e) {
 This event is emitted when the live modal is closed
 
 ```javascript
-document.addEventListener("caast.onModalClose", function (e) {
-  console.log("caast.onModalClose", e.detail);
-});
+caast
+  .on("onModalClose", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onModalClose::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onModalClose::error", error);
+  });
 ```
 
 ### URL parameters
@@ -232,13 +350,36 @@ In every emmited events the following data is made available for you to interact
       "redirectUri": "https://caast.tv",
       "configuration": {
         "color": {
-          "button_background": "#52FFCE",
-          "button_color": "#333",
+          "button_background": "#000",
+          "button_color": "#FFF",
+          "header_background": "#000",
+          "header_color": "#FFF",
+          "product_background": "#fff",
+          "product_color": "#333",
+          "product_border": "#E7E7E7",
+          "product_fill_buy": "#CCC",
+          "product_active_background": "#fff",
+          "product_active_color": "#333",
+          "product_active_border": "#000",
+          "product_active_fill_buy": "#000",
+          "product_live_background": "#000",
+          "product_live_color": "#FFF",
+          "question_background": "#FFF",
+          "question_border": "#000",
+          "question_color": "#333",
+          "question_active_background": "#000",
+          "question_active_border": "#000",
+          "question_active_color": "#FFF",
+          "pseudo_background": "rgba(0,0,0, .05)",
+          "pseudo_color": "#333",
+          "chat_send_background": "#000",
+          "chat_send_color": "#FFF",
           "live": "#FF015C"
         },
         "target": {
           "element": "#service-one li:nth-child(4)",
-          "position": "beforeend"
+          "position": "beforeend",
+          "basket": ""
         },
         "hash": {
           "question": "caast-question_",
@@ -246,11 +387,22 @@ In every emmited events the following data is made available for you to interact
           "open": "caast-open",
         },
         "mode": "mini",
+        "custom_style": "",
+        "custom_style_iframe": "",
+        "show_subscribe": false,
         "i18n": {
           "button": {
             "open": "Enter live room",
             "replay": "See replay",
-            "send": "Send"
+            "send": "Send",
+            "next": "Next",
+            "prev": "Previous",
+            "close": "Close",
+            "hide": "Hide",
+            "cancel": "Cancel",
+            "validate": "Validate",
+            "default": "Enter chatroom",
+            "is_live": "See live"
           },
           "product": {
             "title": {
@@ -264,7 +416,8 @@ In every emmited events the following data is made available for you to interact
             },
             "description": {
               "default": "Ask your questions now",
-              "replay": "Watch them while waiting for a new live !"
+              "replay": "Watch them while waiting for a new live !",
+              "is_live": "Enter to view the live and chat with others"
             },
             "thumbnail": {
               "is_live": "Live"
@@ -274,32 +427,121 @@ In every emmited events the following data is made available for you to interact
             "description": "Would you like to be notified before the live starts ?",
             "input_placeholder": "Enter your email",
             "success": "Registration successful! You will be notified by email of the next lives",
+            "success_vote_for_live": "Thanks for your live request",
             "error": "An error has occurred",
             "error_already_mail": "You are already on the notification list"
+          },
+
+          "modal": {
+            "all_lives": "All the previous lives",
+            "other_questions": "Other lives questions",
+            "show_questions": "Show questionss",
+            "search": "Search for a question",
+            "no_result_for": "No results for search {{term}}",
+            "live_date": "Live from {{date}}",
+            "no_questions": "Currently no questions for this live",
+            "tabs": {
+              "description": "Description",
+              "chat": "Discussions",
+              "question": "Questions",
+              "product": "Products",
+              "replay": "Replay"
+            },
+            "all_replays": "All replays"
+          },
+          "chat": {
+            "title": "Discussions",
+            "change_mode": "Click here to display only the questions during the live",
+            "offline": "Chat is currently offline",
+            "form": {
+              "message_placeholder": "Send your message",
+              "pseudo_placeholder": "Choose a nickname",
+              "add_emoji": "Add a smiley",
+              "as_anonymous": "Post as anonymous",
+              "character_left": "{{total}} remaining characters",
+              "hint_pseudo": "Cannot contain spaces and maximum 25 characters"
+            },
+            "message": {
+              "anonymous": "Anonymous",
+              "vote": "Vote for this question",
+              "answered": "Question answered",
+              "answered_at": "Question answered at {{time}}",
+              "moderated": "Moderated content"
+            },
+            "emoji": {
+              "search": "Search",
+              "clear": "Clear",
+              "notfound": "No emoji found",
+              "categories": {
+                "search": "Results",
+                "recent": "Frequently used",
+                "smileys": "Smileys & Emotion",
+                "people": "Peoples",
+                "nature": "Animals & Nature",
+                "foods": "Food & Drinks",
+                "activity": "Activities",
+                "places": "Travel & Places",
+                "objects": "Objects",
+                "symbols": "Symbols",
+                "flags": "Flags"
+              }
+            },
+            "new_message": "View new messages"
+          },
+          "products": {
+            "on_screen": "on screen",
+            "buy_label": "Go on product page"
           }
         }
       }
     }
   },
-  "lives": [
-    {
-      "id": "f20aa128931a449b9478f5fb69e07c3b",
-      "type": "live",
-      "attributes": {
-        "name": "Caast live event",
-        "description": "A live event for christmas",
-        "videoId": "a6b7e85c6433c00a4f1df62a1f7ec948",
-        "chatId": "078a8000a55bc862c6bcf0a9cc72d9ec",
-        "isStarted": false,
-        "isFinished": false,
-        "startDate": "2020-12-25T20:00:00.000Z",
-        "thumbnailUrl": null,
-        "urls": [
-          "https://caast.tv",
-        ]
-      }
-    }
-  ],
+  "lives": {
+    "coming": {"data" : []},
+    "current": {
+      "data": [{
+        "id": "f20aa128931a449b9478f5fb69e07c3b",
+        "type": "live",
+        "attributes": {
+          "name": "Caast live event",
+          "description": "A live event for christmas",
+          "videoId": "a6b7e85c6433c00a4f1df62a1f7ec948",
+          "chatId": "078a8000a55bc862c6bcf0a9cc72d9ec",
+          "isStarted": false,
+          "isFinished": false,
+          "isDirectInsert": false,
+          "startDate": "2020-12-25T20:00:00.000Z",
+          "productActiveId": null,
+          "productIds": ["310eb32e97044d96a5416b13fe7adf3d"],
+          "productTimestamps": [{
+            "attributes": {
+              "productId": "310eb32e97044d96a5416b13fe7adf3d",
+              "timestampEnd": 30,
+              "timestampStart": 10
+            },
+            "id": "49cbb03c0d594b71aceb113278f6821a",
+            "type": "productTimestamp"
+          }],
+          "products": [{
+            "attributes": {
+              "name": "A fake product",
+              "thumbnailUrl": "https://mediadev.caast.tv/variants/...",
+              "url": "https://www.a-fake-product.com"
+            },
+            "id": "310eb32e97044d96a5416b13fe7adf3d",
+            "relationships": {},
+            "type": "product"
+          }],
+          "thumbnailUrl": null,
+          "urls": [
+            "https://caast.tv",
+          ]
+        }
+      }]
+    },
+    "passed": {"data" : []}
+  },
+  "live_id": "f20aa128931a449b9478f5fb69e07c3b",
   "user": {
     "uuid": "1d5f65e4d53b20fcb223a7dc0aec3ea0",
     "custom_fields": {
@@ -346,6 +588,8 @@ In every emmited events the following data is made available for you to interact
 ?> _Note that the `lives` key can be empty if no lives are planned on the current page._
 
 ?> _Note that the `player` key will be missing if the emitted event is not `onLivePlay` or `onLivePause`._
+
+?> _Note that the `live_id` key will be missing if the emitted event is not `onLivePlay`, `onLivePause`, `onLiveSubscription`, `onVoteForLive`, `onRelatedClick` or `onModalTrigger`._
 
 ?> _Note that the `question` key will be missing if the emitted event is not `onQuestionClick`._
 

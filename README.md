@@ -894,3 +894,76 @@ Lets say you want to create a really simple and not so pretty launcher with a ti
 ```
 
 !> _Currently you can only customize the Caast launcher but you will soon be able to customize anything inside the modal. You can always override styles with css if needed_
+
+## Mails variables
+
+You can custom mail send by caast.
+You can add your HTML template and use some variables gived by Caast.
+We use Liquid powered by Shopify for templating. You can find more informations about use of variables, filters on this [link](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
+After save your change don't forget to test your mail to check if it's good
+
+### Global variables
+
+This variables are accessible in all mail. It concerned configuration of your site for your widget
+
+```json
+{
+  "website_configuration": {
+    "color": {
+      "button_background": "#000",
+      "button_color": "#FFF",
+      "header_background": "#000",
+      "header_color": "#FFF",
+      "product_background": "#fff",
+      "product_color": "#333",
+      "product_border": "#E7E7E7",
+      "product_fill_buy": "#CCC",
+      "product_active_background": "#fff",
+      "product_active_color": "#333",
+      "product_active_border": "#000",
+      "product_active_fill_buy": "#000",
+      "product_live_background": "#000",
+      "product_live_color": "#FFF",
+      "question_background": "#FFF",
+      "question_border": "#000",
+      "question_color": "#333",
+      "question_active_background": "#000",
+      "question_active_border": "#000",
+      "question_active_color": "#FFF",
+      "pseudo_background": "rgba(0,0,0, .05)",
+      "pseudo_color": "#333",
+      "chat_send_background": "#000",
+      "chat_send_color": "#FFF",
+      "live": "#FF015C"
+    }
+  }
+}
+```
+
+### Reminder mail
+
+Mail is sent before live start to user who suscribes.
+Products is an array of all products set for live
+
+```json
+{
+  "receiver": {
+    "mail": "Mail of user who receive mail"
+  },
+  "live": {
+    "name": "Name of live",
+    "description": "Description of live",
+    "start_date_full": "Start date formated like this %d/%m/%y %H:%M",
+    "start_time": "Start date hours formated like this %H:%M",
+    "start_date": "Start date formated like this %d/%m/%y",
+    "thumbnail_url": "Thumbnail of live",
+    "products": [
+      {
+        "name": "Name of product",
+        "thumbnailUrl": "Product thumbnail",
+        "url": "Url of product"
+      }
+    ]
+  }
+}
+```

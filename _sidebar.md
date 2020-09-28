@@ -14,6 +14,10 @@
   - [Methods](widgets/methods.md)
   - [Styling](widgets/style.md)
 
+- **Caast Emitter**
+
+  - [Introduction](emitter/README.md)
+
 - **Caast Configuration**
 
   - [Introduction](configuration/README.md)

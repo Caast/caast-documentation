@@ -1,6 +1,6 @@
 # Data
 
-In every emmited events the following data is made available for you to interact with your environment. Exposed data is about the current live informations, your platform configuration and the current user informations. All the configuration data is customizable in your dashboard in the configuration section of your project.
+In every emitted events the following data is made available for you to interact with your environment. Exposed data is about the current live informations, your platform configuration and the current user informations. All the configuration data is customizable in your dashboard in the configuration section of your project.
 
 The following object, is the default returned data, you will find some additional data that are merged on specific events detailed in this page.
 
@@ -238,7 +238,7 @@ The following object, is the default returned data, you will find some additiona
       "id": "27bb4a0bbda54303a5a02005b19924f5",
       "type": "question",
       "attributes": {
-        "questionerName": "AlonzoBistro",
+        "questionerName": "HarryHoudini",
         "question": "Is it available in other colors ?",
         "sentAt": "2020-12-25T21:12:34.000Z",
         "answered": true,
@@ -254,7 +254,7 @@ The following object, is the default returned data, you will find some additiona
 
 ## user
 
-When using the [setUser](library/methods.md#setUser) method, you will add additional informations on the user object in global config, the object will now have a `csutom_fields` entry in it, regrouping all the data you've provided
+When using the [setUser](library/methods.md#setUser) method, you will add additional informations on the user object in global config, the object will now have a `custom_fields` entry in it, regrouping all the data you've provided
 
 ```json
 "user": {
@@ -305,7 +305,7 @@ When listening to an event using [onLivePlay](library/events.md#onLivePlay) or [
 
 ## live_id
 
-When listening to an event using [onLivePlay](library/events.md#onLivePlay), [onLivePause](library/events.md#onLivePause), [onLiveSubscription](library/events.md#onLiveSubscription), [onRelatedClick](library/events.md#onRelatedClick) or[onModalTrigger](library/events.md#onModalTrigger) method, you will receive additional information regarding the current live id.
+When listening to an event using [onLivePlay](library/events.md#onLivePlay), [onLivePause](library/events.md#onLivePause), [onLiveSubscription](library/events.md#onLiveSubscription), [onRelatedClick](library/events.md#onRelatedClick) or [onModalTrigger](library/events.md#onModalTrigger) method, you will receive additional information regarding the current live id.
 
 ```json
 "live_id": "f20aa128931a449b9478f5fb69e07c3b"

@@ -2,7 +2,7 @@
 
 Caast Library allow a total control over what is printed on the client side. To create your own templates for your Caast Library Launcher, simply login into your dashboard and go to the app configuration in the template section.
 
-Templates are dynamic and to allow you to display conditional templates. We use [blueimp/Javascript-Templates](https://github.com/blueimp/JavaScript-Templates) to allow you to easily create template, this library is very light and you can manipulate all the variables, implement conditions and iterations.
+Templates are dynamic and allow you to display conditional templates. We use [blueimp/Javascript-Templates](https://github.com/blueimp/JavaScript-Templates) to easily create template, this library is very light and you can manipulate all the variables, implement conditions and iterations.
 
 With custom templating, you can easily extend your in place design system and relying on your available css to customize the Caast Library to fit exactly on your website.
 
@@ -62,4 +62,4 @@ Lets say you want to create a really simple and not so pretty launcher with a ti
 </div>
 ```
 
-!> _Only the launcher is fully customizable via template injection. To alter the modal or widgets style, you can only rely on style override._
+!> _Only the launcher is fully customizable via template injection. To alter the modal or widgets style, you can only rely on style override. You can also decide to make your own Caast implementation using our [widget library](widgets/README.md)_

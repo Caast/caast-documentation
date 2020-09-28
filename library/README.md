@@ -1,6 +1,6 @@
 # Getting started
 
-To load the Caast library on your website you just need to add this code at the end of your `body` tag element. This is a really basic implementation, you will find down the page some more advanced configuration.
+To load the Caast Library on your website you just need to add this code at the end of your `body` tag element.
 
 ```html
 <script type="text/javascript">
@@ -20,6 +20,6 @@ To load the Caast library on your website you just need to add this code at the 
 </script>
 ```
 
-With this simple snippet Caast is now running on your website, lets have a look on advanced configuration in order to customize the widget a bit.
+With this simple snippet Caast Library is now running on your website, lets have a look on advanced configuration in order to customize the Caast Library.
 
 ?> Caast can be configurated in a very deep way, please refer to our [advanced configuration section](configuration/README.md) for detailed informations.

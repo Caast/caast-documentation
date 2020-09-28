@@ -1,8 +1,8 @@
 # Emitted events
 
-The Caast Library will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data. Please refer to the [data section](library/data.md) if you want details about what information is available. You can listen for events in the widget by attaching a callback using .on().
+The Caast Library will also emit some custom events in order to implement some code on your side. Those events are emitted on each widget action and return some custom data. Please refer to the [data section](library/data.md) if you want details about what information is available. You can listen for events in the Caast Library by attaching a callback using .on().
 
-Before listening to any event, please make sure the Caast widget is ready using this snippet. `e.detail` contain information regarding the current available configuration on your widget instance.
+Before listening to any event, please make sure the Caast Library is ready using this snippet. `e.detail` contain information regarding the current available configuration on your instance.
 
 ```javascript
 document.addEventListener("caast.onReady", function (e) {
@@ -64,7 +64,7 @@ caast
 
 ## onLivePlay
 
-This event is emitted when a user press play on the live player. Please refer to [live_id](library/data.md#live_id) and [player](library/data.md#player) for additional returned data.
+This event is emitted when a user press play on the Caast Player. Please refer to [live_id](library/data.md#live_id) and [player](library/data.md#player) for additional returned data.
 
 ```javascript
 caast
@@ -81,7 +81,7 @@ caast
 
 ## onLivePause
 
-This event is emitted when a user press pause on the live player. Please refer to [live_id](library/data.md#live_id) and [player](library/data.md#player) for additional returned data.
+This event is emitted when a user press pause on the Caast Player. Please refer to [live_id](library/data.md#live_id) and [player](library/data.md#player) for additional returned data.
 
 ```javascript
 caast
@@ -149,7 +149,7 @@ caast
 
 ## onMessageSubmit
 
-This event is emitted when a user submit a message in chat. Please refer to [message](library/data.md#message) for additional returned data.
+This event is emitted when a user submit a message in Caast Chat. Please refer to [message](library/data.md#message) for additional returned data.
 
 ```javascript
 caast

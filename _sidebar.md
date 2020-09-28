@@ -11,6 +11,8 @@
 - **Caast Widgets**
 
   - [Introduction](widgets/README.md)
+  - [Methods](widgets/methods.md)
+  - [Styling](widgets/style.md)
 
 - **Caast Configuration**
 

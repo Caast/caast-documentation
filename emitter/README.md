@@ -30,6 +30,10 @@ caastEmitter("init", {
 });
 ```
 
+## Caast strict mode
+
+You can also decide to push to Caast API only the products related to the ones you have in our system. Adding `onlyCaastProducts: true` on the `init` method, will perform a check on the `products` key defined in the track method. With this parameter, we will only register purchase items if they containe one of our product. In this way, you can be sure that purchase which are non-related to Caast, won't be registered in our database.
+
 ## Track purchase
 
 Once caastEmitter is instanciated, you can invoke this method to send to Caast purchase informations.

@@ -1,4 +1,5 @@
 - [Introduction](/)
+- [Changelog](CHANGELOG.md)
 - **Caast Library**
 
   - [Introduction](library/README.md)

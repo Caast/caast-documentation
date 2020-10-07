@@ -37,9 +37,11 @@ This code can help you to better understand this behaviour
 
 In order to trigger some specific actions on the Caast Library, you can also add hash parameters to your urls in order to programmatically execute some of the widget functionalities. There is a default configuration for each of those hash naming but **you can also customize each naming via our administration interface**.
 
-| Default parameter name | Action                                        |
-| ---------------------- | --------------------------------------------- |
-| caast-open             | Open Caast Library modal if available on page |
+| Default parameter name  | Action                                                 |
+| ----------------------- | ------------------------------------------------------ |
+| caast-open              | Open Caast Library modal if available on page          |
+| caast-question\_**ID**  | Open Caast Library modal and jump to question ID       |
+| caast-jump\_**SECONDS** | Open Caast Library modal and jump to specified seconds |
 
 So let's say you add `#caast-open` to your URL, resulting with an URL like this one `https://mywebsite.com/product/my-product#caast-open`, and the Caast Library Modal will magically open.
 

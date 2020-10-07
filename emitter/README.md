@@ -2,8 +2,6 @@
 
 Caast emitter is a pixel tracking javascript library allowing you to easily send purchased items on your purchase page. It will allow you to send qualified data to Caast in order to properly identify your ROI.
 
-!> The Caast Emitter Library is not yet available. Nevertheless the documentation is matching the current work in progress.
-
 ## Getting started
 
 ```javascript

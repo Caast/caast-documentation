@@ -1,3 +1,12 @@
+#### Version 1.3
+
+- (feature): add new library, **caastEmbed**, it will allow you to diffuse a Caast live in your blogs, please refer to [documentation](/embed/README.md) for details about this feature.
+- (feature): add possibility to handle configuration per device type (mobile or desktop)
+- (feature): add Twitch as available broadcast provider
+- (feature): add possibility to dynamically add product to your website cart.
+- (fix): remove some useless UI elements
+- (fix): optimize API response size
+
 #### Version 1.2
 
 - (feature): add new library, **caastEmitter**, to track specific product on a purchase page, please refer to [documentation](/emitter/README.md) for details about this feature.

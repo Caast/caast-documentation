@@ -23,7 +23,7 @@ Caast embed allow you to insert a Caast card with a live of your choice into any
     "caastEmbed"
   );
 </script>
-<div id="caast-live-MY_APP_ID"></div>
+<div id="caast-live-MY_LIVE_ID"></div>
 ```
 
 Be sure to replace `MY_APP_ID`, `MY_APP_KEY` and `MY_LIVE_ID` with the values matching the desired live.

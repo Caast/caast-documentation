@@ -42,21 +42,21 @@ Lets say you want to create a really simple and not so pretty launcher with a ti
     font-size: 20px;
   }
   .my-custom--button {
-    background: {%=o.config.attributes.configuration.color.button_background%};
-    color: {%=o.config.attributes.configuration.color.button_color%};
+    background: {%=caast.config.attributes.configuration.color.button_background%};
+    color: {%=caast.config.attributes.configuration.color.button_color%};
   }
 </style>
 <div class="my-custom--class">
   <h1 class="my-custom--title">
     {% if (o.lives && o.lives.length > 0) { %}
-      {%=o.config.attributes.configuration.i18n.product.title.is_live%} 
+      {%=caast.config.attributes.configuration.i18n.product.title.is_live%} 
     {% } else { %} 
-      {%=o.config.attributes.configuration.i18n.product.title.no_live%} 
+      {%=caast.config.attributes.configuration.i18n.product.title.no_live%} 
     {% } %}
   </h1>
   {% if (o.lives && o.lives.length > 0) { %}
   <button id="caast-modal--trigger" class="my-custom--button">
-    {%=o.config.attributes.configuration.i18n.button.open%}
+    {%=caast.config.attributes.configuration.i18n.button.open%}
   </button>
   {% } %}
 </div>

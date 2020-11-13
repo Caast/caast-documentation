@@ -23,3 +23,9 @@ To load the Caast Widget Library on your website you just need to add this code 
 With this simple snippet Caast Library is now injected on your website, lets have a look on specific widget call in order to build your own Caast Library implementation.
 
 !> Caast Widget cannot be loaded with Caast Library. This library is available to allow you to build your own display of the Caast Interface.
+
+## Customize style
+
+Currently Caast Widget is only customizable via injected styles in our different components. Those styles can be injected in our administration interface. Nevertheless, we are working on offering you the ability to add a style parameter on each Caast Widget instance in order to have a really frictionless experience.
+
+The injected styles will rely upon the Caast Library css classes naming available [here](library/style.md#iframe-styles)

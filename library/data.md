@@ -44,9 +44,15 @@ The following object, is the default returned data, you will find some additiona
           "pseudo_color": "#333",
           "chat_send_background": "#000",
           "chat_send_color": "#FFF",
-          "live": "#FF015C"
+          "live": "#FF015C",
+          "checkbox_color": "#96e039"
         },
         "target": {
+          "element": "#service-one li:nth-child(4)",
+          "position": "beforeend",
+          "basket": ""
+        },
+        "mobile_target": {
           "element": "#service-one li:nth-child(4)",
           "position": "beforeend",
           "basket": ""
@@ -59,7 +65,19 @@ The following object, is the default returned data, you will find some additiona
         "mode": "mini",
         "custom_style": "",
         "custom_style_iframe": "",
-        "show_subscribe": false,
+        "custom_style_listing": "",
+        "show_subscribe": true,
+        "show_live_request": false,
+        "add_to_kart": {
+          "active": false,
+          "url": "",
+          "default_body": ""
+        },
+        "listing": {
+          "inject_before_highlight": "",
+          "inject_after_highlight": "",
+          "inject_after_list": ""
+        },
         "i18n": {
           "button": {
             "open": "Enter live room",
@@ -91,6 +109,33 @@ The following object, is the default returned data, you will find some additiona
             },
             "thumbnail": {
               "is_live": "Live"
+            }
+          },
+          "listing": {
+            "title": "Lives",
+            "highlight_button": "",
+            "badge": {
+              "is_live": "Live",
+              "countdown": "Live in",
+              "today": "Today at",
+              "tomorrow": "Tomorrow at",
+              "date": "On"
+            },
+            "status": {
+              "all": "All lives",
+              "live": "Lives",
+              "replay": "Replays",
+              "soon": "Soon"
+            },
+            "subscribe": {
+              "button": "be notified",
+              "title": "Be notified by email and 10 minutes before a live start.",
+              "description": "By checking this, you accept our <a href='' target='_blank'>conditions</a>.",
+              "feedback": {
+                "email": "Mail required",
+                "accept": "Please accept our conditions",
+                "valid": "All is good ! You will be notified when live is about to start"
+              }
             }
           },
           "subscribe": {
@@ -319,6 +364,22 @@ When listening to an event using [onQuestionClick](library/events.md#onQuestionC
 "question_id": "452159334435456999954edb1a04d779"
 ```
 
+## product_id
+
+When listening to an event using [onProductClick](library/events.md#onProductClick) method, you will receive additional informations regarding the product id.
+
+```json
+"product_id": "925da3518ec44b29a0cf2ed86a3610e6"
+```
+
+## product_ref
+
+When listening to an event using [onProductClick](library/events.md#onProductClick) method, you will receive additional informations regarding the product ref.
+
+```json
+"product_ref": "128627"
+```
+
 ## message
 
 When listening to an event using [onMessageSubmit](library/events.md#onMessageSubmit) method, you will receive additional informations regarding the submitted message.
@@ -336,4 +397,12 @@ When listening to an event using [onVoteForLive](library/events.md#onVoteForLive
 
 ```json
 "url": "https://mywebsite/product/29749874"
+```
+
+## from_caast
+
+When listening to an event using [onProductClick](library/events.md#onProductClick) method, you will receive additional informations regarding the context of the action. If this event is coming from our direct add to cart method you will receive this data.
+
+```json
+"from_caast": "true"
 ```

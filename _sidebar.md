@@ -2,7 +2,7 @@
 - [Changelog](CHANGELOG.md)
 - **Caast Library**
 
-  - [Introduction](library/README.md)
+  - [Getting started](library/README.md)
   - [Methods](library/methods.md)
   - [Events](library/events.md)
   - [Data](library/data.md)
@@ -11,18 +11,19 @@
 
 - **Caast Widgets**
 
-  - [Introduction](widgets/README.md)
+  - [Getting started](widgets/README.md)
   - [Methods](widgets/methods.md)
+  - [Listing](widgets/listing.md)
   - [Styling](widgets/style.md)
 
 - **Caast Embed**
 
-  - [Introduction](embed/README.md)
+  - [Getting started](embed/README.md)
 
 - **Caast Emitter**
 
-  - [Introduction](emitter/README.md)
+  - [Getting started](emitter/README.md)
 
 - **Caast Configuration**
 
-  - [Introduction](configuration/README.md)
+  - [Getting started](configuration/README.md)

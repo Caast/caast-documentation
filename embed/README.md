@@ -33,3 +33,5 @@ Be sure to replace `MY_APP_ID`, `MY_APP_KEY` and `MY_LIVE_ID` with the values ma
 This code will render the Caast Embed card and will play your live on muted state, in order to not jump scare your users. They can launch the traditionnal Caast Live Modal by clicking anywhere on this card and have the full Caast experience with questions, products chat etc..
 
 ![Caast launcher](/_media/embed.png ":size=600")
+
+The output will be rendered directly into the DOM, which means you can extend and modify the style with a simple `<style>` tag and override desired CSS classes. More informations are available [here](widgets/listing.md#styling).

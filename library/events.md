@@ -130,6 +130,23 @@ caast
   });
 ```
 
+## onProductClick
+
+This event is emitted when a user click on a product to jump to its presentation on a replay. Please refer to [product_id](library/data.md#product_id) for additional returned data.
+
+```javascript
+caast
+  .on("onProductClick", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onQuestionClick::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onQuestionClick::error", error);
+  });
+```
+
 ## onRelatedClick
 
 This event is emitted when a user click on a related replay video. Please refer to [live_id](library/data.md#live_id) for additional returned data.
@@ -166,7 +183,7 @@ caast
 
 ## onBasketAdd
 
-This event is emitted when a user add an item to his basket, this event won't emit if the target DOM element is not set in the app configuration. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+This event is emitted when a user add an item to cart, this event can be emitted by a custom selector on the webpage add to cart button or via the Caast Widget direct add to cart action. This event won't be emitted if the target DOM element or the direct add to cart action is not set in the app configuration. Please refer to [live_id](library/data.md#live_id), [product_id](library/data.md#product_id), [product_ref](library/data.md#product_ref) and [from_caast](library/data.md#from_caast) for additional returned data.
 
 ```javascript
 caast

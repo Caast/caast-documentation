@@ -69,6 +69,18 @@ caastWidget.loadProducts({
 });
 ```
 
+## loadListing
+
+The `loadListing` method will load the Caast Listing in the targetted DOM node. This method will render a full integrated live pages with all the lives on your website. Please refer to the [advanced documentation](widgets/listing.md)
+
+```javascript
+caastWidget.loadListing({
+  websiteId: "MY_APP_ID",
+  websiteKey: "MY_APP_KEY",
+  targetElement: "my_dom_id", // Currently only a DOM ID target is supported
+});
+```
+
 ## setUser
 
 Please refer to [setUser](library/methods.md#setUser) method, in the Caast Library Documentation. This methods is exactly the same.

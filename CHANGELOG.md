@@ -1,3 +1,20 @@
+#### Version 1.24
+
+- (fix): issue with responsive **caastListing** on Caast Widget method ([documentation](/widgets/listing.md))
+- (feature): implement method to hide a specific live from lives listing
+
+#### Version 1.23
+
+- (feature): rewrite event emission system for Caast Player
+
+#### Version 1.22
+
+- (fix): issue with related videos
+
+#### Version 1.21
+
+- (fix): issue while changing video provider
+
 #### Version 1.20
 
 - (feature): rewrite live provider class

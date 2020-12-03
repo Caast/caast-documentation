@@ -1,3 +1,16 @@
+#### Version 1.41
+
+- (feature): complete rewrite of the Caast Modal with new fullscreen feature
+- (fix): optimization of eventListeners
+- (fix): optimization for resize and mobile responsive
+- (fix): better cache management in API
+- (fix): remove dead code
+
+#### Version 1.31
+
+- (fix): error while changing Caast related video, question were not updated
+- (fix): problem with cache clear in API
+
 #### Version 1.24
 
 - (fix): issue with responsive **caastListing** on Caast Widget method ([documentation](/widgets/listing.md))

@@ -1,4 +1,4 @@
-# Welcome to Caast !
+# Welcome to Caast ! <!-- {docsify-ignore-all} -->
 
 We are glad to start working with you 😃. In order to simplify your Caast implementation on your website, you will find here all the mandatory installation in order to make Caast live on your website.
 

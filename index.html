@@ -43,7 +43,23 @@
         plugins: [
           function (hook, vm) {
             hook.beforeEach(function (content) {
-              return content.replace(new RegExp("/_media", "ig"), "../_media");
+              var newContent = content.replace(new RegExp("/_media", "ig"), "../_media");
+              var hash = window.location.hash;
+              if (hash && hash.indexOf("onboarding") > -1) {
+                if (hash.indexOf("?")) {
+                  var parameters = hash.split("?");
+                  var raw = parameters[1];
+                  var data = raw.split("&");
+                  for (let index = 0; index < data.length; index++) {
+                    var key = data[index];
+                    var key_splitted = key.split("=");
+                    var replace = "{{" + key_splitted[0].toUpperCase() + "}}";
+                    var regex = new RegExp(replace, "g");
+                    newContent = newContent.replace(regex, key_splitted[1]);
+                  }
+                }
+              }
+              return newContent;
             });
           },
         ],
@@ -52,26 +68,5 @@
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/components/prism-json.js"></script>
-    <script type="text/javascript">
-      !(function () {
-        setTimeout(function () {
-          var hash = window.location.hash;
-          if (hash && hash.indexOf("onboarding") > -1) {
-            if (hash.indexOf("?")) {
-              var parameters = hash.split("?");
-              var raw = parameters[1];
-              var data = raw.split("&");
-              for (let index = 0; index < data.length; index++) {
-                var key = data[index];
-                var key_splitted = key.split("=");
-                var replace = "{{" + key_splitted[0] + "}}";
-                var regex = new RegExp(replace, "g");
-                document.body.innerHTML = document.body.innerHTML.replace(regex, key_splitted[1]);
-              }
-            }
-          }
-        }, 500);
-      })();
-    </script>
   </body>
 </html>

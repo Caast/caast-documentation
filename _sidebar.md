@@ -8,12 +8,12 @@
   - [Data](library/data.md)
   - [Styling](library/style.md)
   - [Templating](library/template.md)
+  - [Listing](library/listing.md)
 
 - **Caast Widgets**
 
   - [Getting started](widgets/README.md)
   - [Methods](widgets/methods.md)
-  - [Listing](widgets/listing.md)
   - [Styling](widgets/style.md)
 
 - **Caast Embed**

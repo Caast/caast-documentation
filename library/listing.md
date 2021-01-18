@@ -1,6 +1,6 @@
 # Caast Listing
 
-Caast Listing is a fully integrated experience to allow you, in just a few lines, to render your own media channel on your website. Simply call the `caastListing` method from caastWidget library and enjoy the all-in-one Caast experience.
+Caast Listing is a fully integrated experience to allow you, in just a few lines, to render your own media channel on your website. Just sit and enjoy the all-in-one Caast experience.
 
 ![Caast Listing](/_media/listing.jpg ":size=600")
 

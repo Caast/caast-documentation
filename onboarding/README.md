@@ -27,7 +27,9 @@ You can find more information about [Caast library](library/README.md) or [Caast
 
 #### Let's install Caast Purchase Tracking
 
-Now that Caast is live, you may also want to track users's checkout in order to track conversions on your website. With this simple snippet, Caast will be able to track your users orders to establish proper statistics related to the user Caast data. To make it clear, if a user watched a live and bought something, it will be available on Caast analytics, so we **really recommend** to implement this script to clearly identify your data.
+Now that Caast is live, you may also want to track users's checkout in order to track conversions on your website. This snippet must be placed on your checkout page, right after a user successfully buy something on your website.
+
+With this simple snippet, Caast will be able to track your users orders, to establish proper statistics mixed with Caast analytics. To make it clear, if a user watched a live and bought something, it will be available on Caast analytics, so we **really recommend** to implement this script to clearly identify your data and better track your ROI.
 
 ```html
 <script type="text/javascript">

@@ -1,10 +1,12 @@
-# Welcome to Caast ! <!-- {docsify-ignore-all} -->
+# Hello {{CUSTOMER}}, welcome to Caast ! <!-- {docsify-ignore-all} -->
 
-We are glad to start working with you 😃. In order to simplify your Caast implementation on your website, you will find here all the mandatory installation in order to make Caast live on your website.
+We are glad to start working with you 😃. In order to simplify your Caast implementation on your website, you will find here all the mandatory informations in order to integrate Caast on your website.
 
-#### Lets install Caast on your targeted pages
+#### Let's install Caast Widget and Landing
 
-To render Caast on your pages it is a **really simple** operation. You just need one script, one script to rules them all 💍. This script can render the [Caast library](library/README.md) on a product page, but can also render the full [Caast Web TV page](library/listing.md), all the configuration is on our side. This script can either be called via any Tag Commander solution, or directly in the HTML of the targeted page.
+This script is used to render Caast widget on a product page, a landing on a dedicated page or anything else related to Caast live display.
+
+To insert Caast on a page it is a **really simple** operation. This script can either be called via any Tag Management solution (Google Tag Manager, Commander Acts etc..) or directly in the HTML of the targeted page.
 
 ```html
 <script type="text/javascript">
@@ -17,15 +19,15 @@ To render Caast on your pages it is a **really simple** operation. You just need
     J.src = s;
     J.id = "caast_library";
     S.parentNode.insertBefore(J, S);
-  })(window, document, "script", "https://cdn.caast.tv/caast-latest/caast.js?APP_ID=APP_ID&APP_KEY=APP_KEY", "caast");
+  })(window, document, "script", "https://cdn.caast.tv/caast-latest/caast.js?APP_ID=" + APP_ID + "&APP_KEY=" + APP_KEY, "caast");
 </script>
 ```
 
-You can find more informations about Caast Library [here](library/README.md)
+You can find more informations about [Caast library](library/README.md) or [Caast Landing](library/landing.md).
 
-#### Lets install Caast Purchase Tracking
+#### Let's install Caast Purchase Tracking
 
-Now that Caast is alive, you may also want to track users buy orders in order to track conversions on your website. With this simple snippet, Caast will be able to track your users orders to establish proper statistics related to the user Caast data. To make it clear, if a user wtached a live and bought something, it will be available on our statistics, so we **really recommend** to implement this script to clearly identify your data.
+Now that Caast is live, you may also want to track users's checkout in order to track conversions on your website. With this simple snippet, Caast will be able to track your users orders to establish proper statistics related to the user Caast data. To make it clear, if a user watched a live and bought something, it will be available on Caast analytics, so we **really recommend** to implement this script to clearly identify your data.
 
 ```html
 <script type="text/javascript">
@@ -45,7 +47,7 @@ Now that Caast is alive, you may also want to track users buy orders in order to
     "APP-ID": "{{APP_ID}}",
     "APP-KEY": "{{APP_KEY}}",
   });
-  //  This data is customizable on your side, but we expect at least a total and an array of products
+  //  **This data must be customized** for your site, but we expect at least a total and an array of products
   //  with at least those informations.
   caastEmitter("track", {
     total: 499,
@@ -57,11 +59,11 @@ Now that Caast is alive, you may also want to track users buy orders in order to
 </script>
 ```
 
-You can find more informations about Caast PUrchase Tracking [here](emitter/README.md)
+You can find more informations about Caast Purchase Tracking [here](emitter/README.md)
 
 #### That's all
 
-Caast is now ready to display and record all your viewers actions, do not hesitate to have a look on our documentation to customize Caast to your usage or contact us if you have any doubt or questions about Caast.
+Caast is now ready to display lives and record your viewers actions, do not hesitate to have a look on our documentation to customize Caast to your usage or contact us if you have any doubt or questions about Caast.
 
 Have a nice Live !
 

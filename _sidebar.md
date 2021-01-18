@@ -8,7 +8,7 @@
   - [Data](library/data.md)
   - [Styling](library/style.md)
   - [Templating](library/template.md)
-  - [Listing](library/listing.md)
+  - [Landing](library/landing.md)
 
 - **Caast Widgets**
 

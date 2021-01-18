@@ -15,13 +15,7 @@ Caast embed allow you to insert a Caast card with a live of your choice into any
     J.setAttribute("data-app-key", MY_APP_KEY);
     J.setAttribute("data-live-id", MY_LIVE_ID);
     S.parentNode.insertBefore(J, S);
-  })(
-    window,
-    document,
-    "script",
-    "https://cdn.caast.tv/caast-latest/caastEmbed.js",
-    "caastEmbed"
-  );
+  })(window, document, "script", "https://cdn.caast.tv/caast-latest/caastEmbed.js", "caastEmbed");
 </script>
 <div id="caast-live-MY_LIVE_ID"></div>
 ```
@@ -34,4 +28,4 @@ This code will render the Caast Embed card and will play your live on muted stat
 
 ![Caast launcher](/_media/embed.png ":size=600")
 
-The output will be rendered directly into the DOM, which means you can extend and modify the style with a simple `<style>` tag and override desired CSS classes. More informations are available [here](widgets/listing.md#styling).
+The output will be rendered directly into the DOM, which means you can extend and modify the style with a simple `<style>` tag and override desired CSS classes.

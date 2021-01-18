@@ -71,6 +71,8 @@ caastWidget.loadProducts({
 
 ## loadListing
 
+!> Warning, this function is now marked as **deprecated**, the loadListing function is now replaced by configuration object inside caast.js library
+
 The `loadListing` method will load the Caast Listing in the targetted DOM node. This method will render a full integrated live pages with all the lives on your website. Please refer to the [advanced documentation](widgets/listing.md)
 
 ```javascript

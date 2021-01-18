@@ -1,23 +1,23 @@
-# Caast Listing
+# Caast Landing
 
-Caast Listing is a fully integrated experience to allow you, in just a few lines, to render your own media channel on your website. Just sit and enjoy the all-in-one Caast experience.
+Caast Landing is a fully integrated experience to allow you, in just a few lines, to render your own media channel on your website. Just sit and enjoy the all-in-one Caast experience.
 
-![Caast Listing](/_media/listing.jpg ":size=600")
+![Caast Landing](/_media/listing.jpg ":size=600")
 
 ## Behaviour
 
-Caast Listing will be injected in your targeted element and will fill 100% of the available space inside it. We advise to define the target inside your default content container for a better user experience.
+Caast Landing will be injected in your targeted element and will fill 100% of the available space inside it. We advise to define the target inside your default content container for a better user experience.
 
 ## Styling
 
-Caast Listing is totally stylable via your own style declaration. You have the possibility to add styles override on the targeted page inside a classic `<style>` tag. You can also give us the style override, it will be directly merged with the final render, this option allow you to avoid editing the
+Caast Landing is totally stylable via your own style declaration. You have the possibility to add styles override on the targeted page inside a classic `<style>` tag. You can also give us the style override, it will be directly merged with the final render, this option allow you to avoid editing the
 
 ##
 
 ```css
 /*
 * -----------------------------------
-* Style for Caast Listing Wrapper
+* Style for Caast Landing Wrapper
 * -----------------------------------
 */
 

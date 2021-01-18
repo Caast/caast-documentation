@@ -1,6 +1,6 @@
 # Hello {{CUSTOMER}}, welcome to Caast ! <!-- {docsify-ignore-all} -->
 
-We are glad to start working with you 😃. In order to simplify your Caast implementation on your website, you will find here all the mandatory informations in order to integrate Caast on your website.
+We are glad to start working with you 😃. In order to simplify your Caast implementation on your website, you will find here all the mandatory information in order to integrate Caast on your website.
 
 #### Let's install Caast Widget and Landing
 
@@ -23,7 +23,7 @@ To insert Caast on a page it is a **really simple** operation. This script can e
 </script>
 ```
 
-You can find more informations about [Caast library](library/README.md) or [Caast Landing](library/landing.md).
+You can find more information about [Caast library](library/README.md) or [Caast Landing](library/landing.md).
 
 #### Let's install Caast Purchase Tracking
 
@@ -48,7 +48,7 @@ Now that Caast is live, you may also want to track users's checkout in order to 
     "APP-KEY": "{{APP_KEY}}",
   });
   //  **This data must be customized** for your site, but we expect at least a total and an array of products
-  //  with at least those informations.
+  //  with at least those information.
   caastEmitter("track", {
     total: 499,
     products: [
@@ -59,7 +59,7 @@ Now that Caast is live, you may also want to track users's checkout in order to 
 </script>
 ```
 
-You can find more informations about Caast Purchase Tracking [here](emitter/README.md)
+You can find more information about Caast Purchase Tracking [here](emitter/README.md)
 
 #### That's all
 

@@ -17,7 +17,7 @@
 #### Version 1.51
 
 - (feature): implement loader for landing mode
-- (fix): **caastListing** on Caast Widget method ([documentation](/widgets/listing.md)) is now marked as deprecated. You should now use use caast.js and custom configuration to implement a landing page
+- (fix): **caastListing** on Caast Widget method ([documentation](/widgets/methods.md?id=loadlisting)) is now marked as deprecated. You should now use use caast.js and custom configuration to implement a landing page
 - (fix): various UI and UX feedback for landing page behaviour
 
 #### Version 1.41
@@ -35,7 +35,7 @@
 
 #### Version 1.24
 
-- (fix): issue with responsive **caastListing** on Caast Widget method ([documentation](/widgets/listing.md))
+- (fix): issue with responsive **caastListing** on Caast Widget method ([documentation](/widgets/methods.md?id=loadlisting))
 - (feature): implement method to hide a specific live from lives listing
 
 #### Version 1.23
@@ -67,7 +67,7 @@
 
 #### Version 1.17
 
-- (feature): add new widget method, **caastWidget.loadListing**, it will allow you to integrate in a few lines, a fully integrated WebTV experience on your website, please refer to [documentation](/widgets/listing.md) for details about this feature.
+- (feature): add new widget method, **caastWidget.loadListing**, it will allow you to integrate in a few lines, a fully integrated WebTV experience on your website, please refer to [documentation](/widgets/methods.md?id=loadlisting) for details about this feature.
 
 #### Version 1.16
 

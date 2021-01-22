@@ -55,7 +55,7 @@
                     var key_splitted = key.split("=");
                     var replace = "{{" + key_splitted[0].toUpperCase() + "}}";
                     var regex = new RegExp(replace, "g");
-                    newContent = newContent.replace(regex, key_splitted[1]);
+                    newContent = newContent.replace(regex, decodeURI(key_splitted[1]));
                   }
                 }
               }

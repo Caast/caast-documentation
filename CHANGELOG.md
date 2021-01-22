@@ -1,3 +1,25 @@
+#### Version 1.81
+
+- (feature): implement live preview feature, when a live is started, the thumbnail turn into a player with sound disabled
+- (feature): add better uuid generation when localstorage is enabled
+
+### Version 1.71
+
+- (feature): rewrite analytics methods and add fallback when websocket is not launched
+- (fix): no events was triggered on related videos click
+
+### Version 1.61
+
+- (feature): implement GET method and custom headers options for in live purchase
+- (fix): error with Youtube Player
+- (fix): better visual error for nickname
+
+### Version 1.51
+
+- (feature): implement loader for landing mode
+- (fix): **caastListing** on Caast Widget method ([documentation](/widgets/listing.md)) is now marked as deprecated. You should now use use caast.js and custom configuration to implement a landing page
+- (fix): various UI and UX feedback for landing page behaviour
+
 #### Version 1.41
 
 - (feature): complete rewrite of the Caast Modal with new fullscreen feature

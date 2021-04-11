@@ -146,7 +146,9 @@ The Caast launcher subscribe form, looks like this:
 }
 ```
 
-## Modal style
+<div style="display:none">
+
+## Modal style <!-- {docsify-ignore} -->
 
 The Caast Launcher will load a modal when a user decide to enter the Chatroom or watch a replay. The modal contain the video, a description about your live, a slider with your recorded products if defined in database, replay videos if availables, and a chatrrom if in live or all the asked questions if it is a replay mode.
 
@@ -227,11 +229,11 @@ The Caast Modal module looks like this:
 
 !> _Css wont be injected if you are using the custom template system except for the modal style definition_
 
-## Iframe styles
+## Iframe styles <!-- {docsify-ignore} -->
 
 Caast inject modules like video description, Chat, questions, related videos or products carousel via iframe, so you won't be able to customize the style of those elements using a traditionnal `<style>` approach on your webpage. Nevertheless, you can create in our admin, custom styles which will be injected in the iframes. Customizable elements will be grouped here by type to easily target what you want to customize.
 
-### Iframe Products Carousel
+### Iframe Products Carousel <!-- {docsify-ignore} -->
 
 The Caast Products Carousel is a complete module in realtime indicating to your audience which product is currently presented on screen.
 
@@ -282,7 +284,7 @@ The Caast Products Carousel module looks like this:
 }
 ```
 
-### Iframe Description
+### Iframe Description <!-- {docsify-ignore} -->
 
 The Caast Description is a content area returning video title, date and description. The description can contain html tags like `<strong>`,`<a>`,`<small>` or `<i>`. Feel free to add custom styles to it.
 
@@ -329,7 +331,7 @@ The Caast Description is a content area returning video title, date and descript
 }
 ```
 
-### Iframe Chat
+### Iframe Chat <!-- {docsify-ignore} -->
 
 The Caast Chat is a complete module in realtime allowing your users to chat with the Caaster or between them. The `.caast-modal__chat-message` design for chat questions is reused in the [questions](#iframe-questions) module.
 
@@ -350,7 +352,7 @@ The Caast Chat module looks like this:
 }
 ```
 
-### Iframe Questions
+### Iframe Questions <!-- {docsify-ignore} -->
 
 The Caast Questions is a module regrouping all the questions asked during the live. Each question will jump to the replay related timestamp. The `.caast-modal__chat-message` design is taken from the [chat](#iframe-chat) module. So please refer to available classes to edit it, to distinguish them, `.caast-modal__chat-message--link` is added to the `.caast-modal__chat-message` wrapper.
 
@@ -422,7 +424,7 @@ The Caast Questions module looks like this:
 }
 ```
 
-### Iframe Related videos
+### Iframe Related videos <!-- {docsify-ignore} -->
 
 The Caast Related Videos is a module used to display all the related videos on a smae product page.
 
@@ -472,3 +474,5 @@ The Caast Related Videos module looks like this:
 .caast-modal__related-video-title {
 }
 ```
+
+</div>

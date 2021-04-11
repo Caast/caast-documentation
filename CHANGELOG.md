@@ -1,3 +1,15 @@
+#### Version 2.0.0 ⭐️🍾🎉
+
+- (feature): complete rewrite of the Caast Widget Modal UI/UX after a long period of exchanges and co-creation with our customers. Enjoy a new unified interface shared between desktop and mobile.
+- (feature): new custom video player for replays. The player now display visual chapters per products, allowing to quickly jump click to the presented product
+- (feature): better responsive performance and a completely new mobile experience
+- (feature): localStorage has been migrated to cookies in order to be compliant with GDPR, you can also set your own cookie lifetime via our administration interface.
+- (feature): completely new product experience. Caast now handle product variations and options with a direct visual impact on the product details.
+- (feature): advanced add to cart options, allowing Caast to handle way more ecommerce frameworks to properly handle a direct add to cart experience on lives and replays.
+- (feature): smooth integration with **Lengow** and **Awin**. No need to prepare products anymore in our interface, simply import them from your product feed platform.
+- (feature): drop IE 11 support, allowing Caast to drop a lot of weight and be as fast as light.
+- (feature): add reply option in chat
+
 #### Version 1.81
 
 - (feature): implement live preview feature, when a live is started, the thumbnail turn into a player with sound disabled

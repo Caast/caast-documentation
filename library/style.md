@@ -8,7 +8,7 @@ The launcher is the Caast Library implementation dipslaying informations regardi
 
 The Caast launcher looks like this :
 
-![Caast launcher](/_media/launcher.png ":size=400")
+![Caast launcher](/_media/launcher.png ':size=400')
 
 ```css
 /*
@@ -85,7 +85,7 @@ The Caast Launcher has a subcribe form allowing you to request your users email 
 
 The Caast launcher subscribe form, looks like this:
 
-![Caast launcher subscribe](/_media/launcher_subscribe.png ":size=400")
+![Caast launcher subscribe](/_media/launcher_subscribe.png ':size=400')
 
 ```css
 /*
@@ -152,7 +152,7 @@ The Caast Launcher will load a modal when a user decide to enter the Chatroom or
 
 The Caast Modal module looks like this:
 
-![Caast Modal](/_media/modal.png ":size=600")
+![Caast Modal](/_media/modal.png ':size=600')
 
 ```css
 /*
@@ -192,35 +192,29 @@ The Caast Modal module looks like this:
 .caast-modal__content {
 }
 /* 
+* Wrapper for modal actions
+*/
+.aast-modal__actions {
+}
+/* 
 * Wrapper for modal left content
 */
 .caast-modal__content-left {
 }
 /* 
-* Wrapper for modal left content header
+* Wrapper for modal left background blurred image
 */
-.caast-modal__content-header-left {
+.caast-modal__content-left-background  {
 }
 /* 
-* Class for H1 in content left header
+* Wrapper for modal left currently presented product
 */
-.caast-modal__content-header-title {
-}
-/*
-* Class added to .caast-modal__content-header-title when video is live
-*/
-.caast-modal__content-header-title--live {
+.caast-modal__content-left-on-screen {
 }
 /* 
 * Wrapper for modal live section
-* /!\ Do not force height via css, this attribute is applied via javascript
 */
 .caast-modal__live-container {
-}
-/* 
-* Wrapper for modal left content bottom
-*/
-.caast-modal__content-left-bottom {
 }
 /* 
 * Wrapper for modal left content
@@ -243,7 +237,7 @@ The Caast Products Carousel is a complete module in realtime indicating to your 
 
 The Caast Products Carousel module looks like this:
 
-![Caast Products Carousel](/_media/products.png ":size=600")
+![Caast Products Carousel](/_media/products.png ':size=600')
 
 ```css
 /*
@@ -341,7 +335,7 @@ The Caast Chat is a complete module in realtime allowing your users to chat with
 
 The Caast Chat module looks like this:
 
-![Caast Chat](/_media/chatroom.png ":size=400")
+![Caast Chat](/_media/chatroom.png ':size=400')
 
 ```css
 /*
@@ -362,7 +356,7 @@ The Caast Questions is a module regrouping all the questions asked during the li
 
 The Caast Questions module looks like this:
 
-![Caast Chat](/_media/questions.png ":size=400")
+![Caast Chat](/_media/questions.png ':size=400')
 
 ```css
 /*
@@ -434,7 +428,7 @@ The Caast Related Videos is a module used to display all the related videos on a
 
 The Caast Related Videos module looks like this:
 
-![Caast Related Videos](/_media/related_videos.png ":size=600")
+![Caast Related Videos](/_media/related_videos.png ':size=600')
 
 ```css
 /*

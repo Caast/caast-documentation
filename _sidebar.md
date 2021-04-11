@@ -10,20 +10,11 @@
   - [Templating](library/template.md)
   - [Landing](library/landing.md)
 
-- **Caast Widgets**
-
-  - [Getting started](widgets/README.md)
-  - [Methods](widgets/methods.md)
-  - [Styling](widgets/style.md)
-
-- **Caast Embed**
-
-  - [Getting started](embed/README.md)
-
 - **Caast Emitter**
 
   - [Getting started](emitter/README.md)
 
-- **Caast Configuration**
+- **Advanced**
 
-  - [Getting started](configuration/README.md)
+  - [Configuration](advanced/configuration.md)
+  <!-- - [GDPR](advanced/gdpr.md) -->

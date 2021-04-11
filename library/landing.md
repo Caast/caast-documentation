@@ -1,18 +1,24 @@
 # Caast Landing
 
-Caast Landing is a fully integrated experience to allow you, in just a few lines, to render your own media channel on your website. Just sit and enjoy the all-in-one Caast experience.
+Caast Landing is a fully integrated experience to allow you, in just a few lines, to render your own media channel on your website. You have the possibility to choose to display all your lives on this page, but you can also target lives with specific hashtags. Just sit and enjoy the all-in-one Caast experience.
 
-![Caast Landing](/_media/listing.jpg ":size=600")
+![Caast Landing](/_media/listing.jpg ':size=600')
 
 ## Behaviour
 
-Caast Landing will be injected in your targeted element and will fill 100% of the available space inside it. We advise to define the target inside your default content container for a better user experience.
+Caast Landing will be injected in your targeted element and will fill 100% of the available space inside it. We advise to define the target inside your default content container for a better user experience. Note that style customisation inside Caast interface will allow you to adjust the styled output.
+
+## Custom HTML
+
+You also have the ability to inject custom HTML and styles on different part of the Caast Landing. This possibility allow you to inject custom image banner, advanced HTML, like presenting your products or anything else you might imagine. Those three area are :
+
+- Before the live Highlight
+- After the live Highlight
+- After all the replays thumbnails
 
 ## Styling
 
 Caast Landing is totally stylable via your own style declaration. You have the possibility to add styles override on the targeted page inside a classic `<style>` tag. You can also give us the style override, it will be directly merged with the final render, this option allow you to avoid editing the
-
-##
 
 ```css
 /*

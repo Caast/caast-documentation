@@ -8,7 +8,6 @@
 - (feature): advanced add to cart options, allowing Caast to handle way more ecommerce frameworks to properly handle a direct add to cart experience on lives and replays.
 - (feature): smooth integration with **Lengow** and **Awin**. No need to prepare products anymore in our interface, simply import them from your product feed platform.
 - (feature): drop IE 11 support, allowing Caast to drop a lot of weight and be as fast as light.
-- (feature): add reply option in chat
 
 #### Version 1.81
 

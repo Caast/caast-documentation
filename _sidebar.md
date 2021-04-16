@@ -17,4 +17,4 @@
 - **Advanced**
 
   - [Configuration](advanced/configuration.md)
-  <!-- - [GDPR](advanced/gdpr.md) -->
+  - [GDPR](advanced/gdpr.md)

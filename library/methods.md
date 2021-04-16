@@ -1,9 +1,9 @@
 # Available methods
 
-Caast Library expose some methods to allow you to perform operations on your site. Those methods are described here. We assume that you are implementing those methods after Caast Library emitted the `caast.onReady` event on the DOM.
+Caast Library expose some methods to allow you to perform operations on your site. Those methods are described here. We assume that you are implementing those methods after Caast Library emitted the `caast.onLoaded` event on the DOM.
 
 ```javascript
-document.addEventListener("caast.onReady", function (e) {
+document.addEventListener('caast.onLoaded', function (e) {
   // Start adding methods here, calling the caast instance
 });
 ```
@@ -22,9 +22,33 @@ You may want to add additionnal informations to your Caast Library user object, 
 
 ```javascript
 caast.setUser({
-  email: "d.copperfield@abracadabra.io",
-  first_name: "David",
-  last_name: "Copperfield",
+  email: 'd.copperfield@abracadabra.io',
+  first_name: 'David',
+  last_name: 'Copperfield',
+});
+```
+
+## cookiesAccepted
+
+In order to be compliant with [GDPR](advanced/gdpr.md) restrictions, you may want to ask consent from your user before Caast place a cookie on your website. Once a user has accepted your Cookies policies, you just have to call `caast.cookiesAccepted` in order to allow Caast to place a cookie, you can find more details about it [here](advanced/gdpr.md#cookie).
+
+The `caast.cookiesAccepted` method return a promise.
+
+```javascript
+caast.cookiesAccepted().then(function () {
+  console.log('Caast just place a cookie on your website !');
+});
+```
+
+## cookiesRejected
+
+In order to be compliant with [GDPR](advanced/gdpr.md) restrictions, you may want to be able to update Caast behaviour if cookie deposit is now revoked. Once a user has updated your Cookies policies, you just have to call `caast.cookiesRejected` in order to tell Caast to remove the inplace cookie and prevent further cookie deposit until user preference has changed. You can find more details about it [here](advanced/gdpr.md#cookie).
+
+The `caast.cookiesRejected` method return a promise.
+
+```javascript
+caast.cookiesRejected().then(function () {
+  console.log('Caast has deleted its cookie on your website !');
 });
 ```
 
@@ -38,20 +62,20 @@ The Caast `on` method receive two parameters, the first one is a `string` referi
 
 ```javascript
 // Basic - Listen to events when a user submit a message in chat
-caast.on("onMessageSubmit", function (data) {
-  console.log("your custom function receiving data", data);
+caast.on('onMessageSubmit', function (data) {
+  console.log('your custom function receiving data', data);
 });
 
 // Advanced - Listen to events when a user submit a message in chat but check if promise is resolved or rejected.
 caast
-  .on("onMessageSubmit", function (data) {
-    console.log("your custom function receiving data", data);
+  .on('onMessageSubmit', function (data) {
+    console.log('your custom function receiving data', data);
   })
   .then(function (response) {
-    console.log("onMessageSubmit::subscribed", response);
+    console.log('onMessageSubmit::subscribed', response);
   })
   .catch(function (error) {
-    console.log("onMessageSubmit::error", error);
+    console.log('onMessageSubmit::error', error);
   });
 ```
 
@@ -61,5 +85,5 @@ To stop listening to an event, simply call the `caast.off` method on one of the 
 
 ```javascript
 // Stop listening to events when a user submit a message in chat
-caast.off("onMessageSubmit");
+caast.off('onMessageSubmit');
 ```

@@ -22,7 +22,7 @@ When Caast firstly store the cookie, we will send some non-sensible informations
 
 > Note that those datas will only be sent one time and be associated with this user uniq id in our database. We won't be able to cross user informations between websites as the uniqueness is generated per site.
 
-Once Caast is initialized, it will start gathering informations based on several events. All those events can be found [here](library/events.md)
+Once Caast is initialized, it will start gathering informations based on several events. All those events can be found [here](library/events.md).
 
 You can choose to send custom informations about your user ([how to send custom data](library/methods.md?id=setUser)), but what you are sending is under your responsability. By default Caast is not able to identify and cross data between our informations and your users's database.
 

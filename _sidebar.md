@@ -18,3 +18,5 @@
 
   - [Configuration](advanced/configuration.md)
   - [GDPR](advanced/gdpr.md)
+  - [Cookies](advanced/cookies.md)
+  - [CSP](advanced/csp.md)

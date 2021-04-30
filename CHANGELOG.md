@@ -1,3 +1,17 @@
+#### Version 2.2.0
+
+- (feature): split initial Caast script in order to reduce our impact on website
+- (feature): ability to remove cookies from differents video providers
+- (feature): more add to cart options
+- (feature): ability to choose a default displayed tab on Caast Widget Modal
+- (fix): random issue with muted video on ios
+- (fix): empty tab on live without chat/questions
+
+#### Version 2.1.0
+
+- (fix): minor feedbacks and bug issues after 2.0.0 release
+- (feature): advanced cookies methods available for GDPR compliance ([documentation](/advanced/cookies.md))
+
 #### Version 2.0.0 ⭐️🍾🎉
 
 - (feature): complete rewrite of the Caast Widget Modal UI/UX after a long period of exchanges and co-creation with our customers. Enjoy a new unified interface shared between desktop and mobile.

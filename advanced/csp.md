@@ -16,3 +16,34 @@ connect-src https://caast.tv https://*.caast.tv wss://*.caast.tv;
 child-src https://caast.tv https://*.caast.tv;
 frame-src https://caast.tv https://*.caast.tv;
 ```
+
+### Vimeo
+
+Caast can also rely on vimeo to distribute lives and replays, Vimeo use the following domains:
+
+- https://vimeo.com
+- https://\*.vimeo.com
+- https://vimeocdn.com
+
+If you are usin Content-Security-Policy you may want to add the following rules in order to allow Caast to properly work:
+
+```
+img-src https://i.vimeocdn.com https://*.vimeocdn.com;
+frame-src https://vimeo.com  https://*.vimeo.com https://vimeocdn.com;
+```
+
+### Youtube
+
+Caast can also rely on Youtube to distribute lives and replays, Youtube use the following domains:
+
+- https://i.ytimg.com
+- https://www.youtube-nocookie.com
+- https://www.youtube.com
+- https://\*.youtube.com
+
+If you are usin Content-Security-Policy you may want to add the following rules in order to allow Caast to properly work:
+
+```
+img-src https://i.ytimg.com;
+frame-src https://www.youtube-nocookie.com https://www.youtube.com https://*.youtube.com;
+```

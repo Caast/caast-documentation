@@ -1,3 +1,14 @@
+#### Version 2.3.0
+
+- (feature): global loading ability. You can load Caast globally on a high traffic website without impacting your website performance.
+- (feature): add trailer to your lives, this trailer will then be disabled 15 minutes before your lives start
+- (feature): add autodisable for premoderation, like the trailer the premoderation will be disabled 15 minutes before your lives start
+- (feature): update UI for product detailed view
+- (feature): add dynamic entry to custom headers for cart data
+- (fix): whitelist parameters is now in strict mode
+- (fix): fix an issue with autostart on youtube lives
+- (fix): migrate emitter to xhr instead of websockets, also reduce collected data
+
 #### Version 2.2.0
 
 - (feature): split initial Caast script in order to reduce our impact on website

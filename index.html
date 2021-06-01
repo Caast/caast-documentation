@@ -13,6 +13,7 @@
     />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.min.css" />
     <style>
       :root {
         --theme-color: #ec1bf3;
@@ -29,32 +30,32 @@
     <div id="app"></div>
     <script>
       window.$docsify = {
-        name: "Caast Library",
-        logo: "_media/logo-text.png",
-        repo: "https://github.com/PotionSocial/caast-documentation",
+        name: 'Caast Library',
+        logo: '_media/logo-text.png',
+        repo: 'https://github.com/PotionSocial/caast-documentation',
         loadSidebar: true,
         auto2top: true,
         alias: {
-          "/.*/_sidebar.md": "/_sidebar.md",
+          '/.*/_sidebar.md': '/_sidebar.md',
         },
         maxLevel: 4,
         subMaxLevel: 3,
-        ga: "UA-179194606-1",
+        ga: 'UA-179194606-1',
         plugins: [
           function (hook, vm) {
             hook.beforeEach(function (content) {
-              var newContent = content.replace(new RegExp("/_media", "ig"), "../_media");
+              var newContent = content.replace(new RegExp('/_media', 'ig'), '../_media');
               var hash = window.location.hash;
-              if (hash && hash.indexOf("onboarding") > -1) {
-                if (hash.indexOf("?")) {
-                  var parameters = hash.split("?");
+              if (hash && hash.indexOf('onboarding') > -1) {
+                if (hash.indexOf('?')) {
+                  var parameters = hash.split('?');
                   var raw = parameters[1];
-                  var data = raw.split("&");
+                  var data = raw.split('&');
                   for (let index = 0; index < data.length; index++) {
                     var key = data[index];
-                    var key_splitted = key.split("=");
-                    var replace = "{{" + key_splitted[0].toUpperCase() + "}}";
-                    var regex = new RegExp(replace, "g");
+                    var key_splitted = key.split('=');
+                    var replace = '{{' + key_splitted[0].toUpperCase() + '}}';
+                    var regex = new RegExp(replace, 'g');
                     newContent = newContent.replace(regex, decodeURI(key_splitted[1]));
                   }
                 }
@@ -64,15 +65,27 @@
           },
         ],
         copyCode: {
-          buttonText: "Copy to clipboard",
-          errorText: "Error",
-          successText: "Copied",
+          buttonText: 'Copy to clipboard',
+          errorText: 'Error',
+          successText: 'Copied',
         },
       };
+
+      document.addEventListener('copy', function (event) {
+        var content = document.getSelection().toString();
+        if (content.indexOf("caastEmitter('track'") > -1) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Reminder',
+            text: 'The copied snippet needs to be modified to take into account the dynamic data resulting from your purchase process.',
+          });
+        }
+      });
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
     <script src="https://unpkg.com/docsify-copy-code"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/components/prism-json.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

@@ -11,6 +11,24 @@ document.addEventListener('caast.onLoaded', function (e) {
 });
 ```
 
+## All events
+
+This event is emitted when any other event is triggered. It returns an object containing two attributes: type (with the received event name) and data (with the event data).
+
+```javascript
+caast
+  .on('all', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('all::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('all::error', error);
+  });
+```
+
+
 ## onSetUser
 
 This event is emitted when the [`setUser`](library/methods.md#setUser) method is triggered.

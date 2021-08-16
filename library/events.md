@@ -11,6 +11,24 @@ document.addEventListener('caast.onLoaded', function (e) {
 });
 ```
 
+## All events
+
+This event is emitted when any other event is triggered. It returns an object containing two attributes: type (with the received event name) and data (with the event data).
+
+```javascript
+caast
+  .on('all', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('all::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('all::error', error);
+  });
+```
+
+
 ## onSetUser
 
 This event is emitted when the [`setUser`](library/methods.md#setUser) method is triggered.
@@ -181,6 +199,40 @@ caast
   });
 ```
 
+## onProductDetailsClick
+
+This event is emitted when an user click to see product's details. Please refer to [product_id](library/data.md#product_id) for additional returned data.
+
+```javascript
+caast
+  .on('onProductDetailsClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onProductDetailsClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onProductDetailsClick::error', error);
+  });
+```
+
+## onLiveTabClick
+
+This event is emitted when a user switch tab inside the caast modal. It returns a "tab" attribute with the tab name. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+
+```javascript
+caast
+  .on('onLiveTabClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onLiveTabClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onLiveTabClick::error', error);
+  });
+```
+
 ## onRelatedClick
 
 This event is emitted when a user click on a related replay video. Please refer to [live_id](library/data.md#live_id) for additional returned data.
@@ -280,5 +332,124 @@ caast
   })
   .catch(function (error) {
     console.log('onModalClose::error', error);
+  });
+```
+
+## onReminderClick
+
+This event is emitted when the user click on the reminder button. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+
+```javascript
+caast
+  .on('onReminderClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onReminderClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onReminderClick::error', error);
+  });
+```
+
+## onPhoneReminderClick
+
+This event is emitted once the user is inside the reminder dropdown and click on the phone reminder option. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+
+```javascript
+caast
+  .on('onPhoneReminderClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onPhoneReminderClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onPhoneReminderClick::error', error);
+  });
+```
+
+## onPhoneReminderSubmitted
+
+This event is emitted when the user successfully send his phone number to get a reminder when the live will starts. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+
+```javascript
+caast
+  .on('onPhoneReminderSubmitted', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onPhoneReminderSubmitted::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onPhoneReminderSubmitted::error', error);
+  });
+```
+
+## onGoogleCalendarClick
+
+This event is emitted once the user is inside the reminder dropdown and click on the Google Calendar option. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+
+```javascript
+caast
+  .on('onGoogleCalendarClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onGoogleCalendarClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onGoogleCalendarClick::error', error);
+  });
+```
+
+## onOutlookCalendarClick
+
+This event is emitted once the user is inside the reminder dropdown and click on the Outlook calendar option. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+
+```javascript
+caast
+  .on('onOutlookCalendarClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onOutlookCalendarClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onOutlookCalendarClick::error', error);
+  });
+```
+
+## onAppleCalendarClick
+
+This event is emitted once the user is inside the reminder dropdown and click on the Apple calendar option. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+
+```javascript
+caast
+  .on('onAppleCalendarClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onAppleCalendarClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onAppleCalendarClick::error', error);
+  });
+```
+
+## onYahooCalendarClick
+
+This event is emitted once the user is inside the reminder dropdown and click on the Yahoo calendar option. Please refer to [live_id](library/data.md#live_id) for additional returned data.
+
+```javascript
+caast
+  .on('onYahooCalendarClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onYahooCalendarClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onYahooCalendarClick::error', error);
   });
 ```

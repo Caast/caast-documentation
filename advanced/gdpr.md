@@ -27,3 +27,7 @@ Once Caast is initialized, it will start gathering informations based on several
 You can choose to send custom informations about your user ([how to send custom data](library/methods.md?id=setUser)), but what you are sending is under your responsability. By default Caast is not able to identify and cross data between our informations and your users's database.
 
 If you want to keep your own data on your side but want to retrieve and cross data from Caast, we offer a lots of [emitted events](library/events.md) allowing you to store data on your side wherever and whenever you want.
+
+## Advanced data collection
+
+When using [caastEmitter](emitter/README.md), Caast collects and stores data from your payment tunnel. All data collected is set by your IT department and Caast cannot be held responsible for the storage of private data as you are in charge of what is sent to our server. The data collected is kept 365 days

@@ -350,10 +350,21 @@ When listening to an event using [onLivePlay](library/events.md#onLivePlay) or [
 
 ## live_id
 
-When listening to an event using [onLivePlay](library/events.md#onLivePlay), [onLivePause](library/events.md#onLivePause), [onLiveSubscription](library/events.md#onLiveSubscription), [onRelatedClick](library/events.md#onRelatedClick) or [onModalTrigger](library/events.md#onModalTrigger) method, you will receive additional information regarding the current live id.
+When listening to an event using [onLivePlay](library/events.md#onLivePlay), [onLivePause](library/events.md#onLivePause), [onLiveSubscription](library/events.md#onLiveSubscription), [onRelatedClick](library/events.md#onRelatedClick),[onModalTrigger](library/events.md#onModalTrigger),[onModalShow](library/events.md#onModalShow) or [onModalClose](library/events.md#onModalClose) method, you will receive additional information regarding the current live id.
 
 ```json
 "live_id": "f20aa128931a449b9478f5fb69e07c3b"
+```
+
+## currentLive
+
+When listening to an event using [onLivePlay](library/events.md#onLivePlay), [onLivePause](library/events.md#onLivePause), [onLiveSubscription](library/events.md#onLiveSubscription), [onRelatedClick](library/events.md#onRelatedClick), [onModalTrigger](library/events.md#onModalTrigger),[onModalShow](library/events.md#onModalShow) or [onModalClose](library/events.md#onModalClose) method, you will receive additional information regarding the current live.
+
+```json
+"currentLive": {
+  "attributes": ...,
+  "id": "f20aa128931a449b9478f5fb69e07c3b"
+}
 ```
 
 ## question_id

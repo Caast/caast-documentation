@@ -30,4 +30,4 @@ If you want to keep your own data on your side but want to retrieve and cross da
 
 ## Advanced data collection
 
-When using [caastEmitter](emitter/README.md), Caast collects and stores data from your payment tunnel. All data collected is set by your IT department and Caast cannot be held responsible for the storage of private data as you are in charge of what is sent to our server. The data collected is kept 365 days
+When using [caastEmitter](emitter/README.md), Caast collects and stores data from your payment tunnel. All data collected is set by your IT department and Caast cannot be held responsible for the storage of private data as you are in charge of what is sent to our server. The collected data is kept 365 days. Caast is not able to cross data from your users database.

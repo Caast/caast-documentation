@@ -8,7 +8,24 @@ document.addEventListener('caast.onLoaded', function (e) {
 });
 ```
 
-## infos
+Note that this event can be emitted twice, Caast library will previously check if something has to be displayed on a page. If nothing is configurated to be displayed, you wont receive ddata from Caast and Caast will not trigger this event two times. On the other hand, if Caast is configurated to send data to a specific page, Caast library will load the main library in order to display lives. Once this is done you will receive this event a second time. To be sure to distinguish thoses events, you can check if the response contain `preload: true`, an example is shown below.
+
+```javascript
+document.addEventListener('caast.onLoaded', function (e) {
+  // Start adding methods here, calling the caast instance
+  if (e.details.preload) {
+    // You cannot call methods labeled with [main library only]
+    console.log('Caast preload script');
+  } else {
+    // You can call any method
+    console.log('Caast main script');
+  }
+});
+```
+
+?> In order to be as light as possible, the preload script does not contain some functions, those functions are labeled with the **[main library only]** attribute.
+
+## infos _[main library only]_
 
 Caast expose a rather useful method in order to easily check, wich version of Caast Library you are running on. Run it and you will receive an object indicating the version you are running but also the actual environnement.
 
@@ -16,7 +33,7 @@ Caast expose a rather useful method in order to easily check, wich version of Ca
 caast.infos();
 ```
 
-## setUser
+## setUser _[main library only]_
 
 You may want to add additionnal informations to your Caast Library user object, it can be useful when interacting with Caast statistics to identify your own user database. To implement custom data the `caast.setUser` method is available on the Caast instance. Adding informations will alter the `user` data on returned informations. To see what data looks like, please refer to [user](library/data.md#user) data informations.
 
@@ -26,6 +43,22 @@ caast.setUser({
   first_name: 'David',
   last_name: 'Copperfield',
 });
+```
+
+## reboot _[main library only]_
+
+Caast expose a reboot method in order easily rebuild Caast if you need it.
+
+```javascript
+caast.reboot();
+```
+
+## kill _[main library only]_
+
+Caast expose a kill method in order easily kill Caast if you need it. Note that this method will totally remove Caast from the DOM and the window object, so you will need to load the library again if this function is executed.
+
+```javascript
+caast.kill();
 ```
 
 ## cookiesAccepted

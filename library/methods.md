@@ -171,4 +171,4 @@ Once your HTML is ready, you just need to [call the caast library](/library/READ
 
 You can see a demo here to better understand how this function work.
 
-[Open codesandbox](https://codesandbox.io/s/caast-parse-example-9dp9b?file=/public/index.html)
+[Open codesandbox](https://codesandbox.io/s/caast-parse-example-docr0?file=/index.html)

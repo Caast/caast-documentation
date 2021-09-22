@@ -13,7 +13,7 @@ Note that this event can be emitted twice, Caast library will previously check i
 ```javascript
 document.addEventListener('caast.onLoaded', function (e) {
   // Start adding methods here, calling the caast instance
-  if (e.details.preload) {
+  if (e.detail.preload) {
     // You cannot call methods labeled with [main library only]
     console.log('Caast preload script');
   } else {

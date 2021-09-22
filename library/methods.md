@@ -131,14 +131,42 @@ caast.open('f20aa128931a449b9478f5fb69e07c3b');
 
 ## parse
 
-Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a bunch of lives but also want to trigger the Caast modal on click. Rather than adding `caast.open` on each of your element, you can call the parse function which will toggle Caast on specific elements.
+Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a bunch of lives but also want to trigger the Caast modal on click. Rather than adding `caast.open` on each of your element, you can call the parse function which will toggle Caast on specifics elements.
 
 This function will seek elements containing the `[data-caast-open]` attribute, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger.
 
+?> To retrieve a live UID, simply go to your Caast adminsitration interface, edit the desired live, and copy the uid available in the URL ![Caast live UID](/_media/url-live-uid.png)
+
+If you element is clicked Caast will add the `[data-caast-loading]=true` attribute while the modal content is loading, it can allow you to display a visual feedback while the content is being fetched.
+
 Once your HTML is ready, you just need to [call the caast library](/library/README.md) and call the `caast.parse()` function once Caast is available.
 
-```javascript
-caast.parse();
+```html
+<!-- We assume that you have already included Caast -->
+
+<div class="my-product">
+  <strong>Product 1</strong>
+  <button data-caast-open data-caast-id="f20aa128931a449b9478f5fb69e07c3b">
+    View the live !
+  </button>
+</div>
+
+<div class="my-product">
+  <strong>Product 2</strong>
+</div>
+
+<div class="my-product">
+  <strong>Product 3</strong>
+  <button data-caast-open data-caast-id="c8542679eb3344aa83e1f39d1477d3f5">
+    View the live !
+  </button>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener('caast.onLoaded', function (e) {
+    caast.parse();
+  });
+<script>
 ```
 
 You can see a demo here to better understand how this function work.

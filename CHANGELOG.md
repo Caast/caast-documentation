@@ -1,3 +1,16 @@
+#### Version 2.3.9
+
+- (feature): add two new methods on caast instance, [caast.open](/library/methods?id=open) and [caast.parse](/library/methods?id=parse)
+- (feature): reduce caast initial bundle size
+- (feature): optimize iteration on landing sections
+- (feature): optimize landing API response time
+- (feature): implement better debug mode options
+- (fix): better implementation of time consumption with the differents players
+- (fix): reminder button was causing random page refresh
+- (fix): cookies functions were badly intercepting available configuration of caast
+- (fix): update outlook and macOS calendar generated files
+- (fix): random behaviour for autoplay on landing page
+
 #### Version 2.3.0
 
 - (feature): global loading ability. You can load Caast globally on a high traffic website without impacting your website performance.

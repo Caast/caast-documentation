@@ -87,3 +87,27 @@ To stop listening to an event, simply call the `caast.off` method on one of the 
 // Stop listening to events when a user submit a message in chat
 caast.off('onMessageSubmit');
 ```
+
+## open
+
+You may want to manually trigger the modal for a live which may not be loaded on the current page. This function allow you to pass a live `uid` as a parameter and will then open the Caast modal.
+
+```javascript
+caast.open('f20aa128931a449b9478f5fb69e07c3b');
+```
+
+## parse
+
+Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a bunch of lives but also want to trigger the Caast modal on click. Rather than adding `caast.open` on each of your element, you can call the parse function which will toggle Caast on specific elements.
+
+This function will seek elements containing the `[data-caast-open]` attribute, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger.
+
+Once your HTML is ready, you just need to [call the caast library](/library/README.md) and call the `caast.parse()` function once Caast is available.
+
+```javascript
+caast.parse();
+```
+
+You can see a demo here to better understand how this function work.
+
+[Open codesandbox](https://codesandbox.io/s/caast-parse-example-9dp9b?file=/public/index.html)

@@ -1,3 +1,10 @@
+#### Version 2.4.0
+
+- (feature): update methods to open caast Modal via url parameters, this methods is now also available on the landing pages. You can read the [documentation](/advanced/configuration?id=trigger-library-with-url-hash)
+- (feature): performance improvement for the landing page.
+- (feature): improve performance for products search in database
+- (feature): add a waiting screen while vimeo is encoding the replay of a live
+
 #### Version 2.3.9
 
 - (feature): add two new methods on caast instance, [caast.open](/library/methods?id=open) and [caast.parse](/library/methods?id=parse)
@@ -5,6 +12,7 @@
 - (feature): optimize iteration on landing sections
 - (feature): optimize landing API response time
 - (feature): implement better debug mode options
+- (feature): add ability to add parameters to trigger specific actions on player via url view ([documentation](/advanced/cookies.md))
 - (fix): better implementation of time consumption with the differents players
 - (fix): reminder button was causing random page refresh
 - (fix): cookies functions were badly intercepting available configuration of caast

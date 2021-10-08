@@ -28,7 +28,6 @@ caast
   });
 ```
 
-
 ## onSetUser
 
 This event is emitted when the [`setUser`](library/methods.md#setUser) method is triggered.
@@ -281,6 +280,23 @@ caast
   })
   .catch(function (error) {
     console.log('onBasketAdd::error', error);
+  });
+```
+
+## onProductOpen
+
+This event is emitted when a user click on the button to go to the product page. Please refer to [live_id](library/data.md#live_id), [product_id](library/data.md#product_id) and [product_ref](library/data.md#product_ref) for additional returned data.
+
+```javascript
+caast
+  .on('onProductOpen', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onProductOpen::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onProductOpen::error', error);
   });
 ```
 

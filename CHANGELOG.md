@@ -1,3 +1,13 @@
+#### Version 2.4.3
+
+- (feature): add fallback function after initial canLoadCaast internal behaviour. If no live is available for the current page, Caast will look in DOM for [data-caast-embed] and [data-caast-open] attributes. If nodes are found, caast will execute related methods [caast.parse](/library/methods?id=parse) / [caast.embed](/library/methods?id=embed).
+- (feature): add new option for add to cart function in order to allow javascript interpretaion in order to be able to compute checkout url
+- (feature): implement base features for caast displayed in iframe
+- (feature): performance imporvements on live listing
+- (fix): on onepage website caast was calling a function twice on url change.
+- (fix): on landing page, triggering the caast modal on the highlight was causing a gray placeholder instead of keeping the video
+- (fix): sometimes a hidden live was impossible to load due to our canLoadCaast internal methods
+
 #### Version 2.4.0
 
 - (feature): update methods to open caast Modal via url parameters, this methods is now also available on the landing pages. You can read the [documentation](/advanced/configuration?id=trigger-library-with-url-hash)

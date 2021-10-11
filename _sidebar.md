@@ -17,6 +17,8 @@
 - **Advanced**
 
   - [Configuration](advanced/configuration.md)
+  - [Find a live UID](advanced/find-live-uid.md)
+  - [Find a question UID](advanced/find-question-uid.md)
   - [GDPR](advanced/gdpr.md)
   - [Cookies](advanced/cookies.md)
   - [CSP](advanced/csp.md)

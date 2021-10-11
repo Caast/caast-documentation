@@ -131,13 +131,15 @@ caast.open('f20aa128931a449b9478f5fb69e07c3b');
 
 ## parse
 
+<span style="color: #fff"><i>This method is part of the initial loading of Caast</i></span>
+
 Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a bunch of lives but also want to trigger the Caast modal on click. Rather than adding `caast.open` on each of your element, you can call the parse function which will toggle Caast on specifics elements.
 
 This function will seek elements containing the `[data-caast-open]` attribute, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger.
 
 ?> To retrieve a live UID, simply go to your Caast adminsitration interface, edit the desired live, and copy the uid available in the URL ![Caast live UID](/_media/url-live-uid.png)
 
-If you element is clicked Caast will add the `[data-caast-loading]=true` attribute while the modal content is loading, it can allow you to display a visual feedback while the content is being fetched.
+If your element is clicked Caast will add the `[data-caast-loading]=true` attribute while the modal content is loading, it can allow you to display a visual feedback while the content is being fetched.
 
 Once your HTML is ready, you just need to [call the caast library](/library/README.md) and call the `caast.parse()` function once Caast is available.
 
@@ -172,3 +174,36 @@ Once your HTML is ready, you just need to [call the caast library](/library/READ
 You can see a demo here to better understand how this function work.
 
 [Open codesandbox](https://codesandbox.io/s/caast-parse-example-docr0?file=/index.html)
+
+## embed
+
+<span style="color: #fff"><i>This method is part of the initial loading of Caast</i></span>
+
+Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a preview card but also want to trigger the Caast modal on click. A bit like a youtube embed.
+
+This function will seek elements containing the `[data-caast-embed]` attribute in the DOM, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger.
+
+?> To retrieve a live UID, simply go to your Caast adminsitration interface, edit the desired live, and copy the uid available in the URL ![Caast live UID](/_media/url-live-uid.png)
+
+If your element is clicked Caast will add the `[data-caast-loading]=true` attribute while the modal content is loading, it can allow you to display a visual feedback while the content is being fetched.
+
+Once your HTML is ready, you just need to [call the caast library](/library/README.md) and call the `caast.embed()` function once Caast is available.
+
+```html
+<!-- We assume that you have already included Caast -->
+
+<div class="my-blog-template">
+  <h1>My blog title</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie, arcu in semper suscipit, orci nunc convallis velit, non mattis diam diam ut arcu. Nulla facilisi. Aliquam erat volutpat. Sed tincidunt magna nulla, a malesuada urna faucibus eu. Aenean et faucibus purus. Quisque quis lectus tincidunt, dictum velit nec, imperdiet neque. Sed ut imperdiet purus. Proin consequat sem nec lectus placerat facilisis. Vivamus facilisis urna id purus lacinia, vitae consectetur enim rutrum. Ut eget felis ut ipsum imperdiet convallis et vitae eros. Vivamus mattis nunc vel lectus pharetra varius. Morbi tincidunt sem leo, ut rhoncus magna tincidunt ac. Duis semper, eros non facilisis fringilla, justo elit consectetur ante, ut rutrum risus dolor cursus orci. Aliquam ultricies tempus lorem ac semper. Etiam dictum odio turpis, ut iaculis leo bibendum nec.</p>
+
+  <div data-caast-embed data-caast-id="c8542679eb3344aa83e1f39d1477d3f5"></div>
+
+  <p>Nam et mollis nulla, vel viverra risus. Vestibulum justo tortor, tempus eu bibendum vel, molestie id elit. Quisque aliquam mi ut tellus laoreet, nec fermentum velit luctus. Suspendisse non massa libero. Donec interdum ornare ipsum, vitae laoreet orci rutrum eget. Donec aliquet tellus vel massa pulvinar scelerisque vitae et libero. Integer vel sapien luctus, suscipit massa a, cursus nisi. Nullam quis tellus quis enim convallis vestibulum ac quis tellus. Nam scelerisque vulputate cursus. Suspendisse gravida enim sagittis, tincidunt nisl in, interdum quam. Ut diam nibh, ultricies fermentum eros sit amet, tincidunt porttitor sapien. Ut consectetur lacus sed malesuada pretium.</p>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener('caast.onLoaded', function (e) {
+    caast.embed();
+  });
+<script>
+```

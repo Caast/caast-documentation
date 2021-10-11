@@ -55,10 +55,6 @@ In order to trigger specific actions, you must pass some required data. You can 
 
 So let's say you add `#caast-open` to your URL, resulting with an URL like this one `https://mywebsite.com/product/my-product#caast-open/f20aa128931a449b9478f5fb69e07c3b`, and the Caast Library Modal will magically open.
 
-## How to find my Live UID
+[How to find my live UID ?](advanced/find-live-uid.md)
 
-?> To retrieve a live UID, simply go to your Caast administration interface, edit the desired live, and copy the uid available in the URL ![Caast live UID](/_media/url-live-uid.png)
-
-## How to find my Question UID
-
-?> To retrieve a question UID, simply go to your Caast administration interface, edit the desired live, go to replay > questions and copy the uid via this button ![Caast live UID](/_media/copy-question-uid.png)
+[How to find my question UID ?](advanced/find-question-uid.md)

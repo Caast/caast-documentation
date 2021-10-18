@@ -215,6 +215,23 @@ caast
   });
 ```
 
+## onProductDetailsShow
+
+This event is emitted after the product's details is displayed inside Caastw. Please refer to [product_id](library/data.md#product_id), [product_ref](library/data.md#product_ref) and [product_detailed](library/data.md#product_detailed) for additional returned data.
+
+```javascript
+caast
+  .on('onProductDetailsClick', function (data) {
+    console.log('your custom function receiving data', data);
+  })
+  .then(function (response) {
+    console.log('onProductDetailsClick::subscribed', response);
+  })
+  .catch(function (error) {
+    console.log('onProductDetailsClick::error', error);
+  });
+```
+
 ## onLiveTabClick
 
 This event is emitted when a user switch tab inside the caast modal. It returns a "tab" attribute with the tab name. Please refer to [live_id](library/data.md#live_id) for additional returned data.
@@ -268,7 +285,7 @@ caast
 
 ## onBasketAdd
 
-This event is emitted when a user add an item to cart, this event can be emitted by a custom selector on the webpage add to cart button or via the Caast Widget direct add to cart action. This event won't be emitted if the target DOM element or the direct add to cart action is not set in the app configuration. Please refer to [live_id](library/data.md#live_id), [product_id](library/data.md#product_id), [product_ref](library/data.md#product_ref) and [from_caast](library/data.md#from_caast) for additional returned data.
+This event is emitted when a user add an item to cart, this event can be emitted by a custom selector on the webpage add to cart button or via the Caast Widget direct add to cart action. This event won't be emitted if the target DOM element or the direct add to cart action is not set in the app configuration. Please refer to [live_id](library/data.md#live_id), [product_id](library/data.md#product_id), [product_ref](library/data.md#product_ref), [product_detailed](library/data.md#product_detailed) and [from_caast](library/data.md#from_caast) for additional returned data.
 
 ```javascript
 caast
@@ -285,7 +302,7 @@ caast
 
 ## onProductOpen
 
-This event is emitted when a user click on the button to go to the product page. Please refer to [live_id](library/data.md#live_id), [product_id](library/data.md#product_id) and [product_ref](library/data.md#product_ref) for additional returned data.
+This event is emitted when a user click on the button to go to the product page. Please refer to [live_id](library/data.md#live_id), [product_id](library/data.md#product_id), [product_ref](library/data.md#product_ref) and [product_detailed](library/data.md#product_detailed) for additional returned data.
 
 ```javascript
 caast

@@ -391,6 +391,16 @@ When listening to an event using [onProductClick](library/events.md#onProductCli
 "product_ref": "128627"
 ```
 
+## product_detailed
+
+When listening to an event using [onProductDetailsClick](library/events.md#onProductDetailsClick), [onProductDetailsShow](library/events.md#onProductDetailsShow), [onProductOpen](library/events.md#onProductOpen) or [onBasketAdd](library/events.md#onBasketAdd) method, you will receive additional informations regarding the product details. This information regroup all the product available variations and properties, contrary to the `currentProductDetails` which contain the current matching variation for the selected product.
+
+```json
+"product_detailed": {
+  ...
+}
+```
+
 ## message
 
 When listening to an event using [onMessageSubmit](library/events.md#onMessageSubmit) method, you will receive additional informations regarding the submitted message.

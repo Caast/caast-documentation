@@ -53,7 +53,7 @@ Caast expose a reboot method in order easily rebuild Caast if you need it.
 caast.reboot();
 ```
 
-## kill _[main library only]_
+## kill
 
 Caast expose a kill method in order easily kill Caast if you need it. Note that this method will totally remove Caast from the DOM and the window object, so you will need to load the library again if this function is executed.
 

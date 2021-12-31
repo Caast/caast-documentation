@@ -5,8 +5,8 @@ The Caast Library will also emit some custom events in order to implement some c
 Before listening to any event, please make sure the Caast Library is ready using this snippet. `e.detail` contain information regarding the current available configuration on your instance.
 
 ```javascript
-document.addEventListener('caast.onLoaded', function (e) {
-  console.log('caast.onLoadComplete', e.detail);
+document.addEventListener("caast.onLoaded", function (e) {
+  console.log("caast.onLoadComplete", e.detail);
   // here start subscribe to any events
 });
 ```
@@ -17,14 +17,14 @@ This event is emitted when any other event is triggered. It returns an object co
 
 ```javascript
 caast
-  .on('all', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("all", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('all::subscribed', response);
+    console.log("all::subscribed", response);
   })
   .catch(function (error) {
-    console.log('all::error', error);
+    console.log("all::error", error);
   });
 ```
 
@@ -34,14 +34,14 @@ This event is emitted when the [`setUser`](library/methods.md#setUser) method is
 
 ```javascript
 caast
-  .on('onSetUser', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onSetUser", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onSetUser::subscribed', response);
+    console.log("onSetUser::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onSetUser::error', error);
+    console.log("onSetUser::error", error);
   });
 ```
 
@@ -51,14 +51,14 @@ This event is emitted when the [`cookiesAccepted`](library/methods.md#cookiesAcc
 
 ```javascript
 caast
-  .on('onCookiesAccepted', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onCookiesAccepted", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onCookiesAccepted::subscribed', response);
+    console.log("onCookiesAccepted::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onCookiesAccepted::error', error);
+    console.log("onCookiesAccepted::error", error);
   });
 ```
 
@@ -68,14 +68,14 @@ This event is emitted when the [`cookiesRejected`](library/methods.md#cookiesRej
 
 ```javascript
 caast
-  .on('onCookiesRejected', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onCookiesRejected", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onCookiesRejected::subscribed', response);
+    console.log("onCookiesRejected::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onCookiesRejected::error', error);
+    console.log("onCookiesRejected::error", error);
   });
 ```
 
@@ -85,14 +85,14 @@ This event is emitted when a Single Page App change current url.
 
 ```javascript
 caast
-  .on('onRouteChange', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onRouteChange", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onRouteChange::subscribed', response);
+    console.log("onRouteChange::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onRouteChange::error', error);
+    console.log("onRouteChange::error", error);
   });
 ```
 
@@ -102,14 +102,14 @@ This event is emitted when a user has subscribed to a live in order to be notifi
 
 ```javascript
 caast
-  .on('onLiveSubscription', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onLiveSubscription", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onLiveSubscription::subscribed', response);
+    console.log("onLiveSubscription::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onLiveSubscription::error', error);
+    console.log("onLiveSubscription::error", error);
   });
 ```
 
@@ -119,14 +119,14 @@ This event is emitted when a user press play on the Caast Player. Please refer t
 
 ```javascript
 caast
-  .on('onLivePlay', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onLivePlay", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onLivePlay::subscribed', response);
+    console.log("onLivePlay::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onLivePlay::error', error);
+    console.log("onLivePlay::error", error);
   });
 ```
 
@@ -136,14 +136,14 @@ This event is emitted when a user press pause on the Caast Player. Please refer 
 
 ```javascript
 caast
-  .on('onLivePause', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onLivePause", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onLivePause::subscribed', response);
+    console.log("onLivePause::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onLivePause::error', error);
+    console.log("onLivePause::error", error);
   });
 ```
 
@@ -153,14 +153,14 @@ This event is emitted when a user has request a live on a product. Please refer 
 
 ```javascript
 caast
-  .on('onVoteForLive', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onVoteForLive", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onVoteForLive::subscribed', response);
+    console.log("onVoteForLive::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onVoteForLive::error', error);
+    console.log("onVoteForLive::error", error);
   });
 ```
 
@@ -170,14 +170,14 @@ This event is emitted when a user click on a question. Please refer to [question
 
 ```javascript
 caast
-  .on('onQuestionClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onQuestionClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onQuestionClick::subscribed', response);
+    console.log("onQuestionClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onQuestionClick::error', error);
+    console.log("onQuestionClick::error", error);
   });
 ```
 
@@ -187,14 +187,14 @@ This event is emitted when a user click on a product to jump to its presentation
 
 ```javascript
 caast
-  .on('onProductClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onProductClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onQuestionClick::subscribed', response);
+    console.log("onQuestionClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onQuestionClick::error', error);
+    console.log("onQuestionClick::error", error);
   });
 ```
 
@@ -204,14 +204,14 @@ This event is emitted when an user click to see product's details. Please refer 
 
 ```javascript
 caast
-  .on('onProductDetailsClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onProductDetailsClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onProductDetailsClick::subscribed', response);
+    console.log("onProductDetailsClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onProductDetailsClick::error', error);
+    console.log("onProductDetailsClick::error", error);
   });
 ```
 
@@ -221,14 +221,14 @@ This event is emitted after the product's details is displayed inside Caastw. Pl
 
 ```javascript
 caast
-  .on('onProductDetailsClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onProductDetailsClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onProductDetailsClick::subscribed', response);
+    console.log("onProductDetailsClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onProductDetailsClick::error', error);
+    console.log("onProductDetailsClick::error", error);
   });
 ```
 
@@ -238,14 +238,14 @@ This event is emitted when a user switch tab inside the caast modal. It returns 
 
 ```javascript
 caast
-  .on('onLiveTabClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onLiveTabClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onLiveTabClick::subscribed', response);
+    console.log("onLiveTabClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onLiveTabClick::error', error);
+    console.log("onLiveTabClick::error", error);
   });
 ```
 
@@ -255,14 +255,14 @@ This event is emitted when a user click on a related replay video. Please refer 
 
 ```javascript
 caast
-  .on('onRelatedClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onRelatedClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onRelatedClick::subscribed', response);
+    console.log("onRelatedClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onRelatedClick::error', error);
+    console.log("onRelatedClick::error", error);
   });
 ```
 
@@ -272,14 +272,14 @@ This event is emitted when a user submit a message in Caast Chat. Please refer t
 
 ```javascript
 caast
-  .on('onMessageSubmit', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onMessageSubmit", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onMessageSubmit::subscribed', response);
+    console.log("onMessageSubmit::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onMessageSubmit::error', error);
+    console.log("onMessageSubmit::error", error);
   });
 ```
 
@@ -289,14 +289,14 @@ This event is emitted when a user add an item to cart, this event can be emitted
 
 ```javascript
 caast
-  .on('onBasketAdd', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onBasketAdd", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onBasketAdd::subscribed', response);
+    console.log("onBasketAdd::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onBasketAdd::error', error);
+    console.log("onBasketAdd::error", error);
   });
 ```
 
@@ -306,14 +306,14 @@ This event is emitted when a user click on the button to go to the product page.
 
 ```javascript
 caast
-  .on('onProductOpen', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onProductOpen", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onProductOpen::subscribed', response);
+    console.log("onProductOpen::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onProductOpen::error', error);
+    console.log("onProductOpen::error", error);
   });
 ```
 
@@ -323,14 +323,14 @@ This event is emitted when a user click on the button to open the modal. Please 
 
 ```javascript
 caast
-  .on('onModalTrigger', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onModalTrigger", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onModalTrigger::subscribed', response);
+    console.log("onModalTrigger::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onModalTrigger::error', error);
+    console.log("onModalTrigger::error", error);
   });
 ```
 
@@ -340,14 +340,14 @@ This event is emitted when the live modal is opened. Please refer to [live_id](l
 
 ```javascript
 caast
-  .on('onModalShow', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onModalShow", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onModalShow::subscribed', response);
+    console.log("onModalShow::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onModalShow::error', error);
+    console.log("onModalShow::error", error);
   });
 ```
 
@@ -357,14 +357,14 @@ This event is emitted when the live modal is closed. Please refer to [live_id](l
 
 ```javascript
 caast
-  .on('onModalClose', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onModalClose", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onModalClose::subscribed', response);
+    console.log("onModalClose::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onModalClose::error', error);
+    console.log("onModalClose::error", error);
   });
 ```
 
@@ -374,14 +374,14 @@ This event is emitted when the user click on the reminder button. Please refer t
 
 ```javascript
 caast
-  .on('onReminderClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onReminderClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onReminderClick::subscribed', response);
+    console.log("onReminderClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onReminderClick::error', error);
+    console.log("onReminderClick::error", error);
   });
 ```
 
@@ -391,14 +391,14 @@ This event is emitted once the user is inside the reminder dropdown and click on
 
 ```javascript
 caast
-  .on('onPhoneReminderClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onPhoneReminderClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onPhoneReminderClick::subscribed', response);
+    console.log("onPhoneReminderClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onPhoneReminderClick::error', error);
+    console.log("onPhoneReminderClick::error", error);
   });
 ```
 
@@ -408,14 +408,14 @@ This event is emitted when the user successfully send his phone number to get a 
 
 ```javascript
 caast
-  .on('onPhoneReminderSubmitted', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onPhoneReminderSubmitted", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onPhoneReminderSubmitted::subscribed', response);
+    console.log("onPhoneReminderSubmitted::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onPhoneReminderSubmitted::error', error);
+    console.log("onPhoneReminderSubmitted::error", error);
   });
 ```
 
@@ -425,14 +425,14 @@ This event is emitted once the user is inside the reminder dropdown and click on
 
 ```javascript
 caast
-  .on('onGoogleCalendarClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onGoogleCalendarClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onGoogleCalendarClick::subscribed', response);
+    console.log("onGoogleCalendarClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onGoogleCalendarClick::error', error);
+    console.log("onGoogleCalendarClick::error", error);
   });
 ```
 
@@ -442,14 +442,14 @@ This event is emitted once the user is inside the reminder dropdown and click on
 
 ```javascript
 caast
-  .on('onOutlookCalendarClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onOutlookCalendarClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onOutlookCalendarClick::subscribed', response);
+    console.log("onOutlookCalendarClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onOutlookCalendarClick::error', error);
+    console.log("onOutlookCalendarClick::error", error);
   });
 ```
 
@@ -459,14 +459,14 @@ This event is emitted once the user is inside the reminder dropdown and click on
 
 ```javascript
 caast
-  .on('onAppleCalendarClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onAppleCalendarClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onAppleCalendarClick::subscribed', response);
+    console.log("onAppleCalendarClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onAppleCalendarClick::error', error);
+    console.log("onAppleCalendarClick::error", error);
   });
 ```
 
@@ -476,13 +476,30 @@ This event is emitted once the user is inside the reminder dropdown and click on
 
 ```javascript
 caast
-  .on('onYahooCalendarClick', function (data) {
-    console.log('your custom function receiving data', data);
+  .on("onYahooCalendarClick", function (data) {
+    console.log("your custom function receiving data", data);
   })
   .then(function (response) {
-    console.log('onYahooCalendarClick::subscribed', response);
+    console.log("onYahooCalendarClick::subscribed", response);
   })
   .catch(function (error) {
-    console.log('onYahooCalendarClick::error', error);
+    console.log("onYahooCalendarClick::error", error);
+  });
+```
+
+## onShare
+
+This event is emitted once the user share the live using one of caast UI element. Please refer to [share](library/data.md#sahre) for additional returned data.
+
+```javascript
+caast
+  .on("onShare", function (data) {
+    console.log("your custom function receiving data", data);
+  })
+  .then(function (response) {
+    console.log("onShare::subscribed", response);
+  })
+  .catch(function (error) {
+    console.log("onShare::error", error);
   });
 ```

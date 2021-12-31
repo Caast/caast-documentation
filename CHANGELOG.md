@@ -1,3 +1,22 @@
+#### Version 3.1.0
+
+- (feature): add the brand new picture in picture experience, allowing you to navigate on site while viewing your live
+- (feature): add the share component inside Caast Modal, allowing your users to easily share a live throught different platforms
+- (feature): allow granular product override in API even if a product is connected to a product feed
+- (feature): new double tap interaction on mobile device, allowing user to rewind or forward a replay
+- (fix): performance improvements
+- (fix): unexpected behaviour on ios devices
+
+#### Version 3.0.0 ⭐️🍾🎉
+
+- (feature): new UI and complete rewrite of the Caast Modal experience
+- (feature): add the new portrait mode for your lives
+- (feature): add the reaction interaction, allowing your users to visually interact by triggering emoji on screen
+- (feature): implement our new video provider
+- (feature): implement a new video player
+- (feature): better responsive performance and a completely new mobile experience
+- (feature): improve cache on API
+
 #### Version 2.4.3
 
 - (feature): add fallback function after initial canLoadCaast internal behaviour. If no live is available for the current page, Caast will look in DOM for [data-caast-embed] and [data-caast-open] attributes. If nodes are found, caast will execute related methods [caast.parse](/library/methods?id=parse) / [caast.embed](/library/methods?id=embed).

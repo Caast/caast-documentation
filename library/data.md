@@ -427,3 +427,16 @@ When listening to an event using [onProductClick](library/events.md#onProductCli
 ```json
 "from_caast": "true"
 ```
+
+## share
+
+When listening to an event using [onShare](library/events.md#onShare) method, you will receive additional informations regarding the context of the action.
+
+```json
+"share": {
+  "type": "mobile" | "url" | "facebook" | "twitter" | "linkedin" | "messenger" | "whatsapp",
+  "url": "https://..."
+}
+```
+
+The `mobile` type is emitted when the user is using the native share option only available on mobile devices. You cannot have further informations on what application the link is going to be shared on after this event is triggered.

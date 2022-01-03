@@ -25,7 +25,7 @@ To insert Caast on a page it is a **really simple** operation. This script can e
 
 You can find more information about [Caast library](library/README.md) or [Caast Landing](library/landing.md).
 
-?>If you want further informations about installing Caast Purchase Tracking, please click <a href="/#/onboarding/tracking.md?CUSTOMER={{CUSTOMER}}&APP_ID={{APP_ID}}&APP_KEY={{APP_KEY}}">here</a>
+?>If you want further informations about installing Caast Purchase Tracking, please click <a href="/#/onboarding/tracking?CUSTOMER={{CUSTOMER}}&APP_ID={{APP_ID}}&APP_KEY={{APP_KEY}}">here</a>
 
 #### That's all
 

@@ -19,22 +19,13 @@ To insert Caast on a page it is a **really simple** operation. This script can e
     J.src = s;
     J.id = 'caast_library';
     S.parentNode.insertBefore(J, S);
-  })(
-    window,
-    document,
-    'script',
-    'https://cdn.caast.tv/caast-latest/caast.js?APP_ID=' +
-      APP_ID +
-      '&APP_KEY=' +
-      APP_KEY,
-    'caast'
-  );
+  })(window, document, 'script', 'https://cdn.caast.tv/caast-latest/caast.js?APP_ID=' + APP_ID + '&APP_KEY=' + APP_KEY, 'caast');
 </script>
 ```
 
 You can find more information about [Caast library](library/README.md) or [Caast Landing](library/landing.md).
 
-?>If you want further informations about installing Caast Purchase Tracking, please click [here](onboarding/tracking.md?CUSTOMER={{CUSTOMER}}&APP_ID={{APP_ID}}&APP_KEY={{APP_KEY}})
+?>If you want further informations about installing Caast Purchase Tracking, please click <a href="/#/onboarding/tracking.md?CUSTOMER={{CUSTOMER}}&APP_ID={{APP_ID}}&APP_KEY={{APP_KEY}}">here</a>
 
 #### That's all
 

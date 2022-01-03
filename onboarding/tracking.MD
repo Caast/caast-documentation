@@ -23,13 +23,7 @@ With this simple snippet, Caast will be able to track your users orders, to esta
     j.src = s;
     j.async = 1;
     S.parentNode.insertBefore(j, S);
-  })(
-    window,
-    document,
-    'script',
-    'https://cdn.caast.tv/caast-latest/caastEmitter.js',
-    'caastEmitter'
-  );
+  })(window, document, 'script', 'https://cdn.caast.tv/caast-latest/caastEmitter.js', 'caastEmitter');
   caastEmitter('init', {
     'APP-ID': '{{APP_ID}}',
     'APP-KEY': '{{APP_KEY}}',

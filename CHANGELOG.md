@@ -1,3 +1,12 @@
+#### Version 3.2.0
+
+- (feature): caast now handle multiple product presentation
+- (feature): new UI and behaviour for on screen products
+- (feature): new moderation experience
+- (feature): improved API cache
+- (fix): refacto player integration in administration interfaces
+- (fix): better handle mobile interactions
+
 #### Version 3.1.0
 
 - (feature): add the brand new picture in picture experience, allowing you to navigate on site while viewing your live

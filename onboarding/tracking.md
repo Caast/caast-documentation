@@ -1,4 +1,4 @@
-# Hello {{CUSTOMER}}, welcome to Caast ! <!-- {docsify-ignore-all} -->
+# Caast Purchase Tracking <!-- {docsify-ignore-all} -->
 
 We are glad to start working with you 😃. In order to simplify your Caast implementation on your website, you will find here all the mandatory information in order to integrate Caast Tracking on your website.
 

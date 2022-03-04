@@ -114,7 +114,7 @@ caast
 
 ## off
 
-To stop listening to an event, simply call the `caast.off` method on one of the available [events](library/events.md). To implement it simply call the method when Caast is ready. It is best to assume you've start istening to an event before shutting it, but Caast Library will raise no error if you call `caast.off` on a non-listened event.
+To stop listening to an event, simply call the `caast.off` method on one of the available [events](library/events.md). To implement it simply call the method when Caast is ready. It is best to assume you've start listening to an event before shutting it, but Caast Library will raise no error if you call `caast.off` on a non-listened event.
 
 ```javascript
 // Stop listening to events when a user submit a message in chat
@@ -179,7 +179,7 @@ You can see a demo here to better understand how this function work.
 
 <span style="color: #fff"><i>This method is part of the initial loading of Caast</i></span>
 
-Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a preview card but also want to trigger the Caast modal on click. A bit like a youtube embed.
+Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a particular case where you want to render on your side the display of a preview card but also want to trigger the Caast modal on click. A bit like a youtube embed.
 
 This function will seek elements containing the `[data-caast-embed]` attribute in the DOM, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger.
 

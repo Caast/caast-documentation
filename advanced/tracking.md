@@ -76,7 +76,7 @@ var checkExist = setInterval(function () {
   if (typeof window.caast !== 'undefined') {
     if (typeof window.caastIsListening === 'undefined') {
       window.caast
-        .on('all', function (data) {
+        .on('all', function (response) {
           /**
            *  Caast event name
            * */
@@ -135,7 +135,7 @@ var checkExist = setInterval(function () {
   if (typeof window.caast !== 'undefined') {
     if (typeof window.caastIsListening === 'undefined') {
       window.caast
-        .on('all', function (data) {
+        .on('all', function (response) {
           /**
            *  Caast event name
            * */
@@ -277,7 +277,7 @@ var checkExist = setInterval(function () {
   if (typeof window.caast !== 'undefined') {
     if (typeof window.caastIsListening === 'undefined') {
       window.caast
-        .on('all', function (data) {
+        .on('all', function (response) {
           /**
            *  Caast event name
            * */
@@ -353,7 +353,7 @@ var checkExist = setInterval(function () {
   if (typeof window.caast !== 'undefined') {
     if (typeof window.caastIsListening === 'undefined') {
       window.caast
-        .on('all', function (data) {
+        .on('all', function (response) {
           /**
            *  Caast event name
            * */

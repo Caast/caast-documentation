@@ -75,17 +75,17 @@ The Caast `on` method receive two parameters, the first one is a `string` referi
 
 ```javascript
 // Basic - Listen to events when a user submit a message in chat
-caast.on('onMessageSubmit', function (data) {
-  console.log('your custom function receiving data', data);
+caast.on('onMessageSubmit', function (response) {
+  console.log('your custom function receiving response', response);
 });
 
 // Advanced - Listen to events when a user submit a message in chat but check if promise is resolved or rejected.
 caast
-  .on('onMessageSubmit', function (data) {
-    console.log('your custom function receiving data', data);
+  .on('onMessageSubmit', function (response) {
+    console.log('your custom function receiving response', response);
   })
-  .then(function (response) {
-    console.log('onMessageSubmit::subscribed', response);
+  .then(function (status) {
+    console.log('onMessageSubmit::subscribed', status);
   })
   .catch(function (error) {
     console.log('onMessageSubmit::error', error);
@@ -146,10 +146,6 @@ Note that the Caast boot method will try to automaticaly execute this function.
   <button data-caast-open data-caast-pid="SKU_893794">View the live !</button>
 </div>
 ```
-
-You can see a demo here to better understand how this function work.
-
-[Open codesandbox](https://codesandbox.io/s/caast-parse-example-docr0?file=/index.html)
 
 ## embed
 

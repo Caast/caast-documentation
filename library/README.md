@@ -67,6 +67,6 @@ As you can see you now have a `window.caastSettings` object, the available param
 
 <strong>A note about autoboot</strong>
 
-The autoboot options allows you to have full control about when Caast should start fetchoing the database and display process [see how it works here](/advanced/how-to.md). If you set the autoboot parameter to `false`, you will have to use the `caast.render` method. This method is heavily [detailed here](/library/methods.md#render) but the Caast team will help you to setup this process if you need to.
+The autoboot options allows you to have full control about when Caast should start fetching the database and display process [see how it works here](/advanced/how-to.md). If you set the autoboot parameter to `false`, you will have to use the `caast.render` method. This method is heavily [detailed here](/library/methods.md#render) but the Caast team will help you to setup this process if you need to.
 
 <!-- select:end -->

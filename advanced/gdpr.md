@@ -24,7 +24,7 @@ When Caast firstly store the cookie, we will send some non-sensible informations
 
 Once Caast is initialized, it will start gathering informations based on several events. All those events can be found [here](library/events.md).
 
-You can choose to send custom informations about your user ([how to send custom data](library/methods.md?id=setUser)), but what you are sending is under your responsability. By default Caast is not able to identify and cross data between our informations and your users's database.
+You can choose to send custom informations about your user ([how to send custom data](library/methods.md?id=setuser-main-library-only)), but what you are sending is under your responsability. By default Caast is not able to identify and cross data between our informations and your users's database.
 
 If you want to keep your own data on your side but want to retrieve and cross data from Caast, we offer a lots of [emitted events](library/events.md) allowing you to store data on your side wherever and whenever you want.
 

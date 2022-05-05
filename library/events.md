@@ -30,7 +30,7 @@ caast
 
 ## onSetUser
 
-This event is emitted when the [`setUser`](library/methods.md#setUser) method is triggered.
+This event is emitted when the [`setUser`](library/methods.md#setuser-main-library-only) method is triggered.
 
 ```javascript
 caast

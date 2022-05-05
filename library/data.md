@@ -299,7 +299,7 @@ The following object, is the default returned data, you will find some additiona
 
 ## user
 
-When using the [setUser](library/methods.md#setUser) method, you will add additional informations on the user object in global config, the object will now have a `custom_fields` entry in it, regrouping all the data you've provided
+When using the [setUser](library/methods.md#setuser-main-library-only) method, you will add additional informations on the user object in global config, the object will now have a `custom_fields` entry in it, regrouping all the data you've provided
 
 ```json
 "user": {

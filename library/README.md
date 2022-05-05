@@ -10,8 +10,8 @@ To load the Caast Library on your website you just need to add this code at the 
 ```html
 <script type="text/javascript">
   // Replace those values by those available in your administration interface
-  var CAAST_APP_ID = 'NcnhCDacLSbUaZviufVGz0kGFlSjxq7HlIxOgApSl7Y';
-  var CAAST_APP_KEY = 'ZfBLggBTi00cRme6rTeME8uLUFEuU0fwXY46mn8Yunc';
+  var CAAST_APP_ID = 'YOUR_APP_ID';
+  var CAAST_APP_KEY = 'YOUR_APP_KEY';
   (function (c, a, A, s, t, J, S) {
     if (!a.getElementById('caast_library')) {
       (c[t] = c[t]), (J = a.createElement(A)), (S = a.getElementsByTagName(A)[0]);

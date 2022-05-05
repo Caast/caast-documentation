@@ -1,4 +1,4 @@
-## Embed Caast with webview
+# Embed Caast with webview
 
 Caast can be embedded in your apps by using Webview. Caast is using HTML5 video in order to display lives, we are also using in some specific cases, video provider like Youtube, Vimeo or Twitch. If you are using one of those specific providers we encourage you to follow the available ressources you can find online in order to be compliant to embed those contents.
 

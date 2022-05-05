@@ -25,32 +25,12 @@ document.addEventListener('caast.onLoaded', function (e) {
 
 ?> In order to be as light as possible, the preload script does not contain some functions, those functions are labeled with the **[main library only]** attribute.
 
-## infos _[main library only]_
+## infos
 
 Caast expose a rather useful method in order to easily check, wich version of Caast Library you are running on. Run it and you will receive an object indicating the version you are running but also the actual environnement.
 
 ```javascript
 caast.infos();
-```
-
-## setUser _[main library only]_
-
-You may want to add additionnal informations to your Caast Library user object, it can be useful when interacting with Caast statistics to identify your own user database. To implement custom data the `caast.setUser` method is available on the Caast instance. Adding informations will alter the `user` data on returned informations. To see what data looks like, please refer to [user](library/data.md#user) data informations.
-
-```javascript
-caast.setUser({
-  email: 'd.copperfield@abracadabra.io',
-  first_name: 'David',
-  last_name: 'Copperfield',
-});
-```
-
-## reboot _[main library only]_
-
-Caast expose a reboot method in order easily rebuild Caast if you need it.
-
-```javascript
-caast.reboot();
 ```
 
 ## kill
@@ -123,34 +103,38 @@ caast.off('onMessageSubmit');
 
 ## open
 
-You may want to manually trigger the modal for a live which may not be loaded on the current page. This function allow you to pass a live `uid` as a parameter and will then open the Caast modal.
+You may want to manually trigger the modal for a live which may not be loaded on the current page. This function allow you to pass a live `uid` as a parameter and will then open the Caast modal ([how to get my live UID](/advanced/find-live-uid.md)).
 
 ```javascript
 caast.open('f20aa128931a449b9478f5fb69e07c3b');
+```
+
+This method also gives you the possibility to trigger the Caast Modal by passing a product reference instead of a live UID.
+
+```javascript
+caast.open({ type: 'product', id: 'PID_3U975987' });
 ```
 
 ## parse
 
 <span style="color: #fff"><i>This method is part of the initial loading of Caast</i></span>
 
-Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a bunch of lives but also want to trigger the Caast modal on click. Rather than adding `caast.open` on each of your element, you can call the parse function which will toggle Caast on specifics elements.
+Caast has what we call a preload function, which will seek in our database if a content must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a bunch of lives but also want to trigger the Caast modal on click. Rather than adding `caast.open` on each of your element, you can call the parse function which will toggle Caast on specifics elements.
 
-This function will seek elements containing the `[data-caast-open]` attribute, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger.
+This function will seek elements containing the `[data-caast-open]` attribute, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger ([how to get my live UID](/advanced/find-live-uid.md)).
 
-?> To retrieve a live UID, simply go to your Caast adminsitration interface, edit the desired live, and copy the uid available in the URL ![Caast live UID](/_media/url-live-uid.png)
+This method also work if you want to trigger a content based on a product ref/sku, you must add the `[data-caast-pid]` attribute which will contain the product ref/sku.
 
 If your element is clicked Caast will add the `[data-caast-loading]=true` attribute while the modal content is loading, it can allow you to display a visual feedback while the content is being fetched.
 
-Once your HTML is ready, you just need to [call the caast library](/library/README.md) and call the `caast.parse()` function once Caast is available.
+Note that the Caast boot method will try to automaticaly execute this function.
 
 ```html
 <!-- We assume that you have already included Caast -->
 
 <div class="my-product">
   <strong>Product 1</strong>
-  <button data-caast-open data-caast-id="f20aa128931a449b9478f5fb69e07c3b">
-    View the live !
-  </button>
+  <button data-caast-open data-caast-id="f20aa128931a449b9478f5fb69e07c3b">View the live !</button>
 </div>
 
 <div class="my-product">
@@ -159,16 +143,8 @@ Once your HTML is ready, you just need to [call the caast library](/library/READ
 
 <div class="my-product">
   <strong>Product 3</strong>
-  <button data-caast-open data-caast-id="c8542679eb3344aa83e1f39d1477d3f5">
-    View the live !
-  </button>
+  <button data-caast-open data-caast-pid="SKU_893794">View the live !</button>
 </div>
-
-<script type="text/javascript">
-  document.addEventListener('caast.onLoaded', function (e) {
-    caast.parse();
-  });
-<script>
 ```
 
 You can see a demo here to better understand how this function work.
@@ -181,29 +157,110 @@ You can see a demo here to better understand how this function work.
 
 Caast has what we call a preload function, which will seek in our database if a live must be displayed on a page, if not, Caast main library is not loaded. You may encounter a perticular case where you want to render on your side the display of a preview card but also want to trigger the Caast modal on click. A bit like a youtube embed.
 
-This function will seek elements containing the `[data-caast-embed]` attribute in the DOM, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger.
-
-?> To retrieve a live UID, simply go to your Caast adminsitration interface, edit the desired live, and copy the uid available in the URL ![Caast live UID](/_media/url-live-uid.png)
+This function will seek elements containing the `[data-caast-embed]` attribute in the DOM, you must also add the `[data-caast-id]` attribute which will contain the live uid you want to trigger ([how to get my live UID](/advanced/find-live-uid.md)).
 
 If your element is clicked Caast will add the `[data-caast-loading]=true` attribute while the modal content is loading, it can allow you to display a visual feedback while the content is being fetched.
 
-Once your HTML is ready, you just need to [call the caast library](/library/README.md) and call the `caast.embed()` function once Caast is available.
+Note that the Caast boot method will try to automaticaly execute this function.
 
 ```html
 <!-- We assume that you have already included Caast -->
 
 <div class="my-blog-template">
   <h1>My blog title</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie, arcu in semper suscipit, orci nunc convallis velit, non mattis diam diam ut arcu. Nulla facilisi. Aliquam erat volutpat. Sed tincidunt magna nulla, a malesuada urna faucibus eu. Aenean et faucibus purus. Quisque quis lectus tincidunt, dictum velit nec, imperdiet neque. Sed ut imperdiet purus. Proin consequat sem nec lectus placerat facilisis. Vivamus facilisis urna id purus lacinia, vitae consectetur enim rutrum. Ut eget felis ut ipsum imperdiet convallis et vitae eros. Vivamus mattis nunc vel lectus pharetra varius. Morbi tincidunt sem leo, ut rhoncus magna tincidunt ac. Duis semper, eros non facilisis fringilla, justo elit consectetur ante, ut rutrum risus dolor cursus orci. Aliquam ultricies tempus lorem ac semper. Etiam dictum odio turpis, ut iaculis leo bibendum nec.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie, arcu in semper suscipit, orci nunc convallis velit, non mattis diam diam ut
+    arcu. Nulla facilisi. Aliquam erat volutpat. Sed tincidunt magna nulla, a malesuada urna faucibus eu. Aenean et faucibus purus. Quisque quis
+    lectus tincidunt, dictum velit nec, imperdiet neque. Sed ut imperdiet purus. Proin consequat sem nec lectus placerat facilisis. Vivamus facilisis
+    urna id purus lacinia, vitae consectetur enim rutrum. Ut eget felis ut ipsum imperdiet convallis et vitae eros. Vivamus mattis nunc vel lectus
+    pharetra varius. Morbi tincidunt sem leo, ut rhoncus magna tincidunt ac. Duis semper, eros non facilisis fringilla, justo elit consectetur ante,
+    ut rutrum risus dolor cursus orci. Aliquam ultricies tempus lorem ac semper. Etiam dictum odio turpis, ut iaculis leo bibendum nec.
+  </p>
 
   <div data-caast-embed data-caast-id="c8542679eb3344aa83e1f39d1477d3f5"></div>
 
-  <p>Nam et mollis nulla, vel viverra risus. Vestibulum justo tortor, tempus eu bibendum vel, molestie id elit. Quisque aliquam mi ut tellus laoreet, nec fermentum velit luctus. Suspendisse non massa libero. Donec interdum ornare ipsum, vitae laoreet orci rutrum eget. Donec aliquet tellus vel massa pulvinar scelerisque vitae et libero. Integer vel sapien luctus, suscipit massa a, cursus nisi. Nullam quis tellus quis enim convallis vestibulum ac quis tellus. Nam scelerisque vulputate cursus. Suspendisse gravida enim sagittis, tincidunt nisl in, interdum quam. Ut diam nibh, ultricies fermentum eros sit amet, tincidunt porttitor sapien. Ut consectetur lacus sed malesuada pretium.</p>
+  <p>
+    Nam et mollis nulla, vel viverra risus. Vestibulum justo tortor, tempus eu bibendum vel, molestie id elit. Quisque aliquam mi ut tellus laoreet,
+    nec fermentum velit luctus. Suspendisse non massa libero. Donec interdum ornare ipsum, vitae laoreet orci rutrum eget. Donec aliquet tellus vel
+    massa pulvinar scelerisque vitae et libero. Integer vel sapien luctus, suscipit massa a, cursus nisi. Nullam quis tellus quis enim convallis
+    vestibulum ac quis tellus. Nam scelerisque vulputate cursus. Suspendisse gravida enim sagittis, tincidunt nisl in, interdum quam. Ut diam nibh,
+    ultricies fermentum eros sit amet, tincidunt porttitor sapien. Ut consectetur lacus sed malesuada pretium.
+  </p>
 </div>
+```
 
-<script type="text/javascript">
-  document.addEventListener('caast.onLoaded', function (e) {
-    caast.embed();
-  });
-<script>
+## render
+
+You may want to manually render the Caast DOM. Our common way to display Caast, is to parse the current url and check on our APIs if something need to be displayed on this particular page. Nevertheless you may want to have a full control of this aspect. The `caast.render` method is there for you.
+
+Please refer to [this documentation](/library/README.md?mode=advanced) because this method need previous configuration.
+
+The render method accepts different parameters, details are presented here:
+
+| Property | Type             | Description                                                                                                                                                                                                                                         |
+| -------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| target   | string \| object | The target where the Caast DOM will be injected. you can provide a string that will be used as a querySelector value or an advanced object described below. If nothing is provided Caast will render the DOM in the target defined in configuration |
+| query    | object           | An object of values described below, that can be used to perform the Caast query instead of the current url value. If empty, Caast will be based upon current URL                                                                                   |
+
+### target <!-- {docsify-ignore} -->
+
+The target property can either be a string representing a querySelector value, or an advanced object described below
+
+| Property | Type            | Description                                                                                                                                                                                                                         |
+| -------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| desktop  | string\| object | The target where the Caast DOM for desktop experience will be injected. You can provide a string that will be used as a querySelector value or an advanced target object, [please refer to this documentation](/advanced/target.md) |
+| mobile   | string\| object | The target where the Caast DOM for mobile experience will be injected. You can provide a string that will be used as a querySelector value or an advanced target object, [please refer to this documentation](/advanced/target.md)  |
+
+```javascript
+caast.render({ target: '#my-target' });
+caast.render({
+  target: {
+    desktop: {
+      element: '#my-target-desktop',
+      position: 'afterbegin',
+    },
+    mobile: {
+      element: '#my-target-mobile',
+      position: 'afterbegin',
+    },
+  },
+});
+caast.render({
+  target: { desktop: '#my-target-desktop', mobile: '#my-target-mobile' },
+});
+```
+
+### query <!-- {docsify-ignore} -->
+
+| Property   | Type   | Description                                                     |
+| ---------- | ------ | --------------------------------------------------------------- |
+| product_id | string | The product SKU that is matching the ref field in our database  |
+| seller_id  | string | The seller UID that is matching the external id in our database |
+
+```javascript
+caast.render({ query: { product_id: 'SKU_765KJHKJ' } });
+caast.render({ query: { seller_id: '98279574' } });
+caast.render({ query: { product_id: 'SKU_765KJHKJ', seller_id: '98279574' } });
+```
+
+?> You can also totally omit the query options, and rely on the settings you've defined previously via the [advanced setup](/library/README.md?mode=advanced). If nothing is provided, the render method will seek for contents matching the current url.
+
+## setUser _[main library only]_
+
+You may want to add additionnal informations to your Caast Library user object, it can be useful when interacting with Caast statistics to identify your own user database. To implement custom data the `caast.setUser` method is available on the Caast instance. Adding informations will alter the `user` data on returned informations. To see what data looks like, please refer to [user](library/data.md#user) data informations.
+
+```javascript
+caast.setUser({
+  email: 'd.copperfield@abracadabra.io',
+  first_name: 'David',
+  last_name: 'Copperfield',
+});
+```
+
+## reboot _[main library only]_
+
+Caast expose a reboot method in order easily rebuild Caast if you need it.
+
+```javascript
+caast.reboot();
 ```

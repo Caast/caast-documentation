@@ -1,3 +1,12 @@
+#### Version 3.3.0
+
+- (feature): introduce Caast extensions, allowing partners to display contents inside our Caast Modal
+- (feature): add new methods to boot the Caast library
+- (feature): expose new methods and new events
+- (feature): improved API cache
+- (fix): fix issues with the picture-in-picture
+- (doc): update documentation to match new features
+
 #### Version 3.2.0
 
 - (feature): caast now handle multiple product presentation

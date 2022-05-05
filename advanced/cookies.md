@@ -13,11 +13,13 @@ If your user has already accepted Cookies consentment, you can load Caast by add
 ```html
 <script type="text/javascript">
   (function (c, a, A, s, t, J, S) {
-    (c[t] = c[t]), (J = a.createElement(A)), (S = a.getElementsByTagName(A)[0]);
-    J.async = 1;
-    J.src = s;
-    J.id = 'caast_library';
-    S.parentNode.insertBefore(J, S);
+    if (!a.getElementById('caast_library')) {
+      (c[t] = c[t]), (J = a.createElement(A)), (S = a.getElementsByTagName(A)[0]);
+      J.async = 1;
+      J.src = s;
+      J.id = 'caast_library';
+      S.parentNode.insertBefore(J, S);
+    }
   })(window, document, 'script', 'https://cdn.caast.tv/caast-latest/caast.js?APP_ID=MY_APP_ID&APP_KEY=MY_APP_KEY&cookiesAccepted=true', 'caast');
 </script>
 ```
@@ -29,11 +31,13 @@ If your user has not yet accepted Cookies consentment, you can load Caast by add
 ```html
 <script type="text/javascript">
   (function (c, a, A, s, t, J, S) {
-    (c[t] = c[t]), (J = a.createElement(A)), (S = a.getElementsByTagName(A)[0]);
-    J.async = 1;
-    J.src = s;
-    J.id = 'caast_library';
-    S.parentNode.insertBefore(J, S);
+    if (!a.getElementById('caast_library')) {
+      (c[t] = c[t]), (J = a.createElement(A)), (S = a.getElementsByTagName(A)[0]);
+      J.async = 1;
+      J.src = s;
+      J.id = 'caast_library';
+      S.parentNode.insertBefore(J, S);
+    }
   })(window, document, 'script', 'https://cdn.caast.tv/caast-latest/caast.js?APP_ID=MY_APP_ID&APP_KEY=MY_APP_KEY&cookiesAccepted=false', 'caast');
 </script>
 ```
@@ -41,7 +45,7 @@ If your user has not yet accepted Cookies consentment, you can load Caast by add
 Congratulation, Caast is now loaded and won't store any cookie on your site, but you may want to inform us when a user has accepted your Cookies consentment. To do so, you simply have to execute the following code when the user has given his consent. This code also applied when a user decide to now allow cookies on your site
 
 ```javascript
-if (window.CaastLoaded && window.caast) {
+if (window.caastLoaded && window.caast) {
   window.caast.cookiesAccepted();
 }
 ```
@@ -53,7 +57,7 @@ Once this function is executed Caast will be notified that it is now allowed to 
 There is another case where your user previously granted access to cookies storage but now decide to revoke this access. Luckily Caast also offer you a way to cancel cookie deposit. To do so, you simply have to execute the following code when the user has updated his consent.
 
 ```javascript
-if (window.CaastLoaded && window.caast) {
+if (window.caastLoaded && window.caast) {
   window.caast.cookiesRejected();
 }
 ```

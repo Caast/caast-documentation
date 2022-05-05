@@ -31,3 +31,9 @@ If you want to keep your own data on your side but want to retrieve and cross da
 ## Advanced data collection
 
 When using [caastEmitter](emitter/README.md), Caast collects and stores data from your payment tunnel. All data collected is set by your IT department and Caast cannot be held responsible for the storage of private data as you are in charge of what is sent to our server. The collected data is kept 365 days. Caast is not able to cross data from your users database.
+
+## Visual data flow
+
+The following graph can help you understand how caast can collect and give access to what is collected.
+
+![Caast Data collection flow](https://caast-production.s3.eu-west-3.amazonaws.com/assets/data-flow.jpg)

@@ -27,7 +27,7 @@ Caast can also rely on vimeo to distribute lives and replays, Vimeo use the foll
 - https://\*.vimeo.com
 - https://vimeocdn.com
 
-If you are usin Content-Security-Policy you may want to add the following rules in order to allow Caast to properly work:
+If you are using Content-Security-Policy you may want to add the following rules in order to allow Caast to properly work:
 
 ```
 img-src https://i.vimeocdn.com https://*.vimeocdn.com;
@@ -43,7 +43,7 @@ Caast can also rely on Youtube to distribute lives and replays, Youtube use the 
 - https://www.youtube.com
 - https://\*.youtube.com
 
-If you are usin Content-Security-Policy you may want to add the following rules in order to allow Caast to properly work:
+If you are using Content-Security-Policy you may want to add the following rules in order to allow Caast to properly work:
 
 ```
 img-src https://i.ytimg.com;

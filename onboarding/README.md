@@ -14,11 +14,13 @@ To insert Caast on a page it is a **really simple** operation. This script can e
   var APP_ID = '{{APP_ID}}';
   var APP_KEY = '{{APP_KEY}}';
   (function (c, a, A, s, t, J, S) {
-    (c[t] = c[t]), (J = a.createElement(A)), (S = a.getElementsByTagName(A)[0]);
-    J.async = 1;
-    J.src = s;
-    J.id = 'caast_library';
-    S.parentNode.insertBefore(J, S);
+    if (!a.getElementById('caast_library')) {
+      (c[t] = c[t]), (J = a.createElement(A)), (S = a.getElementsByTagName(A)[0]);
+      J.async = 1;
+      J.src = s;
+      J.id = 'caast_library';
+      S.parentNode.insertBefore(J, S);
+    }
   })(window, document, 'script', 'https://cdn.caast.tv/caast-latest/caast.js?APP_ID=' + APP_ID + '&APP_KEY=' + APP_KEY, 'caast');
 </script>
 ```

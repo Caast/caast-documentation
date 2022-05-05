@@ -440,3 +440,36 @@ When listening to an event using [onShare](library/events.md#onShare) method, yo
 ```
 
 The `mobile` type is emitted when the user is using the native share option only available on mobile devices. You cannot have further informations on what application the link is going to be shared on after this event is triggered.
+
+## emoji
+
+When listening to an event using [onReaction](library/events.md#onReaction) method, you will receive additional informations regarding the emoji the user just sent.
+
+```json
+"emoji": "❤️"
+```
+
+## extensionDetails
+
+When listening to an event using [onExtensionDetailsClick](library/events.md#onExtensionDetailsClick), [onExtensionDetailsShow](library/events.md#onExtensionDetailsShow), or [onExtensionDetailsClose](library/events.md#onExtensionDetailsClose) method, you will receive additional informations regarding the extension details. Below is an exemple of what this object looks like.
+
+```json
+"extensionDetails": {
+  "attributes": {
+    "configuration": {
+      "title": "Extension card title",
+      "text": "Extension card text",
+      "background_color": "#27ccb8",
+      "text_color": "#d60707"
+    },
+    "extensionId": "ea21a60968e74473918f18b854629504",
+    "extensionNoReload": true,
+    "extensionUrl": "https://story.tl/demo-asus?transparent=1&mode=mobile",
+    "thumbnailUrl": null,
+    "triggerId": "919f9e6d5d1540bda2fb9293b85a8a92",
+    "triggerName": "pushed_box" | "announcement"
+  },
+  "id": "bc5b8bff46f74ee68937485672960f1f",
+  "type": "extensionTrigger"
+}
+```

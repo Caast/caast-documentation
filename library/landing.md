@@ -1,4 +1,4 @@
-# Caast Landing
+# Landing
 
 Caast Landing is a fully integrated experience to allow you, in just a few lines, to render your own media channel on your website. You have the possibility to choose to display all your lives on this page, but you can also target lives with specific hashtags. Just sit and enjoy the all-in-one Caast experience.
 

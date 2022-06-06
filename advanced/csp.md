@@ -13,7 +13,7 @@ If your website is using Content-Security-Policy you may want to add the followi
 ```
 script-src https://caast.tv https://*.caast.tv;
 img-src https://*.caast.tv;
-media-src blob:;
+media-src https://*.mux.com blob:;
 connect-src https://caast.tv https://*.caast.tv wss://*.caast.tv https://*.mux.com;
 child-src https://caast.tv https://*.caast.tv;
 frame-src https://caast.tv https://*.caast.tv;

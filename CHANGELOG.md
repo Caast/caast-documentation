@@ -1,3 +1,11 @@
+#### Version 3.5.0
+
+- (feature): add possibility to have a homepage with slider per section
+- (feature): experimental but add low latency live, allowing you to lower latency to 4/6 sec
+- (fix): remove some dead code and useless colors and translations
+- (fix): UI/UX adjustements
+- (fix): minor UI artefact issue on window chrome
+
 #### Version 3.4.0
 
 - (feature): add new advanced methods to boot the Caast library

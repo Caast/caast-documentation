@@ -1,12 +1,12 @@
 # Targetting DOM
 
-By default Caast Library will look on your HTML for a DOM node with the id `caast__wrapper`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast Library can be loaded into any DOM element on your page. To change the default behaviour simply go to your dashboard and go into the configuration section of your project.
+By default Caast Library will look on your HTML for a DOM node with the id `caast-wrapper`, but maybe you don't want or cannot change your page HTML. To allow you a smooth integration, Caast Library can be loaded into any DOM element on your page. To change the default behaviour simply go to your dashboard and go into the configuration section of your project.
 
 On the configuration object, you will notice this particular section:
 
 ```json
 "target": {
-  "element": "#caast__wrapper",
+  "element": "#caast-wrapper",
   "position": "beforeend",
   "overwrite": false
 }
@@ -27,7 +27,7 @@ This code can help you to better understand this behaviour
 
 ```html
 <!-- beforebegin -->
-<div id="caast__wrapper">
+<div id="caast-wrapper">
   <!-- afterbegin -->
   foo
   <!-- beforeend -->

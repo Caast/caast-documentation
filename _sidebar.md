@@ -27,3 +27,4 @@
   - [Find a question UID](advanced/find-question-uid.md)
   - [Webview](advanced/webview.md)
   - [CSP](advanced/csp.md)
+  - [Product Feed](advanced/product-feed.md)
